@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.jdt{
+				height: 10px;
+				background: #ccc;
+				
+			}
+			.jdt div{
+				width: 6px;
+				height: 16px;
+				border: 1px solid #000;
+				background: #fff;
+				position: relative;
+				top: -4px;
+			}
+		</style>
+	</head>
+	<body>
+		<video controls="" id="v1">
+			<source src="1.mp4" type="video/mp4"></source>
+			当前浏览器不支持 video直接播放
+		</video>
+		<button id="btn">||</button>
+		<select id="sel" name="rate">
+			<option value="0.5">0.5</option>
+			<option value="1">1</option>
+			<option value="1.5">1.5</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+		</select>
+		<div style="width: 640px;" id="jdt" class="jdt">
+			<div id="d1"></div>
+		</div>
+		<script type="text/javascript">
+			v1.volume=0.1;
+			var i=0;
+			btn.onclick=function(){
+				if(v1.paused){
+					btn.innerHTML="|>";
+					v1.play();
+					timer=setInterval(()=>{
+						i++;
+						var duration=parseInt(v1.duration);
+						var jdt_width=parseInt(jdt.style.width);
+						var w=jdt_width/duration;
+						d1.style.left=w*i+"px";
+					},1000)
+				}else{
+					btn.innerHTML="||";
+					v1.pause();
+				}
+				
+			}
+			sel.onchange=function(){
+				var v=this.value;
+				v1.playbackRate=v;
+			}
+			
+
+		</script>
+	</body>
+</html>

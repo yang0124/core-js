@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="">
+  		<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+  		<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+		<style type="text/css">
+			div{
+				width: 300px;
+				height: 300px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div></div>
+		
+		
+		<script type="text/javascript">
+			$("div").click(()=>{
+				$("div").toggle("explode",1000);
+			})
+		</script>
+	</body>
+</html>

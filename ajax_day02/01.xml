@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<ejld>
+	<h1>123</h1>
+	<sheng name="四川省">
+		<city name="成都市"/>
+		<city name="绵阳市"/>
+		<city name="德阳市"/>
+	</sheng>
+	<sheng name="贵州省">
+		<city name="遵义市"/>
+		<city name="贵阳市"/>
+		<city name="六盘水市"/>
+	</sheng>
+</ejld>

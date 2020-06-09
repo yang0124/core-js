@@ -1,0 +1,435 @@
+
+服务器端技术 linux
+
+a:学习快速掌握开发 mysql/php
+b:生产环境 {安全，稳定，高效，价格}
+linux   
+windows server 2000/2003/2008/ 价格 
+稳定/windows 一周重新启动...  3w
+    linux    一年             免费
+
+
+#端口
+每一个在网络中运行的程序都会分配网络地址 端口{数字}
+80
+21
+25
+
+1-65535   apache 80 /mysql 3306
+
+IIS 启动占用 80 
+#二个程序不能占用相同端口
+解决问题：
+修改端口  1023-65535
+
+
+
+
+数据库
+数据库软件：完成二个功能｛任何其它软件都不能完成｝
+1:海量数据存储
+  a:变量不能 var i = 10;
+  b:文本文件 存储数据  永久保存
+  c:数据库  
+    通常情况下数据库数据按表保存  高性能 500w{单表}
+                                         500亿{单表}
+2:高速查询
+  114  [项目上手问题 sql server 400w电话]
+       升级
+       [高端服务器 8CPU 32GB/  Oracle ..] 公司技术差一些
+  5s
+  40分钟     
+
+数据库分类
+  a:关系型数据库非关系型数据
+    SQL  :关系型数据库
+    数据库保存方式：按表方式这种数据库关系型数据库
+    用户信息
+    编号   姓名  年龄 
+    1001   tom   21
+    1002   jerry 22
+    示例：oracle mysql sqlserver access ...
+
+    NOSQL:非关系型数据
+    key    value
+    1001   {name:tom,age:19};
+    1002   {name:jerry,age:21};
+    示例:redis/memcached
+
+
+   使用哪种:
+   1:项目中以关系型数据库为主存储
+     使用非关系型数据库辅助
+   2:关系型数据库并发量低{数据保存磁盘和内存}
+     非关系型数据并发量高{数据保存内存}
+
+  b:商业公司/开源自由软件  
+    oracle 甲骨文/ sql server 微软/db2 IBM
+    1:优点
+      a:功能强大
+      b:售后完善 24*7  {另外}
+      c:银行 电信  ...
+      d:政府 电信 银行 担心
+  c:开源自由软件  {开源} 互联网  BAT
+    mysql 为首很多 redis   
+
+
+  mysql 数据库 1972 开发 2005 mysql稳定
+  瑞典公司 MySQL AB--->Sun 10亿美金
+  Sun 75亿美金 -->Oracle   
+
+
+
+  使用MySQL:
+  SQL语言 - 操作操作数据库 SQL 92 /SQL 99
+  -DDL  数据定义语句
+  -DCL  数据控制语句
+  -DML  数据操作语句
+  -DQL  数据查询语句
+
+  基本概念:
+  1:MySQL  数据库管理软件
+  2:数据库 在MySQL内部可以创建多个库
+    #上线项目一个Mysql 30-50最多
+  3:数据表 一个库中保存多张表
+  4:表是由列与行{记录}组成
+ 
+
+  DDL - 数据库定义语句{CREATE/ALTER/DROP}
+  -创建数据库
+   语法: CREATE DATABASE 数据库名称;
+   示例:
+
+   CREATE DATABASE user;
+  -查询当前mysql所有库名称 
+   SHOW DATABASES;
+
+   **information_schema 
+   **mysql              
+   test               
+   user               
+   
+
+   **MYSQL自动创建好不要修改，要不删除
+   **information_schema 虚拟库里保存参数设置值
+   **MySQL 权限用户等信息
+
+
+   -DROP DATABASE 库名
+   DROP DATABASE user;
+   #注意:数据库一但删除不能恢复
+
+   **注意事项-软件项目如何防止出现乱码
+   **在数据库创建过程[指定好编码]
+   **
+   -修改指令
+   CREATE DATABASE 库名 CHARACTER SET 编码;
+   示例:
+
+   CREATE DATABASE user01 CHARACTER SET gbk;
+   CREATE DATABASE user02 CHARACTER SET utf8;
+   #注意:mysql有一处特殊 以前软件编码utf-8
+         mysql编码utf8
+   -查询user02这库创建时指令      
+   SHOW CREATE DATABASE user02;
+
+   -如果创建库编码指定错
+   ALTER DATABASE 库名  CHARACTER SET 新编码;
+   -修改成功[]
+
+
+   练习:
+   1:创建库 user03 指定编码utf8
+   CREATE DATABASE user03 CHARACTER SET utf8;
+   -在指令加一条判断
+   CREATE DATABASE IF NOT EXISTS user03 CHARACTER SET utf8; 
+   -如果指令长记不住
+   a:自动提示
+      ? CREATE DATABASE 
+   b:查手册
+   2:查询当前mysql存在多少库
+    SHOW DATABASES;
+   3:删除 user03 删除
+    DROP DATABASE user03;
+   -区别大小写 希望库名，表名，列名，区分别
+
+
+
+   #库:USE 库名;
+   #   选定指定为当前操作库.
+   #   进入当前某个指定库中
+   示例: USE test;
+
+
+   数据库类型:
+   -数值类型
+    INT               整型(整数)  -21亿~21亿  
+    FLOAT/DOUBLE      浮点        
+    DECIMAL(10,2)     高精度      货币  
+   -字符串类型
+    CHAR              长度固定的字符串
+    VARCHAR           长度可变的字符串*
+   -日期类型
+    DATE              日期
+    DATETIME          日期时间
+    TIMESTAMP         时间戳
+
+   建议:
+   1:所有数据类型:保存正确数据
+   2:有可能情况下使用整数
+
+
+
+   -创建表
+   CREATE TABLE 表名(
+     字段名称 数据类型,
+     字段名称 数据类型,
+     字段名称 数据类型
+   );
+   #一定进入某个库中才能创建表
+
+    用户信息表
+    编号   姓名     年龄 
+    1001   tom      21
+    1002   jerry    22
+    ?表名  t_userinfo
+    ?t     table
+    ?列名  编号 id   int
+           姓名 name varchar
+           年龄 age  int
+   use user03;        
+   CREATE TABLE t_userinfo (
+     id int,
+     name varchar(20),
+     age int
+   );
+   #添加记录
+   #20不是指令20个字节
+    20个字符(汉字)
+
+   INSERT INTO t_userinfo VALUES(1001,'tom',21);
+   INSERT INTO t_userinfo VALUES(1002,'jerry',19);
+   #查询添加记录
+   SELECT * FROM t_userinfo;
+
+
+   -修改数据表指令[添加列，删除列，修改]
+   语法 - ALTER TABLE 表名 参数语句;
+   
+   示例:添加新列
+   ALTER TABLE t_userinfo ADD rdate datetime;
+   示例:修改列属性
+   ALTER TABLE t_userinfo MODIFY name varchar(30);
+   #注意：如果数据表中数据量比较多不要轻修改
+   #当前库锁定-很长时间
+   -删除数据表指令
+   语法 - DROP TABLE 表名;
+   DROP TABLE t_userinfo;
+   -查看数据表指令
+   语法 - DESC 表名;
+   DESC t_userinfo;
+
+   练习:
+   1:t_userinfo 添加二列 rdate datetime
+                         count int
+   2:查询表结构                         
+   ALTER TABLE t_userinfo ADD rdate datetime;
+   ALTER TABLE t_userinfo ADD count int;
+   DESC t_userinfo;
+
+   DML- 数据表中记录操作语句(INSERT/UPDATE/DELETE)
+   INSERT INTO 表名(字段名1,字段名2,..)
+      VALUES(字段1值,字段2值...);
+   -字段值与字段名一一对应      
+   示例
+   1:
+   INSERT INTO t_userinfo(id,name,age,rdate,count)
+   VALUES(1009,'kk',19,'2016-04-05',1);
+   2:
+   INSERT INTO t_userinfo VALUES
+   (1008,'kk1',21,'2016-04-04',1);
+
+   #建议大家在写程序使用第一种方式
+
+   *修改(更新)
+    语法:UPDATE  表名 SET 字段名=值,字段名1=值
+    注意:更新 WHERE 条件
+    UPDATE t_userinfo SET age = 21
+    WHERE id = 1002;
+    
+   *删除
+    语法:DELETE FROM 表名 WHERE 条件;
+    DELETE FROM t_userinfo
+    WHERE id = 1002;
+
+   #无论删除表/删除库/删除记录
+   #非常非常小心
+   #如果删除结果，很恢复...
+   #小公司->没有很严格 
+
+   软件项目规则大->不允许删除
+   逻辑删除 - 表列 state 状态
+   0  记录己被删除
+   1  记录正常状态
+
+
+   DQL - 数据查询语句***********
+   基本查询
+    - SELECT * FROM 表名;   //*代表所有列
+    - SELECT 字段名1,字段名2.... FROM 表名
+   示例
+     SELECT * FROM t_userinfo;
+     SELECT id,name,age,rdate,count FROM t_userinfo;
+   -建议使用后一种:
+   -只查询所需要字段内容
+    条件查询
+    - SELECT * FROM 表名 条件;
+    运算符
+    = != <> >= <=
+    is null 为空/is not null不为空
+    AND
+    OR
+    BETWEEN AND ...
+    -排序
+     语法:SELECT * FROM 表 ORDER BY 字段名[ASC/DESC]
+     -升序 ASC{默认} 
+
+   查询;
+   SELECT * FROM t_userinfo WHERE id = 1001;
+   SELECT * FROM t_userinfo WHERE id != 1001;
+   SELECT * FROM t_userinfo WHERE id >= 1001;
+   //查询rdate等于null
+   SELECT * FROM t_userinfo WHERE rdate is null;
+   SELECT * FROM t_userinfo WHERE rdate is not null;
+   -数据库中最好不要有null值..
+   SELECT * FROM t_userinfo WHERE id = 1001 OR age = 21;
+   排序
+   INSERT INTO t_userinfo VALUES(20001,'tom21',18,now(),1);
+   INSERT INTO t_userinfo VALUES(20002,'tom22',17,now(),1);
+   INSERT INTO t_userinfo VALUES(20003,'tom23',16,now(),1);
+   INSERT INTO t_userinfo VALUES(20004,'tom24',15,now(),1);
+   
+   now() mysql函数获取当前日期和时间
+
+   排序
+   SELECT id,name,age
+   FROM t_userinfo
+   ORDER BY age;
+
+   SELECT id,name,age
+   FROM t_userinfo
+   ORDER BY age DESC;
+
+
+
+   LIMIT ->MYSQL专用{分页}
+   
+   SELECT * FROM t_userinfo LIMIT 1;
+
+   语法
+   LIMIT  num;只查询num条件
+   LIMIT  start,count 查询几条件记录
+          start 一始记录数   {0}
+          count 查询几条记录 3
+   10条记录
+   每页获取3条记录 4
+   SELECT * FROM t_user LIMIT 0,3;
+   SELECT * FROM t_user LIMIT 3,3;
+   SELECT * FROM t_user LIMIT 6,3;
+   SELECT * FROM t_user LIMIT 9,3;
+   CREATE TABLE t_user(
+    id int,
+    name varchar(20)
+   );
+   INSERT INTO t_user VALUES(1,"tom1");//0
+   INSERT INTO t_user VALUES(2,"tom2");//1
+   INSERT INTO t_user VALUES(3,"tom3");//2
+
+   INSERT INTO t_user VALUES(4,"tom4");//3
+   INSERT INTO t_user VALUES(5,"tom5");//4
+   INSERT INTO t_user VALUES(6,"tom6");//5
+   
+   INSERT INTO t_user VALUES(7,"tom7");//6
+   INSERT INTO t_user VALUES(8,"tom8");//7
+   INSERT INTO t_user VALUES(9,"tom9");//8
+   
+   INSERT INTO t_user VALUES(10,"tom10");//9
+
+
+
+   面试不会问题:
+   a:数据库常用应用
+   b:数据库开发[..]
+   c:数据库优化
+
+
+   优化-0：架构优化
+    1:独立数据库服务器
+    2:主从数据库服务器
+    3:读写分离
+    4:添加缓存服务器
+    架构优化.jpg
+   优化一:表设计
+    0:表
+      0.1:一个库中最多300-400张表
+      0.2:单张表不超过50个INT字段
+      0.3:单张表不要超20个char字段
+    a:年龄
+      age int{范围太大}
+      age tinyint 数据占1个字节  -128~127
+      age tinyint unsigned;      无符号{0-255}
+     优化:高效，查询快，占用空间小
+
+    b:IP   202.190.111.111
+      b.1:char(15)
+      b.2:int unsigned 无符整型
+          inet_aton('202.190.111.11');  -->数字
+          inet_ntoa(数字);--->IP
+      SELECT inet_aton('202.190.111.11');
+       3401477899
+      SELECT inet_ntoa(3401477899);     
+    c:性别
+      sex enum('F','M');
+    d:货币
+      DECIMAL(10,2);  一共有效数值10位 2位小数
+    e: int(1) vs int(11)
+     id int(1);     id1 int(11);
+     以上二个指令：功能一样创建创建整型列
+     保存范围 -21亿~21亿
+     000000000123
+
+   优化二:查询优化
+    示例:
+     dept       部门表        
+     emp        雇员表     
+     salgrade   薪水级别表     
+
+    ename
+    wJNYCP
+    SELECT * FROM emp WHERE ename = 'wJNYCP';
+    SELECT * FROM emp WHERE empno = 10002;
+    SELECT * FROM emp WHERE empno = 999999;
+    SELECT * FROM emp WHERE empno = 4199999;
+    解决查询慢问题:
+    索引:索引数据库中一个对象解决查询缓存
+
+    CREATE  INDEX 索引名称
+    ON 表名 (列名); 
+    
+    示例:
+    CREATE INDEX idx_emp_empno 
+    ON emp(empno);
+
+    SELECT empno,ename FROM emp
+    WHERE empno = 888888;
+
+
+    -主键索引
+    -唯一性
+    -组合索引
+
+
+   优化三:分析索引 
+   EXPLAIN SQL语句;
+   possible_key     该查询可以利用的索引
+   key              此次查询选择的索引

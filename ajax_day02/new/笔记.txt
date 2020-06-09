@@ -1,0 +1,61 @@
+1、XML数据格式
+   基本内容
+   面试题：HTML/XHTML/DHTML/XML的区别
+	HTML：就是网页
+	XHTML：更加严格HTML
+	DHTML：动态的HTML：HTML+CSS+JS
+	XML：配置文件|数据格式
+   xml文件的扩展名.xml
+
+   XML的定义方式与HTML非常相似
+	HTML的元素预定义好的
+	XML的元素允许自定义的，说白了，没有提前定义任何标签
+	XML的版本
+	1.0版本 - 目前唯一的版本
+	1.1版本 - 没有人使用
+	注意：
+	  版本不会在更新了
+
+   XML语法
+      声明
+	<?xml version="1.0" encoding="UTF-8"?>
+	version - 设置当前XML文件的版本
+	encoding - 设置当前XML文件的编码格式
+	注意：必须出现在0行0列
+
+      定义元素
+	根元素
+	  必须是一个双标签，而且只能定义一个!!!
+	其他元素，可以是单标签也可以是双标签，并且所有的属性你都可以自定义。
+
+   后端人员会将数据库中的数据整理为一个xml格式
+   前端人员使用ajax去获取后端数据，xhr.responseXML;获得的就是一个DOM节点
+	可以通过核心DOM去获取你想要的任何一部分
+
+2、JSON数据格式
+   JSON：javascript Object Notation：js对象表示法：
+
+   哪些属于JSON字符串
+	var jsonTxt="[1,2,3,4,5,6]";
+		   ='["tom","jerry","rose"]';
+		   ='{"name":"dy","age":100}';
+		   ='[{},{},{}]';
+		   ='{"names":[],"ages":[]}';
+
+   如何解析JSON字符串
+	var jsonObj=eval("("+jsonTxt+")")
+		   =JSON.parse(jsonTxt)
+
+   PHP将数据变为JSON字符串：
+	$jsonTxt=JSON_encode($arr);
+
+   JSON好处：
+	1、传输更快
+	2、解析更快
+	3、好用
+
+周末：
+  1、根据我提供的两个XML生成页面（表格，多级联动）
+  2、根据我提供的两个JSON生成页面（表格，多级联动）
+  3、咖啡或者金夫人或者艾米雪之一（将首页做成一条龙，以及新闻页面做成一条龙）
+  4、思维导图

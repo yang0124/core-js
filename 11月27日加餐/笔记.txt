@@ -1,0 +1,19 @@
+视频和音频
+  <video></video>
+  HTML属性：
+	width/height/controls/loop/autoplay/poster
+        paused：判断视频和音频现在播放还是暂停状态
+		true->暂停
+		false->播放
+  js方法：
+	v.play(); - 播放
+	v.pause(); - 暂停
+	v.volume; - 设置音量0-1
+	v.duration - 获取视频总时长，注意只有视频播放后才能获取，一般都用在定时器之中
+
+上午的练习：
+  1、自定义视频
+     要求：1、暂停要有广告，播放广告消失，而且随机的广告
+	   2、暂停和播放按钮，放在中间
+	   3、底部要有进度条，音量选择器，速率选择器
+

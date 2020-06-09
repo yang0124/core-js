@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			function ajax1(){
+				return new Promise(function(resolve){
+					$.get("/first",(data)=>{
+						console.log(data);
+					})
+				})
+			}
+			function ajax2(resolve){
+					$.get("/second",(data)=>{
+						console.log(data);
+						resolve();
+					})
+				
+			}
+			function ajax3(){
+				return new Promise(function(resolve){
+				$.get("/last",(data)=>{
+					console.log(data);
+					resolve();
+					})
+				})
+			}
+			
+			new Promise(ajax2).then(ajax3).then(ajax1);
+			
+			//obj.dance()
+		</script>
+	</body>
+</html>

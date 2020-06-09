@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/*******************以上是css reset*************************/
+
+nav{
+    .container{
+        width: 96%;
+        margin: 0 auto;
+        height: 100px;
+        >div{
+            position: absolute;
+            left: 50%;
+            margin-left: -23px;
+            
+        }
+        li{
+           display: inline-block; 
+        }
+        >ul:nth-of-type(1){
+            float: left;
+        }
+        >ul:nth-of-type(2){
+            float: right;
+        }
+        >button{
+            float: right;
+            display: none;
+        }
+    }
+}
+
+@media screen and (min-width: 992px){
+    
+}
+@media screen and (max-width: 991px){
+    nav{
+        .container{
+            div{
+                position: static;
+                margin: 0;
+                display: inline-block;
+            }
+            ul{
+                display: none;
+            }
+            button{
+                display: block;
+            }
+        }
+    }
+   
+}

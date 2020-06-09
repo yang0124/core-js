@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			
+		</style>
+	</head>
+	<body id="bd">
+		<script type="text/javascript">
+			var xhr=getXhr();
+			xhr.open("GET","05JSON.php");
+			xhr.send(null);
+			xhr.onreadystatechange=()=>{
+				if(xhr.status==200 && xhr.readyState==4){
+					var data=JSON.parse(xhr.responseText);
+					
+					function dg(x){//[{},{}]
+						var select=document.createElement("select");
+						for(var i=0;i<x.length;i++){
+							select.add(new Option(x[i].Name,x[i].Code));
+						}
+						select.onchange=function(){
+							while(this.parentNode.lastElementChild!=this){
+								this.parentNode.removeChild(this.parentNode.lastElementChild);
+							}
+							var i=this.selectedIndex;
+							if(x[i].City){
+								dg(x[i].City)
+							}else if(x[i].Region){
+								dg(x[i].Region)
+							}
+						}
+						bd.appendChild(select);
+					}
+					dg(data.State);
+				}
+			}
+				
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			function getXhr(){
+				var xhr=null;
+				if(XMLHttpRequest){
+					xhr=new XMLHttpRequest();
+				}else{
+					xhr=new ActiveXObject("Microsoft.XMLHttp");
+				}
+				return xhr;
+			}
+		</script>
+	</body>
+</html>

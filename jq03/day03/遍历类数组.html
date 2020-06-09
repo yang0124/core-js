@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>北京</li>
+			<li>天津</li>
+			<li>上海</li>
+			<li>深圳</li>
+			<li>重庆</li>
+		</ul>
+		<script src="jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var li=$("li");
+			console.log(li);
+			li.each(function(i){
+				if(i==2){
+					$(this).css("font-size","30px");
+				}else{
+					$(this).text("东莞");
+				}
+			})
+		</script>
+	</body>
+</html>

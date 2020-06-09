@@ -1,0 +1,41 @@
+异步交互：客户端向服务器端发送请求，直到服务器端进行响应的这个过程，用户是不需要等待的	  ，可以做其他的操作，或者可以理解为页面局部发生了变化
+
+1、ajax：异步的javascript与xml
+
+2、*ajax的使用步骤
+   1、创建xhr核心对象
+	var xhr=getXhr();
+	function getXhr(){
+		var xhr=null;
+		if(XMLHttpRequest){
+			xhr=new XMLHttpRequest();
+		}else{
+			xhr=new ActiveXObject("Microsoft.XMLHttp");
+		}
+		return xhr;
+	}
+
+
+   2、建立和服务器端的连接（调后端接口）
+	xhr.open("GET/POST","xx.php/jsp/net")
+
+   3、向服务器端发送请求(说话)
+	xhr.send();
+	特殊：
+	1、GET：xhr.send(null);真正的请求需要放到url?后
+		xhr.open("GET/POST","xx.php/jsp/net?me=123&pwd=321&email=666")
+
+	2、POST：xhr.send("me=123&pwd=321&email=666");
+	   但是需要在调用send方法之前，设置响应头部
+	   xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded")
+
+   4、绑定监听事件
+	xhr.onreadystatechange=()=>{
+		if(xhr.status==200 && xhr.readyState==4){
+			xhr.responseText;
+			//注意如果返回的是一个JSON字符串，那么我们需要JSON.parse解析
+		}
+	}
+
+PHP：echo 不能输出数组的，必须：
+	echo(JSON_encode($arr));

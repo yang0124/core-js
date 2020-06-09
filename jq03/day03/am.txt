@@ -1,0 +1,145 @@
+今天学习的内容
+1:复习昨天内容重点
+2:解决二个问题
+3:jquery 事件/动画/UI
+#--------------------
+1:复习昨天内容重点
+  jquery DOM
+  基于 html() text() val() attr() removeAttr();
+  addClass()  removeClass() toggleClass()
+  hasClass() css()
+  遍历元素
+  parent() parents() children() prev() next() siblings()
+  find();
+  创建 添加 替换
+  $("<h1>aaa</h1>");
+  append() appentTo() prepend() prependTo();
+  insertBefore() insertAfter()
+  remove() empty()
+  replaceWith()
+  replaceAll();
+2:解决二个问题
+ div:contains(text)
+ 列表自己排序:没有
+ 二个列表->国家-> add add_all 
+ 解决问题:
+ 1:自己创建函数或者写小JQUERY插件
+ 2:排序jquery非常多插件-->www.jquery123.com
+   jquery 官网 sort
+3:jquery 事件/动画/UI
+
+事件：
+DOM 事件:
+事件对象:自动产生事件对象 
+         var e = window.event || arguments[0];
+         var e = window.event || e;
+事件源:
+         target = e.srcElement ||  e.target ;
+事件种类:
+         click mouseover mouseout mousemove 
+         keydown ....
+         window.onload
+
+
+#jquery 事件  jquery事件源于DOM事件
+ready();
+*类似于window.onload事件
+语法:
+1:$(document).ready(function(){
+  });
+2:$().ready(function(){
+  });
+3:$(function(){
+  });
+
+
+以二个事件不同
+window.onload 
+1:没有简写
+2:一个HTML页面之中只能编写一个
+3:效率稍低: 必须在页面元素内容都加载完结后，才能执行
+小知识:
+html
+css
+js
+image
+onload:5
+$(document).ready(function(){});
+1:有简写
+2:一个HTML页面之中只能编写多个
+3:效率高一些: 必须在页面DOM加载成立执行
+html
+onload:18
+02_加载时间对比.html
+
+
+绑定事件处理函数
+bind(type,[data],fn);
+type:事件 click mouseover
+data
+fn  :事件处理函数
+
+$("#btn1").bind("click",function(){
+	
+});
+简写
+$("#btn1").click(function(){
+});
+
+-unbind();
+-不传递参数:默认全部绑定事件解除
+-传递参数:  解除指定单个事件
+-事件名称多个 , 分隔
+
+
+面试题:
+bind();live();one();on();delegate()区别
+04_事件面试题.html
+bind();绑定元素 扫描DOM TREE,当查找到指定元素绑定
+弱点问题:如果元素动态后添加,无法识别       
+
+解决方案1::
+jquery 1.4 新方法  1.7以后去除
+$("a").live('click',function(){
+});
+在[document]元素注册操作{"a",'click'};
+
+解决方案2:
+.delegate();
+解决方案3:
+1.9  新方法{整合以前三种绑定事件方法}
+.on();  性能比delegate高
+.one(); 只绑定一次事件 
+
+
+#模拟事件
+ -定义:用于模拟用户触发对应的效果
+  *click(); 没有任何参数 模拟操作
+  *trigger("事件名称");
+  -注意:绑定什么事件,才能模拟什么事件
+05_模拟事件.html
+
+
+事件对象
+#jquery统一事件对象.
+#事件对象作为唯一参数传入
+$("#btn").click(function(e){
+	  
+});
+e.target             事件源对象
+e.which              指示按下哪个键
+e.type               事件类型
+e.preventDefault();  阻止事件默认行为
+e.stopPropagation(); 取消事件冒泡
+
+
+
+
+事件小结
+1:$(document).ready();  window.onload
+2:绑定事件
+  bind(); click();
+  
+
+
+周六周日 :wamp[软件包 apache/mysql/php]

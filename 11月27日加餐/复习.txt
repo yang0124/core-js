@@ -1,0 +1,72 @@
+1、模块字符串：``
+
+2、块级作用域：let
+
+3、箭头函数：回调函数都可以简化为箭头
+	div.onclick=()=>{}
+	var obj={
+	    "name":"吕奎",
+	    "eat":()=>{}
+	}
+	arr.reduce(()=>{});
+
+4、for...of
+   for(var v of arr){
+	v//当前的元素值
+   }
+
+5、解构赋值：赋值符号两边的结构长得一样的话，就可以脱掉衣服然后赋值
+   var [a,b,c]=[1,2,3];
+   var {a,b,c}={c:1,a:2,b:3}
+
+6、Set：可以去重
+   var arr=[1,1111,2,2,2,3,11,11,1111,2,22,33,33,3,3];
+   var s=new Set(arr);
+   arr=[...s]
+
+7、class
+   class h51906{
+	constructor(name,age,salary){
+		this.name=name;
+		this.age=age;
+		this.salary=salary;
+	}
+	zwjs(){
+		return `我的名字叫${this.name},我今年${this.age},我的年收入为`
+	}
+   }
+
+   class newhuman extend h51906{
+	constructor(name,age,salary,wb){
+		super(name,age,salary);
+		this.wb=wb;
+	}
+	fly(){
+
+	}
+   }
+
+8、js也可以模块化开发
+   子模块要公开
+	export var obj={}
+
+   主模块要引入
+	import {obj} from "./xx.js"
+	
+   html引入时：
+	<script src="" type="module">
+
+9、promise：控制异步的顺序
+   function f1(resolve){
+ 	//做完自己的事儿
+	resolve();
+   }
+
+   function f2(){
+	return new Promise((resolve)=>{
+		//做完自己的事儿
+		resolve();
+	})
+   }
+
+   new Promise(f1).then(f2).then(f3).then(f4);

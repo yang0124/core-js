@@ -1,0 +1,132 @@
+PHP语言 - 服务器端语言
+  LAMP - Linux+Apache+MySQL+PHP
+  PHP文件，扩展名.php
+  如何运行php页面
+	将创建好的php页面放到xampp目录下的htdocs目录中，因为我们的127.0.0.1自动运行的		就是这个文件夹里面的内容，而且只有输入127.0.0.1才叫做服务器方式打开
+	启动apache服务，在浏览器中访问
+	***强调：千万不要将本地的文件拖到你的编辑器之中，必须是htdocs里面的文件
+  PHP允许编写前端代码，PHP代码
+  PHP与javascript的区别
+	可能语法相似，但是做的功能不一样
+	PHP - 运行在服务器端的脚本语言
+	JS - 运行在客户端的脚本语言
+
+1、变量和常量：输出echo($变量)||echo $变量;
+	       注意：echo只能输出4中标准类型！！！
+  *变量
+   $变量名=变量值;
+   PHP中的变量与javascript中的变量类似，都是弱类型！
+   变量在使用的时候也不能去掉$
+
+   常量
+   const 常量名=常量值;
+
+2、数据类型
+   四种标准类型
+     integer - 整型
+     float/double - 浮点型
+     boolean - 布尔
+     string - 字符串
+		单引号 - 直接定义字符串，不认识变量
+
+		双引号 - 认识变量的
+		  echo "我的名字叫{$name}，我今年{$age}岁";
+
+   两种复合类型：只能使用var_dump()进行输出
+    *Array - 数组
+	直接量 - $arr=[值1,值2...];//此方式创建出来的是索引数组
+	内置对象 - array(
+			key=>value,
+			key=>value,
+		   )
+	访问方式与JS完全一致
+
+     Object - 对象
+	定义类（class）
+	class 类名(
+		public $属性名=值;
+		function 方法名(){}
+	)
+	基于类创建对象
+	$对象名=new 类名;
+	调用对象的属性或方法：
+	  $对象名->属性名;
+	  $对象名->方法名();
+
+   两种特殊类型
+	Resource - 资源
+	null - 空，释放资源
+		null和""的区别
+		null - 不存在
+	        "" - 存在，值为空
+
+
+运算符：字符串的连接符为"."，其余的运算符和JS是一模一样的
+
+结构：
+  分支：完全一样
+
+  循环：完全一样
+
+API不需要学，所有JS拥有的API，PHP都有，但是写法可能不同
+
+上午：
+  1、使用PHP完成99乘法表
+  2、使用PHP完成克莱拖指数
+  3、使用PHP根据分数送礼物
+  4、使用PHP将数组中每一个元素取出来拼接一个字符串
+
+***********************************************************************************
+
+1、前端数据如何传送到服务器端
+PHP预定义变量   
+   1、$_GET["前端的input的name值"] - 客户端的get请求方式提交过来的某个input的value
+		定义HTML页面中表单method属性值为get
+		定义HTML页面中表单元素时，定义name属性值
+		在PHP页面中使用$_GET["name属性值"];
+	
+   2、$_POST["前端的input的name值"]; - 	
+客户端的POST请求方式
+   3、$_REQUEST["前端的input的name值"] - 客户端的GET/POST请求方式
+
+***********************************************************************************
+
+2、PHP操作数据库
+   PHP自带数据库API
+   1、创建一个数据库连接对象
+	$conn=mysqli_connect("hostname","username","passwd","dbname",dbport);
+		hostname - "127.0.0.1"
+		username - "root"
+		passwd - ""
+		dbname - "h51906"
+		dbport - 3306   
+
+   2、创建一句SQL语句
+        $sql="INSERT/DELETE/UPDATE/SELECT";
+
+   2.5、PHP为数据库设置编码格式
+	mysqli_query($conn,"SET NAMES UTF8");
+
+   3、执行SQL语句
+	$result=mysqli_query($conn,$sql);
+	强调：如果执行的操作是增删改
+		   如果$result返回的是true，说明执行成功，返回的是false，说明执行失败
+	      如果执行的操作是查
+		   返回是一个我们都不认识的结果集对象
+		   解决：获取记录的每一行
+		   while(($row=mysqli_fetch_row($rs))!=null){
+			var_dump($row);
+			echo("<br>");
+		   }
+
+   4、断开和数据库的连接
+	mysqli_close($conn);
+
+
+作业：
+  1、登录、注册、修改、删除都是要实现一条龙的
+
+
+
+
+

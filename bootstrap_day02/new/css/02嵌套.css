@@ -1,0 +1,25 @@
+.nav {
+  width: 1200px;
+  margin: 0 auto;
+}
+.nav > ul {
+  overflow: hidden;
+}
+.nav > ul li {
+  float: left;
+}
+.nav > ul li a {
+  text-decoration: none;
+}
+.nav + p {
+  color: pink;
+}
+.nav:hover {
+  background: red;
+}
+.nav > .d1, .nav ~ .d2 {
+  width: 100px;
+  height: 100px;
+}
+
+/*# sourceMappingURL=02%C7%B6%CC%D7.css.map */

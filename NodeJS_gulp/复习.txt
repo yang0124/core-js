@@ -1,0 +1,33 @@
+1、node操作数据库
+   需要npm下载：npm i mysql
+   查看readme.txt
+
+   1、引入MySQL模块
+      var mysql=require("mysql");
+
+   2、创建连接对象
+      var conn=mysql.createConnection({
+	host:"127.0.0.1",
+	user:"root",
+	pwd:"",
+	database:"h51906book"
+      })
+
+   3、可选：连接
+      conn.connect();
+
+   4、创建SQL语句
+      var sql="INSERT/DELETE/UPDATE/SELECT";
+
+   5、用你创建的数据库对象执行创建的SQL语句
+      conn.query(sql,[占位符实参],(err,result)=>{
+	//增删改，result返回都是一个ok对象
+	//查,[{},{},{}]，将数据发送到前端：res.end(JSON.stringify(result));
+      })
+
+   6、断开和数据库的连接
+	conn.end();
+
+node.js中所有的跳转所有的请求，都是发起的路由请求/xxx
+      
+

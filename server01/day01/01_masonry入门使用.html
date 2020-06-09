@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>masonry入门使用</title>
+	<link rel="stylesheet" href="masonry/sandbox.css">
+	<!-- 1. 引入JQUERY文件 -->
+	<script src="jquery-1.11.3.min.js"></script>
+	<!-- 2. masonry插件的JS文件 -->
+	<script src="masonry/masonry.pkgd.js"></script>
+</head>
+<body>
+<!-- 瀑布流容器元素 -->
+<div id="basic" class="container">
+	<!--成员元素-->
+	<!--
+	<div class="item "></div>
+    <div class="item  h2"></div>
+    <div class="item "></div>
+    <div class="item  h3"></div>
+    <div class="item  h5"></div>
+    <div class="item  h2"></div>
+    -->
+    <div class="stamp stamp1"></div>
+	<div class="stamp stamp2"></div>
+    <div class="item   item-sizer"></div>
+    <div class="item   item-sizer h2"></div>
+    <div class="item   item-sizer"></div>
+    <div class="item   item-sizer h3"></div>
+    <div class="item   item-sizer h5"></div>
+    <div class="item   item-sizer h2"></div>
+</div>
+<script>
+    /*
+	   获取瀑布流容器元素,调用masonry()方法
+	   masonry()方法
+	   * 是瀑布流插件的核心方法
+	   核心方法的选项(推荐)
+	   * itemSelector
+	   * columnWidth
+	 */
+
+    //最简洁方法
+    //$("basic").masonry();
+	var $grid = $("#basic").masonry({
+	  /*
+	     options选项
+		 * 推荐
+		   * itemSelector - 设置瀑布流的成员元素
+		   * columnWidth -  列宽度:设置列宽绝对定位，距左侧位置
+		   * stamp - 标记固定元素
+		   * gutter -列间距
+		   * percentPosition - 值为true，使用百分值，而不是像素值
+	   */
+	   //以像素方式  itemSelector 指定成员元素
+	   //itemSelector: '.item',
+	   //columnWidth: 10,
+	  stamp : '.stamp',
+
+	  //以百分比的方式
+      itemSelector: '.item-sizer',
+      percentPosition: true
+
+	});
+
+
+</script>
+</body>
+</html>

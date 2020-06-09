@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<a href="022.html">2_2.html</a>
+		
+		<script type="text/javascript">
+			var now=new Date().getTime()+1000*3600*24*7;
+			var end=new Date(now);
+			document.cookie='name=zrj;expires='+end.toGMTString();//21页面保存cookie
+			console.log(document.cookie)
+		</script>
+	</body>
+</html>

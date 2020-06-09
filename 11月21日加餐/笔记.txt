@@ -1,0 +1,18 @@
+1、resize事件
+   //屏幕的宽度只要发生变化就会触发
+	$(window).resize(()=>{
+		console.log(1);//可以根据屏幕的宽度不同，选择执行不同的js
+			       //js版的媒体：因为有可能手机端的执行js特效和pc端不一样
+		if(innerWidth>=800){
+			console.log("pc端的特效");
+		}else{
+			console.log("phone的特效");
+		}
+	})
+
+2、scroll（滚动）事件：特效：滚动到某个位置才显示
+	$(window/document).scroll(()=>{
+		1、$(window).scrollTop();//获取当前滚动到的位置
+		2、$("").offset().top/left;//获取这个元素距离顶部或者左侧的距离
+		   可以做出你想要的任何滚动动画
+	})

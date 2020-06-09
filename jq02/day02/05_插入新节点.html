@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>演示常用DOM方法</title>
+<style type="text/css">
+ 
+</style>
+</head>
+<body>
+
+
+
+<ul id="city">
+      <li id="bj" name="beijing">北京<span>...</span></li>
+      <li id="sh" name="shanghai">上海</li>
+      <li id="gz" name="guangzhou">广州</li>
+</ul>
+<ul id="game">
+      <li>反恐</li>
+      <li id="ms">魔兽</li>
+      <li>红色</li>
+</ul>
+<script type="text/javascript" src="jquery-1.11.3.min.js">
+</script>
+<script type="text/javascript">
+ //内部添加节点
+ //上面四个节点新创建
+   $("#city").append("<li id='tj'>天津</li>");
+   $("#city").prepend("<li id='cq'>重庆</li>");
+   $("<li id='sjz'>石家庄</li>").appendTo("#city");
+   $("<li id='wj'>无极</li>").prependTo("#city");
+ 
+ //现有节点--移动
+   $("#ms").appendTo("#city");;
+// 
+   //外部添加节点 兄弟 将苹果列表  作为城市列表
+   $("<ul id='list'><li>苹果</li></ul>").insertBefore("#city");
+   $("<ul id='sets'><li>北瓜</li></ul>").insertAfter("#city");
+//// 删除
+// $("#city").remove();
+// $("#city li").remove("li[name=shanghai]");
+////替换
+// $("#game").replaceWith("<b>2132132132123</b>")
+////复制
+   $("#city li").click(function(){
+   	$(this).clone(true).appendTo("#city");
+   })
+</script>
+</body>
+</html>

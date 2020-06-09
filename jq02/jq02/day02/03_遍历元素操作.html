@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>演示常用DOM方法</title>
+<style type="text/css">
+  div{
+    width: 100px;
+    height: 100px;
+    border:1px solid red;
+  }
+  .mini{
+    width:30px;
+    height:30px;
+    background-color: blue;
+  }
+  .one{
+    width:20px;
+    height:20px;
+    background-color: red;    
+  }
+  .a{
+    font-size: 39px;
+  }
+  .b{
+    font-size: 19px;
+  }
+</style>
+</head>
+<body>
+
+<div id="first">
+    第一个div元素
+    <div class="mini1">
+       <div class="one"></div>
+    </div>
+    <div class="mini2"></div>
+    <div class="mini3"></div>
+</div>
+<div id="second"></div>
+<div>第三个div元素</div>
+<script type="text/javascript" src="jquery-1.11.3.min.js">   
+</script>
+<script type="text/javascript">
+//1:class为one的父元素
+console.log($(".one").parent()); //div.mini
+//2:查看class为one祖先元素
+console.log($(".one").parents());//first body html
+//3:id为first子元素
+console.log($("#first").children("div").length);
+//4:上一个 下一个 所有兄弟
+console.log($("#second").prev().text());
+console.log($("#second").next().text());
+console.log($("#second").siblings("div").length);
+//5:后代
+console.log($("#first").find("div").length);
+
+</script>
+</body>
+</html>

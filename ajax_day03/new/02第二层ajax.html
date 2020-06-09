@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<h1>首页</h1>
+		<button>按钮</button>
+		<script type="text/javascript">
+			$("button").click(()=>{
+//				$("h1").load("01.php","talk=1",(data)=>{
+//					console.log(data);//会自动加获得数据声称在页面上，而且这个操作使用document.write()会替换掉页面上所有的内容
+//				})
+
+//				$.get("01.php","talk=2",(data)=>{
+//					console.log(data);
+//				},"JSON");
+
+//				$.post("01.php","talk=3",(data)=>{
+//					console.log(data);
+//				},"JSON");
+//				console.log(1);
+
+				$.get("02.php",(data)=>{
+					console.log(data);
+				},"JSON");
+				
+			})
+			
+//			setInterval(()=>{
+//				console.log(1);
+//			},1000);
+//			console.log(2);
+			
+		</script>
+	</body>
+</html>

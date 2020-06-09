@@ -1,0 +1,159 @@
+
+jquery动画效果
+动画效果
+
+*显示与隐藏 - 同时改变元素高度和宽度
+show(); 显示
+ -无动画 show();无参数 
+ -有动画 show(speed,callback); 
+   -speed -设置动画执行时长 (单位毫秒)
+   -三个预定义时长- slow|normal|fast
+   -callback -动画执行[完毕后]调用函数..
+hide(); 隐藏
+  -无动画 hide()
+  -有动画 hide(speed,callback);
+  -三个预定义时长- slow|normal|fast
+
+滑动效果- 改变元素高度
+slideUp(speed,callback);  --向上滑动(隐藏)
+  -默认不传递任何参数，并不报错
+  -三个预定义时长- slow|normal|fast
+slideDown(speed,callback) --向下滑动(显示) 
+
+-注意:callback 回调.
+
+淡入淡出 - 改变元素透明度
+*fadeIn(speed,callback)    显示
+*fadeOut(speed,callback);  隐藏
+  -三个预定义时长- slow|normal|fast
+
+
+ -切换效果
+ toggle()        -show()+hide();
+ slideToggle()   -slideUp()+slideDown();
+
+
+
+ -自定义动画
+  -animate(params,duration,easing,callback);
+  *params - 设置自定义动画效果
+  -直接使用css中属性样式
+  -duration 设置自定义动画时长(单位毫秒)
+  -easing   擦除效果 
+  -callback 自定义动画执行完毕后处理函数
+
+
+  -animate(params,options);
+   *params
+   *options
+    -duration - 设置自定义动画时长
+    -easing   - 擦除效果名称
+    -complete - 自定义动画执行后处理函数
+    -queue    - 设定为false将此动画不进入动画队列
+              - 默认true
+
+
+  params - 有一些css属性不可用
+  backgroundColor
+  backgroundBottomColor
+  backgroundLeftColor
+  backgroundRightColor
+  backgroundTopColor
+  Color
+  outlineColor
+
+  
+小结:
+动画jquery方法
+同时改变元素 高度宽度
+show(时长,回调函数);
+hide(时长,回调函数);
+滑动:改变元素 高度
+slideDown(时长,回调函数)
+slideUp(时长,回调函数);  
+淡入淡出 改变元素透明度
+fadeIn()
+fadeOut();
+
+切换效果
+toggle();
+slideToggle()  
+
+自定义动画效果
+animate(params,duration,easing,callback);
+animate(params,options);
+params CSS 数字 宽，高，透明之类...
+
+jquery类数组对象
+JS:
+length属性- 返回所包含DOM对象个数
+方法
+1:get(index);  根据index值返回对应DOM对象  
+2:eq(index);   根据index值返回对应jquery对象
+3:each();      隐藏迭代
+示例:
+$("div").each(callback);  --回调函数
+  -callback
+  function(index,domElement){
+  }
+$.each(object,callback);
+-object-需要遍历对象或数组
+-callback 回调函数
+07_jquery类数组对象.html
+
+
+
+jquery
+1:选择器   ? id class 元素* > 子 兄弟
+2:常用方法
+3:事件
+4:动画
+
+面试：
+-jquery优化
+1:最新版本 jquery  稳定 1.4.2  1.8.3 1.11 ??
+  测试20%
+2:用对选择器
+  a:最快  id         {getElementById()}
+  b:稍慢  class      {getElementsByClassName()}
+                      IE 6 7 8 不支持
+  c:最慢  :hover 属性选择
+3:通过一个示例
+#八条优化策略
+
+#解决问题
+ 多种JS库并存..
+ prototype   $("box") DOM   公司 7 8 年 你的工作升级
+ jquery      $("#box") jquery   
+
+
+怎样解决jquery与其它JS共享
+
+1:覆盖$函数,使用jQuery代替$
+a:jQuery.noConflict();    交出$控制权
+b:jQuery(document).ready(function(){
+	 jQuery("div").hide();
+});
+
+2:希望保存$
+a:jQuery.noConflict(); 交出$控制权
+b:jQuery(document).ready(function($){
+	 $("div").hide();
+   });
+
+
+
+jquery UI  
+jquery 官网推出 针对用户界面 jquery插件
+http://www.css88.com/jquery-ui-api/
+
+如何使用jquery UI
+*引入相关文件{顺序}
+*引入jquery文件
+*引入jquery UI的js文件   ui文件夹
+*引入jquery UI的css文件  themes文件夹
+
+
+-定位元素
+-使用jquery UI提供API
+

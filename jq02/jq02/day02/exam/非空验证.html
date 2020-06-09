@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="" method="post">
+			<input id="user" type="text" placeholder="请输入你的用户名" /><span></span>
+			<br />
+			<input id="sub" type="submit" value="提交"/>
+		</form>
+		<script src="jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		
+		$("#sub").click(function(e){
+			var user=$("#user").val();
+			if(user==""){
+				$("span").text("不能为空");
+				$("#user").focus();
+				e.preventDefault();
+			}
+		})
+			
+			
+		</script>
+	</body>
+</html>

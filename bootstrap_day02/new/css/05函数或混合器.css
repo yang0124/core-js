@@ -1,0 +1,32 @@
+@charset "UTF-8";
+.d1 {
+  width: 200px;
+  height: 200px;
+  background: blue;
+  font-size: 14px;
+  font-weight: none;
+  font-style: none;
+  font-family: "微软雅黑";
+}
+
+.d2 {
+  width: 400px;
+  height: 400px;
+  background: #e4393c;
+  font-size: 16px;
+  font-weight: bold;
+  font-style: italic;
+  font-family: "楷体";
+}
+
+.d2 {
+  width: 200px;
+  height: 200px;
+  background: pink;
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  font-family: "微软雅黑";
+}
+
+/*# sourceMappingURL=05%BA%AF%CA%FD%BB%F2%BB%EC%BA%CF%C6%F7.css.map */

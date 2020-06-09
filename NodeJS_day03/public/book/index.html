@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			table{
+				width: 1000px;
+				border: 1px solid #000;
+				border-collapse: collapse;
+				margin: 0 auto;
+				text-align: center;
+				table-layout: fixed;
+			}
+			td{
+				border: 1px solid #000;
+				overflow: hidden;
+				text-overflow:ellipsis;
+				white-space: nowrap;
+			}
+		</style>
+	</head>
+	<body id="bd">
+		<h1>首页</h1>
+		<button id="btn1">新增</button>
+		<script type="text/javascript">
+			var xhr=getXhr();
+			xhr.open("GET","/select");
+			xhr.send(null);
+			xhr.onreadystatechange=()=>{
+				if(xhr.readyState==4 && xhr.status==200){
+					var arr=JSON.parse(xhr.responseText);
+					var table=document.createElement("table");
+					var btarr=["序号","书名","价格","作者","简洁","操作"];
+					var tr=document.createElement("tr");
+					for(var i=0;i<btarr.length;i++){
+						var td=document.createElement("td");
+						td.innerHTML=btarr[i];
+						tr.appendChild(td);
+					}
+					table.appendChild(tr);
+					
+					for(var r=0;r<arr.length;r++){
+						var tr=document.createElement("tr");
+						for(var c in arr[r]){
+							var td=document.createElement("td");
+							td.innerHTML=arr[r][c];
+							tr.appendChild(td);
+						}
+						var td=document.createElement("td");
+						td.innerHTML="<button>修改</button><button onclick='del(this)'>删除</button>";
+						tr.appendChild(td);
+						
+						table.appendChild(tr);
+					}
+					bd.appendChild(table);
+					
+				}
+			}
+			 
+			
+			 
+			btn1.onclick=()=>{
+				location="/insert"
+			}
+			 
+			 
+			 
+			function del(btn){
+				var id=btn.parentNode.parentNode.firstElementChild.innerHTML;
+				location="/delete?id="+id;
+			}
+			 
+			 
+			 
+			 
+			
+			 
+			function getXhr(){
+			 	var xhr=null;
+			 	if(XMLHttpRequest){
+			 		xhr=new XMLHttpRequest();
+			 	}else{
+			 		xhr=new ActiveXObject("Microsoft.XMLHttp");
+			 	}
+			 	return xhr;
+			}
+		</script>
+	</body>
+</html>

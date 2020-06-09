@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.li1{
+				background: red;
+			}
+		</style>
+		<script src="jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<ul>
+			<li>云顶之奕</li>
+			<li>魔兽世界</li>
+			<li class="li1">地下城与勇士</li>
+			<li>只狼</li>
+			<li>FIFA</li>
+		</ul>
+		
+		<script type="text/javascript">
+//			console.log($(".li1").parent());//父亲
+//			console.log($(".li1").parents());//祖先
+//			console.log($("ul").children());
+
+//			console.log($(".li1").prev().prev());
+//			console.log($(".li1").next().next());
+
+//			var lis=document.getElementsByTagName("li");
+//			for(var i=0;i<lis.length;i++){
+//				lis[i].onclick=function(){
+//					for(var i=0;i<lis.length;i++){
+//						lis[i].className="";
+//					}
+//					this.className="li1";
+//				}
+//			}
+
+//			var ul=document.getElementsByTagName("ul")[0];
+//			var lis=document.getElementsByTagName("li");
+//			ul.onclick=e=>{
+//				e=e||window.event;
+//				var target=e.target||e.srcElement;
+//				if(target.nodeName=="LI"){
+//					for(var i=0;i<lis.length;i++){
+//						lis[i].className="";
+//					}
+//					target.className="li1";
+//				}
+//			}
+			var $ul=$("ul");
+			$ul.click(e=>{
+				e=e||window.event;
+				var target=e.target||e.srcElement;
+				$(target).siblings().removeClass();
+				$(target).addClass("li1");
+			})
+		</script>
+	</body>
+</html>

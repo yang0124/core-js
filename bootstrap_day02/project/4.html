@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title></title>
+  <link href="css/bootstrap.css" rel="stylesheet">
+
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.min.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<div class="container">
+  <h1>组件——下拉菜单</h1>
+
+  <div class="dropdown">
+    <a href="#" data-toggle="dropdown">产品大全</a>
+    <ul class="dropdown-menu">
+      <li><a href="#">冰箱</a></li>
+      <li><a href="#">洗衣机</a></li>
+      <li><a href="#">电视</a></li>
+      <li><a href="#">奶粉</a></li>
+      <li><a href="#">尿不湿</a></li>
+    </ul>
+  </div>
+
+  <br><br><br>
+
+  <div class="dropdown">
+    <a class="btn btn-default" href="#" data-toggle="dropdown">
+      产品大全
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <li><a href="#">冰箱</a></li>
+      <li><a href="#">洗衣机</a></li>
+      <li><a href="#">电视</a></li>
+      <li class="divider"></li>
+      <li><a href="#">奶粉</a></li>
+      <li><a href="#">尿不湿</a></li>
+    </ul>
+  </div>
+
+</div>
+<div class="jumbotron">
+  <h1>Hello, world!</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium quis nihil eveniet doloremque deserunt tenetur blanditiis saepe earum voluptatibus sit perspiciatis laudantium totam quo dolorum fugit nemo facilis architecto iusto!</p>
+  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+</div>
+
+<br /><br />
+<div class="row">
+  <div class="col-sm-6 col-md-2">
+    <div class="thumbnail">
+      <img src="img/1.jpg" alt="...">
+      <div class="caption">
+        <h3>Thumbnail label</h3>
+        <p>...</p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+<br /><br />
+<div class="progress">
+  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%; background: green;">
+    60%
+  </div>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/bootstrap.js"></script>
+<script>
+  (function () {
+    var s = document.createElement("script");
+    s.onload = function () {
+      bootlint.showLintReportForCurrentDocument([]);
+    };
+    s.src = "js/bootlint.js";
+    document.body.appendChild(s)
+  })();
+</script>
+</body>
+</html>

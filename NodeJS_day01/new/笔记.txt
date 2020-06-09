@@ -1,0 +1,157 @@
+1、静态网页 和 动态网页？
+静态：网页内容任何人在任何时间访问都是不变的
+      HTML+CSS+JS+视频音频...
+动态：网页内容不同的人在不同的时间访问可能都是不同的
+      DB + JS/PHP/ASP/Node.js
+
+JSP = 前端 + java：功能强大可靠（安全性），适合大型企业级项目
+PHP = 前端 + php：简单易用，适合互联网项目，最简单的，而且免费
+ASP = 前端 + C#：易用，适合windows平台
+Node = 前端 + "js"：性能好，适合于服务器端IO密集型项目，不适合CPU密集型项目
+	
+	node.js的目的
+	  1、文件操作系统
+	  2、node.js代码搭建服务器
+	  3、操作数据库
+
+2、node.js概述：可以理解为是一个运行js的环境
+   node.js不是js，但是长得非常的像，是一种服务器端技术，他的竞争对手是PHP/JAVA/C#等等    ！历史上第一次有一种语言可以通吃前后端
+   官网：www.nodejs.org
+   版本：0.12版本（16年初） 4.x（16年中） 6.x（16年底）
+   下载：LTS版本
+   安装：一键点到底，注意千万不要去取消他的任何东西
+   安装完毕后，打开cmd，输入node -v
+   如果输出了版本号，说明安装成功，你的环境已经好了
+
+3、node.js如何运行
+  （1）交互模式 -- 一般用于临时测试
+	cmd打开输入node，就可以开始敲你的js代码了
+  （2）脚本模式 -- 正式开发使用方式
+        cmd打开输入node 绝对路径
+	node.js的文件后缀名随便叫什么都可以，但是我们还是一般习惯使用.js的文件
+
+4、面试题：如何自学一门新语言 -- Node.js
+  （1）了解背景 -- 百度百科
+  （2）搭建开发环境，编写hello world
+  （3）数据类型 -- 重点面试题
+       前端js的数据类型：
+	 1、原始/基本/值类型
+	    number、string、boolean、undefined、null
+	 2、引用/对象类型
+	    ES对象：number、string、boolean、Date、Array、Math、Object、Function、
+		    RegExp、Error、Global
+	    BOM对象：window/scre/en/history/location/navigator/event
+	    DOM对象：Node
+	    用户自定义：{}
+       后端node.js的数据类型：由于服务器端是不存在浏览器的所有没有BOM和DOM
+	 1、原始/基本/值类型
+	    number、string、boolean、undefined、null
+	 2、引用/对象类型
+	    ES对象：number、string、boolean、Date、Array、Math、Object、Function、
+		    RegExp、Error、Global
+	    用户自定义：{}
+       强调：在node.js中除了DOM和BOM的操作不能使用，其余操作和原来的js完全一致
+	    node.js特供对象：目前有上千个吧...
+  （4）变量和常量
+	var age=20;
+	const pi=3.14;
+  （5）运算符
+	算数运算
+	比较运算
+	逻辑运算
+	赋值运算
+	三目
+	位运算
+  （6）程序结构
+	分支
+	循环
+  （7）通用小程序
+	九九乘法表、100以内的质数、数组排序...
+  （8）函数和对象
+  （9）第三方工具、框架
+  （10）实际小项目
+
+上午：（1）九九乘法表、100以内的质数、数组排序...
+      （2）声明一个保存5个学生成绩的数组，使用三种循环一次打印每个人的成绩
+
+***********************************************************************************
+
+5、node.js中的新概念 -- 模块化
+   一个web项目功能可以分为很多不同的"模块"，如商品管理模块、用户管理模块、支付模块、促销模块、商品分类模块...
+
+   node.js中按照功能的不同，可以把函数、对象分出到不同的文件之中，这些文件就称之为是一    个模块
+
+   node.js中每个模块（文件）都是一个独立构造函数，解释器会为每个.js文件添加如下代码：
+	(function (exports, require, module, __filename, __dirname) { 
+		//我们自己写的js代码
+		*exports: {}//用于公开暴露，暴露自己的东西给别人
+		*require: fn,用于引入别人的模块
+		module: 指代当前模块本身
+		__filename:当前文件的完整的绝对路径
+		__dirname:当前绝对路径但是不包含文件名称
+	});
+
+   1、每个模块（就是一个js文件）都可以用自己的require()引入另一个模块，
+      但是切记一定要保存
+	var obj=require("./模块文件名");
+	//obj就是此模块公开的对象
+
+   2、每个模块都可以使用自己的exports对象向外导出/公开/暴露自己的内部成员
+	exports.成员名=成员值;
+	module.exports={
+		成员名=成员值,
+		成员名=成员值,
+	}
+
+   面试题：module.exports和exports的区别
+	   两者都可以用于向外界导出自己的成员，但：
+	   module.exports才是真正的底层的导出的操作
+	   node底层有一句话：exports=module.exports;
+	   但是exports={num:a},其实已经不能公开了，因为这个新对象覆盖了module.exports
+
+   练习：1、创建一个模块用于公开圆的面积和周长
+	    创建一个模块用于公开矩形的面积和周长
+	    创建了主模块引用两个子模块，并且使用他们的方法
+	 2、编写一个模块Array_util，包含一个sum(arr),返回指定数组中所有数值的和，
+					一个avg(arr),返回平均值，导出这两个方法
+	    编写一个主模块引入，并使用方法
+
+6、node.js中模块的分类
+   1、node.js官方提供的模块
+	不需要下载，当你安装node.js运行环境的时候就已经安装完毕了，
+	但是需要引入，但是不是每一个都需要引入，看文档
+	var fs=require("fs");
+   2、第三方编写的模块
+	在npm上面有几百万个
+   3、用户自定义的模块
+	var obj=require("./模块文件名");
+
+7、node.js官方模块 -- Global模块
+   该模块无需引入，直接使用
+	__dirname：返回当前模块文件所在的目录全名
+	__filename：返回当前模块的文件全名
+	exports：用于暴露
+	module：指代当前模块本身
+	require()：引入
+	setImmediate(callback) 等价于 setTimeout(callback, 0) 
+	setInterval(callback, delay)
+	setTimeout(callback, delay) 
+	
+	
+作业：
+  1、以上的两个练习
+  2、仿写node.js的url模块的parse功能
+     编写一个仿url的模块
+     提供一个url地址：
+	"http://www.daiyue.com:8008/new/index?name=今日&rsv_spt=1&rsv_iqid=0";
+
+     需要为我返回，形如：
+	{
+		protocal:"http",
+		hostname:"www.daiyue.com",
+		port:8008,
+		pathname:"/new/index"
+		query:{wd:"今日",rsv_spt:1,rsv_iqid:0}
+	}
+     主程序在引入模块，直接调用方法可以实现解析
+  3、响应式

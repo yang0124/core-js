@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script src="jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+//			console.log($("<a class='d1' id='d2' href='#'>百度一下</a>"));
+
+			for(var i=1;i<=100;i++){
+				$("body").append($(`<p class="p${i}">今天是星期${i}</p>`));
+			}
+		</script>
+	</body>
+</html>

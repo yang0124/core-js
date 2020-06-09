@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				vertical-align: top;
+			}
+			img{
+				width:300px;
+				float: left;
+			}
+			.carousel{
+				width: 300px;
+				overflow: hidden;
+			}
+			.carousel_img{
+				width: 900px;
+				overflow: hidden;
+			}
+			
+			li{
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				background: #ccc;
+				display: inline-block;
+			}
+			li.active{
+				background:red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="carousel">
+			<div class="carousel_img">
+				<img src="img/wow1.jpg"/>
+				<img src="img/wow2.jpg"/>
+				<img src="img/wow3.jpg"/>
+			</div>
+			<button><</button>
+			<button>></button>
+			<ul>
+				<li class="active"></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			var i=0;
+			$("button").click(function(){
+				if($(this).html()=="&gt;"){
+					i++;
+					if(i==3){
+						i=0
+					}
+					$(".carousel_img").animate({
+						"margin-left":i*(-300)+"px"
+					},1000);
+					$($("li")[i]).addClass("active");
+					$($("li")[i]).siblings().removeClass();
+				}else{
+					i--;
+					if(i==-1){
+						i=2
+					}
+					$(".carousel_img").animate({
+						"margin-left":i*(-300)+"px"
+					},1000);
+					$($("li")[i]).addClass("active");
+					$($("li")[i]).siblings().removeClass();
+				}
+			})
+			
+			$("li").click(function(){
+				$(this).addClass("active");
+				$(this).siblings().removeClass();
+				
+				i=$(this).index();
+				$(".carousel_img").animate({
+					"margin-left":i*(-300)+"px"
+				},1000);
+			})
+		</script>
+	</body>
+</html>

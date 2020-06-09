@@ -1,0 +1,79 @@
+1、node.js模块系统
+  （1）node.js官方提供的模块 - 不需要下载，有的需要引入
+  （2）第三方扩展模块 - npm下载：npm i 包名
+  （3）自定义模块
+	 文件模块
+	   circle.js：exports.size=fn;
+	   app.js：require("./circle");
+	 目录模块
+	   node_modules/mysql/xx.js：exports.conn=fn;
+	   node_modules/mysql/package.json：{"main":"./xx.js"}
+	   app.js：require("mysql");
+
+2、node.js官方模块
+   1、global - 无需引入
+      console	setInterval
+
+   2、querystring - 需引入
+	const qs=require("querystring");
+	var obj=qs.parse("uname=tom&age=20");
+
+   3、url - 需引入
+        const url=require("url");
+	var obj=url.parse("完整http请求地址");
+
+   4、buffer - 无需引入，一般都不会主动使用，但是有时候获取的东西自动就是一个buffer
+
+   5、*fs - 需引入
+	const fs=require("fs");
+	异步好处：效率高
+	异步读取：
+	  fs.readFile("./文件路径",(err,data)=>{
+		//此回调函数只有读取完毕才会执行
+	  })
+
+	异步写入/追加
+	  fs.write/appendFile("./文件路径",str/buf,(err)=>{
+		//一般用于写入完毕后还要做什么别的操作
+	  })
+
+   6、*http - 需引入
+       const http=require("http");
+
+	1、创建服务器
+	   var server=http.createServer();
+	2、绑定监听端口
+	   server.listen(80);
+	3、为服务器绑定监听请求事件：只要客户端发起请求就会触发的事件
+	   server.on("request",(req,res)=>{
+		req//前端发来的请求对象，req.url解析出路由
+		   //通过判断路由，可以执行不同的操作
+		res//服务器端的响应对象，专门用于回答前端
+		   //res.write res.end(只能用一次)
+	   })
+
+练习：
+  1、静态web服务器：创建服务器，接受客户端请求，一律向客户端输出一句<h1>hello</h1>
+  2、动态web服务器：创建服务器，接受客户端请求，如果客户端请求地址是/register，则向客户端输出public/register.html中的内容
+     <form action="/register.do">
+	<input name="uname">
+	<input name="upwd">
+	<input name="submit">
+     </form>
+如果客户端请求的是/register.do，则解析url中的查询字符串，把客户端提交的uname和pwd追加写出到public/user.log文件中，并向客户端输出"注册成功"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

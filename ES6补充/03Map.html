@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			var obj={
+				"name":"d1",
+				"name":"d2",
+				"name":"d3",
+				"name":"d4",
+			}
+			var m=new Map();
+			m.set("name","dy");
+			m.set("age",88);
+			m.delete("name");
+			m.forEach((val,i,obj)=>{
+				console.log(obj);
+			})
+			
+			
+			for(var i in m){
+				console.log(i);
+				console.log(m.get(i));
+			}
+		</script>
+	</body>
+</html>

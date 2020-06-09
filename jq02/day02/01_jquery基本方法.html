@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>演示常用DOM方法</title>
+</head>
+<body>
+
+<input type="text" id="user" value="请输入你的用户名" />
+<ul>
+      <li id="bj" name="beijing"><b>北京</b></li>
+      <li id="sh" name="shanghai">上海</li>
+      <li id="gz" name="guangzhou">广州</li>
+</ul>
+<script type="text/javascript" src="jquery-1.11.3.min.js">   
+</script>
+<script type="text/javascript">
+  //1:html()相当于innerHTML
+    console.log($("ul").html());
+  //2:html(参数);
+//  $("#bj").html("<b>深圳</b>");
+  //3:val();  value
+//  console.log($("#user").val());
+//  $("#user").val("请输入您的密码"); 
+
+  //text();相当于textContent
+//  console.log($("#bj").text());
+//  $("#bj").text("重庆");
+  //读取name属性
+    console.log($("#bj").attr("name"));
+  //读取name属性
+    $("#bj").attr("name","chongqing");
+    console.log($("#bj").attr("name"));
+  //添加class属性
+    $("#bj").attr("class","chongqing");
+    console.log($("#bj").attr("class"));
+  //清空value值
+	$("#user").val("");
+  //删除value这个属性
+	$("#user").removeAttr("value");
+$("#user").removeAttr("type");
+$("#user").removeAttr("id");
+  
+</script>
+</body>
+</html>

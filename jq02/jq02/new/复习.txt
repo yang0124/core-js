@@ -1,0 +1,86 @@
+1、jQuery是JavaScript的类库（js库）
+   目的：简化javascript开发
+
+2、jQuery对象提供了很多很多的方法，DOM对象不能使用
+
+3、DOM转为JQ
+   $(d1)
+
+   JQ转为DOM
+   $("")[i];
+
+   一般来说：我们都是将DOM转为JQ使用的更多
+
+4、查找元素
+   使用工厂函数：$("jq选择器");  //100%支持CSS选择器，但是还扩展了一些独特的选择
+				//参考w3school
+
+5、元素的内容
+   html() == DOM.innerHTML;
+   获取：$("").html(); //获取此元素中的内容，识别标签
+   设置：$("").html("html");
+
+   text() == DOM.innerText;
+   获取：$("").text(); //获取此元素中的文本，忽略识别标签
+   设置：$("").text("text");
+
+6、值操作
+   val() == input.value
+   获取：$("").val();
+   设置：$("").val("value");
+
+7、元素的属性：
+   attr() == get/setAttribute()
+   获取：$("").attr("属性名"); //获得该元素的该属性名的值
+   设置：$("").attr("属性名","属性值");
+
+8、单独可以操作class
+   追加class：$("").addClass("追加的class")
+   删除class：$("").removeClass();
+		    不给参数的时候，会删除所有的class
+		    传入参数的时候，会删除我指定的class
+   切换class：$("").toggleClass("d3");
+		    该元素会在有d3class和没有d3class之间做切换
+   有没有class：$("").hasClass("d1");//结果是boolean
+
+9、元素的样式
+   获取：$("").css("background");//获取不管是哪里的样式表，只获取当前生效的样式
+   设置：$("").css({
+		"css属性名":"css属性值",
+		"css属性名":"css属性值"
+	 })
+
+10、通过节点之间的关系查找（遍历）元素
+    父元素：$("").parent();
+    子元素：$("").children();
+    祖先元素：$("").parents();
+
+    上一个兄弟：$("").prev();
+    下一个兄弟：$("").next();
+    除了自己的其他兄弟：$("").siblings();
+
+11、创建元素
+    使用工厂函数：$(`<elem attr='${value}'>${innerHTML}</elem>`);
+
+12、加载到页面之上
+    子节点：
+    $("父").append(新);//压入到最后
+    $("父").prepend(新);//压入到最前
+
+    兄弟节点：
+    $("兄弟").before(新);//压入到兄弟元素的前面
+    $("兄弟").after(新);//压入到兄弟元素的前面
+
+13、删除元素
+    $("").remove();
+
+14、替换元素
+    $("被替换").replaceWith(新)
+
+15、克隆
+    $("").clone(true);
+
+
+注意：1、如果你找到一个元素，以后会反复使用
+		var $div=$("div");
+      2、jQuery提供的几乎所有的都是一个函数，jQuery的操作基本上都要加()

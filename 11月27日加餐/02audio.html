@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<audio id="audio" src="2.mp3"></audio>
+		<button id="btn">||</button>
+		
+		<script type="text/javascript">
+			audio.playbackRate=2;
+			btn.onclick=function(){
+				if(audio.paused){
+					audio.volume=0;
+					audio.play();
+					timer=setInterval(()=>{
+						audio.volume+=0.005;
+						if(audio.volume>0.9){
+							audio.volume=1;
+							clearInterval(timer);
+							timer=null;
+						}
+					},10)
+				}else{
+					timer=setInterval(()=>{
+						audio.volume-=0.005;
+						if(audio.volume<0.1){
+							audio.volume=0;
+							clearInterval(timer);
+							timer=null;
+							audio.pause();
+						}
+					},10)
+				}
+			}
+			
+		</script>
+	</body>
+</html>

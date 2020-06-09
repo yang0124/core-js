@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var xhr=getXhr();
+			xhr.open("GET","01复习.php?name=夏莹");
+			xhr.send(null);
+			xhr.onreadystatechange=()=>{
+				if(xhr.status==200 && xhr.readyState==4){
+					console.log(JSON.parse(xhr.responseText));//
+				}
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			function getXhr(){
+				var xhr=null;
+				if(XMLHttpRequest){
+					xhr=new XMLHttpRequest();
+				}else{
+					xhr=new ActiveXObject("Microsoft.XMLHttp");
+				}
+				return xhr;
+			}
+		</script>
+	</body>
+</html>

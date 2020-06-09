@@ -1,0 +1,435 @@
+
+1:基础
+2:实战
+3:服务器
+
+1:基础
+存储引擎:memory 水平分表;
+常用的mysql存储引擎有多种，
+myisam
+innodb
+bdb
+memory[访问速度最快，磁盘上有一个.frm文件，如果服务器关闭数据丢失]
+merge
+
+innodb/bdb 支持事务处理
+常用myisam/memory
+
+
+
+
+
+//---------------------
+当单表中的数据行涨到300-500w以上考虑分表;
+分表:水平分割:垂直分割:
+注意编码问题，必须一致，数据库，各表之间
+
+下面演示水分割：
+1。水平分割：按记录进行分割，不同的记录可以分开保存，每个子表的列数相同。
+2。垂直分割：按列进行分割，即把一条记录分开多个地方保存，每个子表的行数相同。
+CREATE TABLE `article_0` (  
+ `id` INT( 20 ) NOT NULL ,  
+ `subject` VARCHAR( 200 ) NOT NULL ,  
+ `content` TEXT NOT NULL ,  
+ PRIMARY KEY ( `id` )  
+ ) ENGINE = MYISAM CHARACTER SET gbk;
+ 
+CREATE TABLE `article_1` (  
+ `id` INT( 20 ) NOT NULL ,  
+ `subject` VARCHAR( 200 ) NOT NULL ,  
+ `content` TEXT NOT NULL ,  
+ PRIMARY KEY ( `id` )  
+ ) ENGINE = MYISAM CHARACTER SET gbk;
+ 
+CREATE TABLE `article_2` (  
+ `id` INT( 20 ) NOT NULL ,  
+ `subject` VARCHAR( 200 ) NOT NULL ,  
+ `content` TEXT NOT NULL ,  
+ PRIMARY KEY ( `id` )  
+ ) ENGINE = MYISAM CHARACTER SET gbk;
+  
+
+CREATE TABLE `article_3` (  
+ `id` INT( 20 ) NOT NULL ,  
+ `subject` VARCHAR( 200 ) NOT NULL ,  
+ `content` TEXT NOT NULL ,  
+ PRIMARY KEY ( `id` )  
+ ) ENGINE = MYISAM CHARACTER SET gbk;
+ 
+
+ 
+  CREATE TABLE `article` (  
+ `id` INT( 20 ) NOT NULL ,  
+ `subject` VARCHAR( 200 ) NOT NULL ,  
+ `content` TEXT NOT NULL ,  
+ PRIMARY KEY ( `id` )  
+ ) ENGINE=MRG_MyISAM DEFAULT CHARSET=gbk INSERT_METHOD=NO UNION=(`article_0`,`article_1`,`article_2`,`article_3`);  
+ 
+ 
+INSERT INTO article_1 VALUES(1,'news','boxing');
+INSERT INTO article_2 VALUES(2,'account','show2');
+INSERT INTO article_3 VALUES(3,'account','show3');
+
+
+ SELECT * FROM article;
+ 
+ 
+ php 实现
+     CREATE TABLE `create_id` (  
+    `id` INT( 20 ) NOT NULL AUTO_INCREMENT PRIMARY KEY  
+    ) ENGINE = MYISAM;   
+
+
+    function get_AI_ID() {  
+        $sql  = "insert into create_id (id) values('')";  
+        $this->db->query($sql);  
+        return $this->db->insertID();  
+    } 
+ 
+ 
+    function new_Article() {  
+        $id  = $this->get_AI_ID();  
+        $table_name = $this->get_Table_Name($id);  
+        $sql = "insert into {$table_name} (id,subject,content) values('{$id}','测试标题','测试内容')";  
+        $this->db->query($sql);  
+    }  
+    /** 
+     * 用于根据id获取表名 
+     */  
+   function get_Table_Name($id) {  
+       return 'article_'.intval($id)%3;  
+   }  
+
+//----------------------------------------------------------------------- 
+ 
+事务
+
+
+事务:
+多条不可分割的SQL语句;
+
+
+全局事务:不同数据库之间事务处理
+局部事务:同一个数据库里事务处理
+
+
+是多个用户能够同时操纵同一个数据库中
+的数据而不发生数据不一致现象
+
+1:更新丢失
+   二个事务更新同一条记录，前面更新被覆盖。
+2:脏读 
+   读取到另一个事务未提交的数据。
+3:不可重复读
+  一个事务在读取数据，另一个事务将其删除，
+  第一个事务再次读取发现与第一次读不一样。
+4:幻读
+  一个事务按相同的条件重新读取以前数据
+  ，另一个事务添加满足第一条事务的数据
+
+
+解决问题方式
+  MySQL 的InnoDB 都支持：
+READ_UNCOMMITTED。
+在提交前一个事务可以看到另一个事务的变化，脏读，不可重复读和虚读都可能发生。
+READ_COMMITTED。
+读取未提交的数据是不允许的，不可重复的读和虚读可能发生。
+REPEATABLE_READ。
+可以保证一个事务内读取的数据不会被改变，虚读仍然会出现。
+SERIALIZABLE。
+最高的事务级别，防止脏读、不可重复的读和虚读
+
+mysql 默认隔离级别是可重复读
+show variables like '%iso%';
+
+
+优化指令
+
+Profiling
+  Query Profiler是一个Query诊断分析工具，分析一条Query执行过程中多种资源消耗
+情况 CPU,memory 分析花费时间,
+
+开启
+ SET Profiling = 1;
+查询.......select...
+SHOW PROFILES;
+分析
+show profile cpu for query 3;
+show profile memory for query 3;
+show profile all for query 3;
+
+关闭
+set profiling = 0;
+
+
+//----------------------
+SHOW PROCESSLIST 
+查看正在执行sql语句
+
+
+
+
+EXPLAIN  分析mysql 执行计划;
+Possible_key :该查询可以利用的索引，如果没有任何索引可以使用null
+Key                : Mysql 从 Possible_key 中所选择使用索引
+Key_len            :被选中使用索引的索引长度
+Rows               :显示MySQL认为它执行查询时必须检查的行数
+extra              :如果出现 using filesort;using temporary 
+                     性能杀手;
+type               :const 最好   all 最不好
+
+
+
+  
+  
+索引
+1:主键索引    primary key
+2:唯一性索引  UNIQUE 
+3:普通索引    alter table note add index (name);
+4:组和索引    alter table note add index (id,content);
+5:前缀索引    alter table note add index (name(2));
+6:全文索引
+
+
+ CREATE TABLE IF NOT EXISTS `category` (       
+   `id` int(10) NOT NULL auto_increment,       
+   `fid` int(10) NOT NULL,       
+   `catname` char(255) NOT NULL,       
+   `addtime` char(10) NOT NULL,       
+   PRIMARY KEY  (`id`),       
+   FULLTEXT KEY `catname` (`catname`)       
+ ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;       
+       
+       
+ INSERT INTO `category` (`id`, `fid`, `catname`, `addtime`) VALUES      
+ (1, 0, 'welcome to you!', '1263363380'),       
+ (2, 0, 'hello phpjs,you are welcome', '1263363416'),       
+ (3, 0, 'this is the fan site of you', '1263363673');
+
+
+SELECT * FROM `category` WHERE MATCH(catname) AGAINST('phpjs');
+  
+
+//少于4个不行   50% 必须少于
+SELECT * FROM `category` WHERE MATCH(catname) AGAINST('this');
+//添加配置my.ini
+ft_min_word_len = 2
+INSERT INTO category values(5,1,'abcaa d d aaaaaa','f');
+select * from category
+WHERE MATCH(catname) AGAINST('aaaaaa');
+
+
+
+
+
+创建索引基本原则
+较频繁的作为查询条件字段应该创建索引
+select * from emp where empno = 1
+唯一性太差的字段不适合单独创建索引，即使频繁作为查询条件
+select * from emp where sex = '男'
+更新非常频繁的字段不适合创建索引
+select * from emp where logincount = 1
+不会出现在WHERE子句中字段不该创建索引：）
+
+
+
+
+
+
+
+慢日志???????????????????????????????????
+
+//---------------------------------
+
+2:实战
+
+
+1:一个库中最多300-400表
+2:单张表不超过50个纯INT字段
+3:单张表不超过20个char(10)字段
+
+BAD CASE
+1:INT(1) VS INT(11)
+2:BIGINT AUTO_INCREMENT 
+3:DECIMAL(18,0) 35字节 INT4个字节
+
+//---------------
+年龄
+TINYINT UNSIGNED;
+
+//-------------------
+如果有可以将字符串字段转为数字;
+1:高效
+2:查询快
+3:空间小
+
+无符号INT  存IP，非 char(15);
+1: INT UNSIGNED
+2:INET_ATON()  SELECT INET_ATON('202.10.10.10');
+3:INET_NTOA(); SELECT INET_NTOA(3389655562);
+
+//------------
+优先使用 ENUM
+1:ENUM 占1字节,
+2:比较时需加 ' [即使是数值]
+//---------------
+'sex' enum('F','M') comment '性别';
+'c1'  enum('0','1','2') comment '审核'
+//-----------------
+避免使用null 在字段中
+1:很难进行查询优化[]
+2:null列加索引，需要额外空间
+3:含null复合索引无效
+
+bad  a char(32) default null;
+bad  a int(10) not null;
+good a int(10) not null default 0;
+
+insert into t values (null);//报错
+insert into t (id,name)values(1,'1'); 少错 0 
+
+
+//--------------------
+少用并折分 text/blob
+text类型处理性能远低于varchar
+1:强制生成临时表
+2:浪费空间
+3:varchar(65535)==>64K[utf-8]
+4:尽量不用text
+5:如果必面使用则抓分到单独的表
+
+create table t1(
+  id int not null auto_increment,
+  data text not null,
+  primary key(id));
+
+//-------------------
+不在数据库中存储图片
+
+字段优化总结
+*用好数值字段类型 
+*将字符转化为数字 
+*优先使用ENUM/SET 
+*避免使用NULL字段 
+*少用TEXT/BLOB 
+*在数据库里存图片
+
+
+索引
+//--------------------
+1:字符字段必须建前缀索引
+//---------------------
+2:不要在索引列进行数学运算或函数运算
+ 1:无法使用索引
+ 2:导致全表扫描
+ 
+bad select id,name,age from test where id + 1 = 1000;
+bad select id,name,age from test where id  = 1000 - 1;
+//---------------------- 
+尽量不要用 SELECT * 
+//指定字符;
+而SELECT age,id from test;
+
+//-------------------
+!!同一字段::::改写 OR 为 IN();
+OR 效率[时间复杂度/算法复杂度] O(n)
+IN 效率[时间复杂度/算法复杂度] O(Log n)
+建议控制 IN 个数 小于200
+
+select id,name from test where id = '1' or id='2';
+select id,name from test whre id in('1','2');
+
+
+//----------------------------
+不同字段 将or改为union
+select id,name from test where id ='1' or name ='2';
+select id,name from test where id ='1'
+union
+select id,name from test where name ='2'
+
+//--------------------------------
+避免负向查询
+1:NOT ;!=;<> != NOT EXISTS,NOT IN ;
+2:避免%前缀模糊查询
+ 使用不了索引，导致全表扫描
+ good select id,name from test where name like '北京%';
+ bad  select id,name from test wehre name like '%北京';
+ 全文索引;
+ 
+//---------------------------
+不要用 count(*) == 内部 count(1);
+不为空的记数
+count(id)
+
+//----------------------------
+分页
+ select id,name from test limit 10000,10;
+ limit 原理
+ 1:取10010内容，删除前面，留后10条
+ 2:偏移量越大越慢;
+
+
+高效分页;
+1:
+  select id,name from test where id >= 100000 limit 11;
+//下一页  
+  select id,name from test where id >= 100011 limit 11;
+  
+2:
+  select id,name from test wehre id >= (
+  select id from table limit 10000,1) limit 10;
+
+3
+ select id,name from test inner join(
+ select id from test limit 10000,10) using(id);
+
+
+//---------------------------------------
+高并发
+1：不建议进行二个表以上的join
+ select id,name from tag join tag1 on tag.id = tag1.tid
+ join post on tag1.pid = post.id where tag.name = "二手";
+ 
+1:select id,name from tag where name = "二手";
+2:select id from post where  id = "123"; 
+3:select id from tag1 where ????????????
+
+
+//-----------------------
+group by 实现
+1:无需排序 order by null
+2:特定排序 group by desc/asc
+
+bad select phone,count(name) from test group by phone limit 1;
+bad select phone,count(name) from test group by phone order by null limit 1;
+
+
+//---------------------
+同数据类型的列值比较
+1:数字对数字，字符对字符
+2:数值列与字符类比较[转双精度]
+3:字符列与数值类型比较[字符整列转数值]
+
+ remark varchar(50) not null default '' comment '备注';
+ 
+ bad select id,name from test where remark = 1211;
+ good  select id,name from test where remark = '1211';
+
+//-------------------
+统一字符集编码
+1:统一字符集 UTF8
+2:校对规则 utf8_general_ci 不区分大不写
+3: 乱码 set names utf8
+
+//---------------------------
+统一命名规范
+1:库表字段一率小写
+2:mysql 库表名大小写敏感，字段不敏感!!
+3::索引  idx_字段名
+4:避免用保留字  `return`
+
+
+
+ 
+ //------------------------
+ 

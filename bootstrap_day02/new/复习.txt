@@ -1,0 +1,27 @@
+1、引入bootstrap.css
+2、引入jQuery.js
+3、引入bootstrap.js
+
+bootstrap不是所有的都有用：
+1、导航条
+2、巨幕
+3、无缝轮播
+4、下拉菜单（开关门）
+5、模态框
+6、缩略图
+7、表格（带边框、hover、隔行变色、响应式表格）和表单（普通、行内、水平）
+8、自己做响应式其实是很麻烦的（写媒体查询）：可用bootstrap的栅格式布局
+   栅格式布局是一个怪异盒子（box-sizing: border-box;）
+					content-box;
+
+   <div class="container/container-fluid">
+	<div class="row">
+		<div class="col-lg/md/sm/xs-1~12">
+
+	强调：1、小屏幕的宽度可以管住大屏幕，但是如果大屏幕自己也写了宽度，
+		 那么就用自己的
+	      2、可以偏移：靠右自动几个
+		 col-屏幕-offset-num
+   	      3、可以设置在某个屏幕下隐藏（只管自己屏幕）
+		 hidden-屏幕
+

@@ -1,0 +1,37 @@
+数据库：存放着很多很多的数据
+
+数据库操作
+1、创建数据库
+   CREATE DATABASE IF NOT EXISTS 数据库名称 CHARACTER SET utf8;
+
+2、查看数据库
+   SHOW DATABASES;
+
+3、切换数据库
+   USE 数据库名称;
+
+4、删除数据库
+   DROP DATABASE IF EXISTS 数据库名称;
+
+
+数据表操作
+1、创建数据表
+   CREATE TABLE 数据表名(
+	字段名1 数据类型,
+	字段名2 数据类型
+   )
+
+   主键约束：PRIMARY KEY
+   主键自增：AUTO_INCREMENT
+
+
+*****记录的操作
+     新增：INSERT INTO 表名 VALUES(字段值1,字段值2...)
+
+     更新：UPDATE 表名 SET 字段名=字段值 WHERE 字段名=字段值;
+
+     删除：DELETE FROM 表名 WHERE 字段名=字段值;
+
+     查看：取出数据表所有的记录：SELECT * FROM 表名;
+	   取出数据库某些字段名的记录：SELECT 字段名1,字段名2... FROM 表名
+	   取出某条记录：SELECT * FROM 表名 WHERE id=?;

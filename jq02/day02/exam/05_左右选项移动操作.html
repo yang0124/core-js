@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>左右选项移动操作</title>
+    <script src="jquery-1.11.3.min.js"></script>
+    <style>
+        select {
+            width: 100px;
+            height: 85px;
+        }
+
+        div {
+            display: inline-block;
+            width: 50px
+        }
+    </style>
+</head>
+<body>
+    <select id="first" size="5" multiple>
+        <option>Argentina</option>
+        <option>Brazil</option>
+        <option>Canada</option>
+        <option>Chile</option>
+        <option>China</option>
+        <option>Cuba</option>
+        <option>Denmark</option>
+        <option>Egypt</option>
+        <option>France</option>
+        <option>Greece</option>
+        <option>Spain</option>
+    </select>
+    <div>
+        <button id="add">&gt;</button>
+        <button id="add_all">&gt;&gt;</button>
+        <button id="remove">&lt;</button>
+        <button id="remove_all">&lt;&lt;</button>
+    </div>
+    <select id="second" size="5" multiple>
+    </select>
+			
+    <script>
+    	var fir=[];
+    	var sec=[];
+    	fir=$("#first").html().trim().slice(8,-9).split(/<\/option>\s*<option>/); 
+    	
+      	$("button").click(function(){
+      		 if($(this).html()=="&gt;"){
+      		 	sec=sec.concat(fir);
+      		 	fir=[];
+      		 	console.log(fir);
+      		 	console.log(sec);
+//    		 	$("#first").html("");
+//    		 	$("#second").html("<option>"+sec.join("</option><option>")+"<option>")
+      		 }else if($(this).html()=="&lt;"){
+      		 	fir=fir.concat(sec);
+      		 	sec=[];
+      		 	console.log(fir);
+      		 	console.log(sec)
+//    		 	$("#second").html("");
+//    		 	$("#first").html("<option>"+fir.join("</option><option>")+"<option>")
+      		 }
+      	});
+      	show();
+   		function show(){
+   			if(fir.length==0){
+   				$("#first").html("");
+   			}else{
+   				$("#first").html(`<option>"+fir.join("</option><option>")+<option>`)
+   			}
+   			
+   			if(sec.length==0){
+   				$("#second").html("");
+   			}else{
+   				$("#second").html(`<option>"+sec.join("</option><option>")+<option>`)
+   			}
+   		}
+		 
+    </script>
+</body>
+</html>

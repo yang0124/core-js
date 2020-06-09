@@ -1,0 +1,53 @@
+div {
+  width: 100px;
+  height: 100px;
+  background: #ff4448;
+}
+
+span {
+  background: #ff4448;
+}
+
+h1 {
+  background: #ff4448;
+}
+
+h2 {
+  color: #ff4448;
+}
+
+h1 {
+  width: 100px;
+  background: blue;
+}
+
+span {
+  background: blue;
+  border: 1px solid blue;
+}
+
+.nav {
+  width: 1200px;
+  margin: 0 auto;
+}
+.nav > ul {
+  overflow: hidden;
+}
+.nav > ul li {
+  float: left;
+}
+.nav > ul li a {
+  text-decoration: none;
+}
+.nav + p {
+  color: pink;
+}
+.nav:hover {
+  background: red;
+}
+.nav > .d1, .nav ~ .d2 {
+  width: 100px;
+  height: 100px;
+}
+
+/*# sourceMappingURL=03zhenghe.css.map */

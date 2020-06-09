@@ -1,0 +1,62 @@
+1、gulp
+   自动化构建工具
+   作用：
+	1、复制
+	2、压缩（css、JS、图片）
+	3、将ES6降级为ES5
+   为什么：
+	上线过后，肯定使用的是处理过后的代码
+
+   gulp是基于Node.js编写的一个模块（包、软件），需要在npm下载
+	安装：1、必须先安装全局（不安的话，gulp不是内部命令）
+	      2、再在局部安装
+	      3、在当前项目打开命令行输入一句话
+		 npm init
+		 注意：名字需要自己输入，并且不能有大写
+	      4、配置完成，开始编写属于你自己的gulpfile.js
+  
+   如何使用gulp：
+   1、先引入
+   API：
+   1、布置任务
+      gulp.task("任务名",[数组可以放入多个任务],()=>{
+	  //任务要做的操作
+      })
+      执行任务：右键打开cmd，然后输入gulp 任务名
+		如果没写任务名，默认为default
+
+   2、复制：
+      gulp.task("任务名",[数组可以放入多个任务],()=>{
+	  gulp.src("源文件").pipe(gulp.dest("./www/"));
+      })
+
+      gulp.src();//选中某个/某些源文件
+	  .pipe();//管道 -- 输送/插件操作
+      gulp.dest();//输送到那个位置去
+
+      文件的路径写法：
+	比如：想找到src下面css下面index.css：src/css/index.css
+	      想找到src下面css下面所有的css：src/css/*.css
+	      想找到src下面css下面所有的东西：src/css/*
+	      我希望src下面的两级目录全都赋值：src/*/**;
+
+      恭喜你，你已经学了gulp了
+
+-----------------------------------------------------------------------------------
+
+   3、gulp的插件的使用
+      在npm中去所有插件，里面有使用说明...
+
+      需要记忆的就是插件名：
+      1、css压缩：gulp-cssmin;
+      2、js压缩：gulp-uglify; 用法同上，把cssmin()换为uglify()即可/ES6压不动
+      3、ES降级：gulp-babel; 目的：1、能够压缩 2、语法变回ES5
+	 *安装：npm install --save-dev gulp-babel@7 babel-core babel-preset-env
+		 用法：先转为ES5再压缩
+		 参考网页：https://www.cnblogs.com/yinluhui0229/p/5566390.html
+      4、图片压缩：
+		 参考网页：https://blog.csdn.net/x550392236/article/details/78017346
+
+作业：
+  1、把你们所有的项目打包（css压缩、JS降级压缩、html、字体文件复制、图片文件压缩）
+     明天将所有二阶段做过的项目收集起来交给孙老师

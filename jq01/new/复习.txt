@@ -1,0 +1,48 @@
+1、XML格式：配置文件|*数据格式
+   声明文档
+   <?xml version="1.0" encoding="UTF-8"?>
+   根元素必须是一个双标签，而且只能出现一次
+   <gen>
+	<name>周人杰</name>
+	<name sg="周人杰" />
+   </gen>
+   
+   后端会想办法将数据库的数据整理为XML格式
+ 
+   前端使用ajax获取后端整理好的XML，xhr.responseXML获取。是一个DOM对象
+	就可以通过核心DOM去做操作
+
+2、JSON格式：是现在最流行的最火的数据格式
+   好处：1、传输快  2、解析快  3、好用
+
+   var jsonTxt='[]';
+	      ='{"name","周人杰"}'
+	      ='[{},{},{},{}]'
+	      ='{"names":[]}'
+
+  *解析为json对象
+	var jsonObj=JSON.parse(jsonTxt);
+		   =eval("("+jsonTxt+")");
+
+   jsonObj->jsonTxt
+	var jsonTxt=JSON.stringify(jsonObj);   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

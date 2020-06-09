@@ -1,0 +1,26 @@
+$bg: #e4393c+#123456;
+@mixin whb($a:300px,$b:300px,$c:$bg){
+    width: $a;
+    height: $b;
+    background: $c;
+}
+.container{
+    width: 1200px;
+    margin: 0 auto;
+    div{
+        @include whb;
+    }
+    span{
+        @include whb(100px,100px,$bg);
+        display: inline-block;
+    }
+    ul{
+        overflow: hidden;
+        list-style: none;
+        li{
+            float: left;
+            @include whb(100px,50px,$bg);
+            border: 1px solid $bg;
+        }
+    }
+}

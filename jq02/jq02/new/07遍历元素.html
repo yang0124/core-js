@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>魔兽世界</li>
+			<li>魔兽争霸</li>
+			<li>星际争霸</li>
+			<li>守望先锋</li>
+			<li>炉石传说</li>
+			<li>风暴英雄</li>
+		</ul>
+		
+		<ul>
+			<li>魔兽世界</li>
+			<li>魔兽争霸</li>
+			<li>星际争霸</li>
+			<li>暗黑破坏神</li>
+			<li>守望先锋</li>
+			<li>炉石传说</li>
+			<li>风暴英雄</li>
+		</ul>
+		
+		<script src="jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+//			console.log($("ul:first-child").parent());
+//			console.log($("ul:first-child").children());
+//			console.log($("ul:first-child").parents());
+			
+			
+//			console.log($("li:contains(暗黑破坏神)").prev().prev())
+//			console.log($("li:contains(暗黑破坏神)").next())
+//			console.log($("li:contains(暗黑破坏神)").siblings())
+
+
+			$("li").click(function(){
+				$(this).css("background","red");
+				$(this).siblings().css("background","transparent");
+			})
+		</script>
+	</body>
+</html>

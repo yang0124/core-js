@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="i1" />
+		
+		<script src="laydate/laydate.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			laydate.render({
+				elem: "#i1"
+				,type: 'datetime'
+				,range: true
+				,format: 'yyyy年MM月dd日'
+				,calendar: true
+				,mark: {
+				    '0-2-21': '生日'
+				    ,'0-0-10': '工资' //每月某天
+				}
+				,theme: 'grid'
+				,position: 'static'
+			})
+		</script>
+	
+	</body>
+</html>

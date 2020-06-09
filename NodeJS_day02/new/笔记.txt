@@ -1,0 +1,155 @@
+Node.js模块分类
+   1、官方模块
+	global、buffer、querystring、url、fs、http...
+   2、第三方模块
+	mysql、MongoDB、express...
+   3、自定义模块
+	文件模块和目录模块
+
+今日目标
+1、自定义模块 和 NPM - 有些乱但是一定要注意理解
+   1、自定义模块有两种形式
+      1、文件模块
+	 创建一个01other.js文件，导出需要公开的数据，
+					其他模块就可以require("./模块名");
+      2、目录模块
+	 方式1：创建名为m4的文件夹，其中创建一个index.js的文件，导出需要公开的数据，其	        	他模块可以引入：require("./m4");
+	 方式2：创建名为m5的文件夹，其中创建一个随意.js的文件，导出需要公开的数据，
+		创建package.json配置文件写入{"main":"xx.js"}，其他模块可以引入：				require("./m5");
+	*方式3：创建一个目录，必须名为node_modules，其中再创建目录模块，假设名为m6，其中创建index.js或者你随意，但是如果你随意的话记得要写package.json，其他模块引入：
+		require("m6");
+
+练习：使用方式3，创建两个目录模块：circle/rectangle,都对外公开两个方法size           (),perimiter()，返回图形的面积和周长
+
+练习：如果有个文件名为m7.js，还有个目录m7/index.js，还有个node_modules/m7/index.js，
+      最后主程序中：
+	require("./m7")
+	require("m7");
+
+   2、NPM包管理器
+      Node Package Manager：Node.js的第三方模块/包管理器，可用于下载、更新、删除、维			    护包之间依赖关系的工具，安装Node.js的时候已经安装了
+	npm工具默认到www.npmjs.com网站下载所需要的第三方模块宝
+	注意：人人都能注册登录上传你的包！！！所以导致问题，包太多了，哪怕是同一个功能	              的不同的人封装也不一样，一定能找到一个完全符合版
+	
+      使用npm工具下载一个新的软件包：
+	下载：npm install 包名
+	删除：npm uninstall 包名
+	更新：npm update 包名
+
+	更多的命令可以选择百度
+
+上午的练习：
+  1、以上两个练习
+  2、尝试使用npm进行下载和删除
+
+2、常用的原生（官方）模块 - 重点 & 难点
+   1、Node.js官方模块 - global
+   2、Node.js官方模块 - querystring
+	querystring 模块用于处理http请求url中的查询字符串部分
+	需要引入：const qs = require('querystring');
+	API：
+       *1、var obj=qs.parse(str);//把查询字符串解析为js对象
+	2、var str=qs.stringify(obj);//把js对象转换为查询字符串
+
+      此模块虽然能解析查询字符串，但是也只能解析查询字符串
+
+   3、Node.js官方模块 - url
+        url模块用于*解析*一个http请求地址，获取其中各个不同的部分（昨天的作业）
+	需要引入：const url = require('url');
+	API：
+	1、var obj=url.parse(str);//把一个url字符串解析为一个对象
+	2、var obj=url.parse(str,true);//把一个url字符串解析为一个对象
+					 悄悄地用上querystring模块的parse方法，不需					 要我们手动使用，就会在查询字符串部分解析为
+					 对象
+
+   4、Node.js官方模块 - buffer
+      buffer：缓冲区，本质是一块内存区域，用于暂存以后要用到的数据（可能是数字，字符串，二进制图片/视频音频等），该区域就称为"缓存"。其实就是一种node才有的新的数据类型
+
+      1、将xx转为buffer
+	 var buf1=Buffer.from("xxx");
+
+      2、如果获得的是一个Buffer类型我们怎么才能转为原文
+	 buf1.toString();
+
+   5、Node.js官方模块 - fs - 重点
+      fs模块提供了对文件系统中的文件/目录进行增删改查、读写的功能
+	需要引入：const fs = require('fs');
+	//同步读取文件中的内容
+	  var buf=fs.readFileSync("./文件路径");
+	//同步向文件中写入内容（删除已有内容）
+	  fs.writeFileSync("./文件路径","写入的内容"/buf)
+	//同步向文件中追加内容（不会删除已有内容）
+	  fs.appendFileSync("./文件路径","写入的内容"/buf)
+
+	练习：使用上述方法，实现把index.css文件复制一份 index.backup.css
+
+	//异步读取文件中的内容(效率高)
+	  fs.readFile("./public/readme.txt",(err,data)=>{
+		//可能中间的操作比较复杂，慢慢做，让后面的人先做
+		console.log(data);
+	  })
+
+	//异步向文件中写入内容（删除已有内容）
+	  fs.writeFile/appendFile("./文件",str/buf,()=>{
+		//只有执行完毕才会执行
+	  })
+
+	练习：使用上述方法，实现把index.css文件复制一份 index.backup.css
+
+	提示：后续的项目中，文件读写可以使用同步或者异步，但是更推荐异步！！！
+
+   6、Node.js官方模块 - http -- 超重点
+      HTTP模块可以用于编写基于HTTP协议的服务器端
+      需要引入：const http=require('http')
+
+      服务器可以干什么？
+	（1）接受客户端的HTTP请求消息
+	（2）解析客户端HTTP请求消息
+	（3）读取客户端请求的文件
+	（4）向客户端发送HTTP响应消息，主体就是客户端请求的文件
+
+	//创建服务器
+	var server=http.createServer();
+	//为服务器设置监听端口
+	server.listen(80);
+	//为服务器端绑定监听客户端请求事件
+	server.on("request",(req,res)=>{
+		req//对象，请求对象
+		   //req.url可以判断前端发来的请求是什么
+		res//对象，响应对象
+		   //res.end||res.write 可以向前端响应输出什么
+		console.log("客户端发来了请求");
+	})
+
+
+作业：
+  1、我做过的所有的小练习
+  2、使用Node.js搭建一个服务器端
+	根据前端请求的消息不同，响应不同的页面，至少3个响应页面
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

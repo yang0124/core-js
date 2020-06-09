@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 500px;
+				height: 500px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<button>隐藏按钮</button>
+		<input type="button" value="显示按钮" />
+		<script src="jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("button").click(function(){
+				$("div").slideToggle();
+			})
+			
+		</script>
+	</body>
+</html>

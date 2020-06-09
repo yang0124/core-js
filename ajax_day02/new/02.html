@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			table{
+				width: 600px;
+				margin: 0 auto;
+				border: 1px solid #000;
+				border-collapse: collapse;
+				table-layout: fixed;
+				text-align: center;
+			}
+			td{
+				border: 1px solid #000;
+				
+			}
+		</style>
+	</head>
+	<body id="bd">
+		<script type="text/javascript">
+			var xhr=getXhr();
+			xhr.open("GET","02.xml");
+			xhr.send(null);
+			xhr.onreadystatechange=()=>{
+				if(xhr.status==200 && xhr.readyState==4){
+					var data=xhr.responseXML;
+
+					function dg(x){
+						
+						var select=document.createElement("select");
+						var arr=x.getElementsByTagName("State");
+						for(var i=0;i<arr.length;i++){
+							select.add(new Option(arr[i].children[0].innerHTML,arr[i].children[1].innerHTML));
+						}
+						select.onchange=function(){
+							while(this.parentNode.lastElementChild!=this){
+								this.parentNode.removeChild(this.parentNode.lastElementChild);
+							}
+							var i=this.selectedIndex;
+							
+							if(arr[i].nodeName=="State"){
+								if(arr[i].children.length>2){
+									dg(arr[i],"City");
+								}
+							}else if(arr[i].nodeName=="City"){
+								if(arr[i].children.length>2){
+									dg(arr[i],"Region");	
+								}
+							}
+						}
+						bd.appendChild(select);
+					}
+					dg(data);
+				}
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			function getXhr(){
+				var xhr=null;
+				if(XMLHttpRequest){
+					xhr=new XMLHttpRequest();
+				}else{
+					xhr=new ActiveXObject("Microsoft.XMLHttp");
+				}
+				return xhr;
+			}
+		</script>
+	</body>
+</html>

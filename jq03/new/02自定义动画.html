@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			div{
+				width: 0px;
+				height: 0px;
+				background: red;
+				overflow: hidden;
+				position: absolute;
+				border: 1px solid purple;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<button>点击</button>
+		<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia debitis libero totam praesentium alias reiciendis necessitatibus tempora asperiores amet aperiam eaque hic nesciunt earum aliquam velit enim quis eius repudiandae.</div>
+		
+		
+		<script type="text/javascript">
+			$("button").click(()=>{
+				// $("div").animate({
+				// 	"width": "150px",
+				// 	"height":"20px",
+				// },500).animate({
+				// 	"height": "150px",
+				// },500)
+//				$("div").animate({
+//					"left":"0px"
+//				},50).animate({
+//					"left":"12px"
+//				},50).animate({
+//					"left":"0px"
+//				},50).animate({
+//					"left":"12px"
+//				},50).animate({
+//					"left":"-10px"
+//				},50).animate({
+//					"left":"22px"
+//				},50).animate({
+//					"left":"-20px"
+//				},50).animate({
+//					"left":"32px"
+//				},50).animate({
+//					"left":"-30px"
+//				},50).animate({
+//					"left":"42px"
+//				},50).animate({
+//					"left":"-1000px"
+//				},500,()=>{
+//					$("div").hide();
+//				})
+				$("div").animate({
+					"width":"300px",
+				},1000).animate({
+					"height":"300px",
+				},1000).animate({
+					"left":"100px",
+				},1000).animate({
+					"left":"100px",
+				},1000).animate({
+					"border-width":"10px",
+				},1000).animate({
+					"border-radius":"50%",
+				},1000);
+				// $("div").css({
+				// 	"width":"300px",
+				// 	"height":"300px",
+				// 	"left":"100px",
+				// 	"left":"100px",
+				// 	"border":"10px solid #e4393c",
+				// 	"border-radius":"50%",
+				// 	"transform":"rotate(360deg)",
+				// 	"color":"#fff"
+				// })
+				// $("div").animate({
+				// 	"width":"300px",
+				// 	"height":"300px",
+				// 	"left":"100px",
+				// 	"left":"100px",
+				// 	"border-width":"10px",
+				// 	"border-radius":"50%",
+				// },1000);
+			})
+		</script>
+	</body>
+</html>

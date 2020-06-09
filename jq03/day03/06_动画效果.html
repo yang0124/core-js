@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格隔行变色</title>
+<style type="text/css">
+	div{
+		width:200px;
+		height: 200px;
+		border:1px solid red;
+    background-color: green;
+    position: absolute;
+    left:0px;
+    top:35px;
+	}
+</style>
+</head>
+<body>
+<div></div>
+<input type="button" id="btn" value="按钮" />
+
+<script type="text/javascript" src="jquery-1.11.3.min.js">
+</script>
+<script type="text/javascript">
+ $("#btn").click(function(){
+	/*
+   //显示与隐藏
+   //1:给btn元素添加点击事件
+     if($("div").is(":hidden")){
+   //2:当前div元素如果隐藏 显示 1500/出警框 显示成功
+     $("div").show(5000,function(){
+     	alert("显示成功");
+     });
+   //alert("显示成功");
+     }else{
+   //3:如果当前div显示 隐藏     500 /出警框 隐藏成功
+     $("div").hide(5000,function(){
+     	alert("隐藏成功");
+     })
+   //alert("隐藏成功");
+	 }
+	*/
+	
+   //滑动
+   //1:给btn元素添加点击事件
+   /*
+   if($("div").is(":hidden")){
+   //2:当前div元素如果隐藏 显示 1500/出警框 显示成功
+   $("div").slideDown(5500,function(){
+     alert("显示成功");
+   });
+   }else{
+   //3:如果当前div显示 隐藏     500 /出警框 隐藏成功
+   $("div").slideUp(5500,function(){
+    alert("隐藏成功");
+   });
+   }
+   */
+   //淡入淡出
+   /*
+   if($("div").is(":hidden")){
+   //2:当前div元素如果隐藏 显示 1500/出警框 显示成功
+   $("div").fadeIn(5500,function(){
+     alert("显示成功");
+   });
+   }else{
+   //3:如果当前div显示 隐藏     500 /出警框 隐藏成功
+   $("div").fadeOut(5500,function(){
+    alert("隐藏成功");
+   });
+   }
+   */
+
+
+   //toggle切换
+//   $("div").toggle(1500);
+//   $("div").slideToggle(1000);
+
+
+
+   //自定义写一个动画效果
+   /*
+   $("div").animate({height:0},3000,function(){
+     $("div").hide();
+   });
+   */
+   //
+   /*
+   $("div").animate(
+    {
+     height:400,
+     width:400
+    }
+    ,3000,function(){
+      $("div").hide();
+   });
+   */
+   //使用第二种方式，设置自定义动画
+   /*
+   $("div").animate(
+    {height:400,
+     width:400},
+     {duration:3000,
+      complete:function(){
+        alert("动画结束");
+      }});
+    */
+
+    //动画队列
+    /*
+    $("div").animate({
+      width:100,
+      height:100
+    },3000).animate({
+      left:300
+    },3000).animate({
+      top:300
+    },3000,function(){
+       $("div").hide();
+    });
+    */
+    //并发
+    /*
+    $("div").animate({
+      width:100,
+      height:100,
+      left:300,
+      top:300
+    },3000,function(){
+      $("div").hide();
+    });
+   */
+
+   $("div").animate({
+     width:100,
+     height:100
+   },{
+     duration:3000
+   }).animate({
+    left:300
+   },{
+     duration:3000,
+     queue:false//希望动画在某一步时同时进行，就用这个属性
+   }).animate({
+    top:300
+   },{
+     duration:3000,
+     queue:false,
+     complete:function(){
+      $("div").hide();
+     }
+   });
+
+
+ });
+
+
+</script> 
+
+</body>
+</html>

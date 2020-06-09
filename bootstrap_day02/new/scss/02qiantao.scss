@@ -1,0 +1,25 @@
+.nav{
+    width: 1200px;
+    margin: 0 auto;
+    >ul{
+        overflow: hidden;
+        li{
+            float: left;
+            a{
+                text-decoration: none;
+                
+            }
+        }
+    }
+    +p{
+        color: pink;
+    }
+    &:hover{
+        background: red;
+    }
+    >.d1,~.d2{
+        width: 100px;
+        height: 100px;
+    }
+}
+

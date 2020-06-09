@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>插件的使用</title>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="plugin/plugin1.js"></script>
+	<script type="text/javascript" src="plugin/plugin2.js"></script>	
+</head>
+<body>
+   <input type="button" value="ok"  id="btn"/>
+<script>
+  $(function(){
+    //对象插件
+    //$("#btn").test();
+    //全局函数插件
+    var r = $.add(1,3);
+    alert(r);
+  });
+</script>
+</body>
+</html>

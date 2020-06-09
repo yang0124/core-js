@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.div{
+				width: 200px;
+				height: 200px;
+				background: pink;
+			}
+			.hide{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<button>变</button>
+		<div class="div"></div>
+		
+		<script src="jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("button").click(function(){
+				if($("div").hasClass("hide")==false){
+					$("div").addClass("hide");
+				}else{
+					$("div").removeClass("hide");
+				}
+			})
+
+//			$("button").click(function(){
+//				$("div").toggleClass("hide");
+//			})
+		</script>
+	</body>
+</html>

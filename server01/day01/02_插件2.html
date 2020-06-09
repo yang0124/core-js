@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>插件的使用</title>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="plugin/plugin3.js"></script>	
+</head>
+<body>
+   <ul id="orderObj">
+      <li>a</li>
+      <li>cc</li>
+      <li>b</li>
+      <li>aaa</li>
+   </ul>
+<script>
+  $(function(){
+    $("#orderObj li").sort($("#orderObj"));
+  });
+</script>
+</body>
+</html>

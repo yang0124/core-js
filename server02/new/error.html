@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1 id="h1">失败</h1>
+		<script type="text/javascript">
+			var code=(location.search.split("=")[1]);
+			h1.innerHTML=decodeURIComponent(code)+"失败";
+			
+			setTimeout(()=>{
+				location="一条龙.html";
+			},5000)
+		</script>
+	</body>
+</html>

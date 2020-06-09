@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 300px;
+				height: 300px;
+				border: 1px solid #000;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="">
+			<a href="">的萨达撒</a>
+		</div>
+		<script src="jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("body").click(function(){
+				alert("body");
+			})
+			$("div").click(function(e){
+				alert("div");
+				e.stopPropagation();
+			})
+			$("a").click(function(e){
+				alert("a");
+				e.stopPropagation();
+			})
+		</script>
+	</body>
+</html>

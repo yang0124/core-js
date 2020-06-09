@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title></title>
+  <link href="css/bootstrap.css" rel="stylesheet">
+
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.min.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<div class="container">
+  <h1>全局CSS样式——表单</h1>
+
+  <h3>默认表单</h3>
+  <form action="">
+    <div class="form-group">
+      <label for="uname">用户名：</label>
+      <input class="form-control" id="uname" type="text"/>
+      <span class="help-block">用户名可以包含数字、字母、下划线</span>
+    </div>
+
+    <div class="form-group">
+      <label for="upwd">密码：</label>
+      <input class="form-control" id="upwd" type="password"/>
+      <span class="help-block">密码长度在6~12位之间</span>
+    </div>
+
+    <div class="form-group">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox">一周之内不再登录
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input class="btn btn-success" type="button" value="提交"/>
+      <input class="btn btn-warning" type="button" value="清空"/>
+    </div>
+  </form>
+
+  <h3>行内表单</h3>
+  <form class="form-inline" action="">
+    <div class="form-group">
+      <!--Screen Reader Only-->
+      <label class="sr-only" for="uname2">用户名：</label>
+      <input class="form-control" id="uname2" placeholder="注册名/邮箱/电话" type="text"/>
+      <!--<span class="help-block">用户名可以包含数字、字母、下划线</span>-->
+    </div>
+
+    <div class="form-group">
+      <label class="sr-only" for="upwd2">密码：</label>
+      <input class="form-control" id="upwd2" placeholder="注册时的密码" type="password"/>
+      <!--<span class="help-block">密码长度在6~12位之间</span>-->
+    </div>
+
+    <!--<div class="form-group">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox">一周之内不再登录
+        </label>
+      </div>
+    </div>-->
+
+    <div class="form-group">
+      <input class="btn btn-success" type="button" value="提交"/>
+      <!--<input class="btn btn-warning" type="button" value="清空"/>-->
+    </div>
+  </form>
+
+
+  <h3>水平表单</h3>
+  <form class="form-horizontal" action="">
+    <div class="form-group">
+      <!--<div class="col-sm-2">
+        <label class="control-label" for="uname3">用户名：</label>
+      </div>-->
+      <label class="col-sm-2 control-label" for="uname3">用户名：</label>
+      <div class="col-sm-5">
+        <input class="form-control" id="uname3" type="text"/>
+      </div>
+      <div class="col-sm-5">
+        <span class="help-block">用户名可以包含数字、字母、下划线</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+     <!-- <div class="col-sm-2">
+        <label class="control-label" for="upwd3">密码：</label>
+      </div>-->
+      <label class="col-sm-2 control-label" for="upwd3">密码：</label>
+      <div class="col-sm-5">
+        <input class="form-control" id="upwd3" type="password"/>
+      </div>
+      <div class="col-sm-5">
+        <span class="help-block">密码长度在6~12位之间</span>
+      </div>
+    </div>
+
+    <div class="form-group">   <!--ROW-->
+      <div class="col-sm-10 col-sm-offset-2"><!--COL-->
+        <div class="checkbox">  <!--CONTENT-->
+          <label>
+            <input type="checkbox">一周之内不再登录
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-10 col-sm-offset-2">
+        <input class="btn btn-success" type="button" value="提交"/>
+        <input class="btn btn-warning" type="button" value="清空"/>
+      </div>
+    </div>
+  </form>
+</div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/bootstrap.js"></script>
+<script>
+  (function () {
+    var s = document.createElement("script");
+    s.onload = function () {
+      bootlint.showLintReportForCurrentDocument([]);
+    };
+    s.src = "js/bootlint.js";
+    document.body.appendChild(s)
+  })();
+</script>
+</body>
+</html>

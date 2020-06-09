@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>使用Selector API实现购物车客户端计算</title>
+<meta charset="utf-8" />
+<style>
+	table{width:600px; text-align:center;
+		border-collapse:collapse;
+	}
+	td,th{border:1px solid black}
+	td[colspan="3"]{text-align:right;}
+</style>
+</head>
+<body>
+	<table id="data">
+		<thead>
+			<tr>
+				<th>商品名称</th>
+				<th>单价</th>
+				<th>数量</th>
+				<th>小计</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>iPhone6</td>
+				<td>&yen;4488</td>
+				<td>
+					<button  >-</button>
+					<span>1</span>
+					<button  >+</button>
+				</td>
+				<td>&yen;4488</td>
+			</tr>
+			<tr>
+				<td>iPhone6 plus</td>
+				<td>&yen;5288</td>
+				<td>
+					<button  >-</button>
+					<span>1</span>
+					<button  >+</button>
+				</td>
+				<td>&yen;5288</td>
+			</tr>
+			<tr>
+				<td>iPad Air 2</td>
+				<td>&yen;4288</td>
+				<td>
+					<button  >-</button>
+					<span>1</span>
+					<button  >+</button>
+				</td>
+				<td>&yen;4288</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="3">Total: </td>
+				<td>&yen;14064</td>
+			</tr>
+		</tfoot>
+	</table>
+	<script src="jquery-1.11.3.min.js" type="text/javascript"></script>
+	<script type="text/javascript">	
+		$("button").click(function(){
+			if($(this).html()=="+"){
+				var num=$(this).prev().html()*1+1;
+				$(this).prev().html(num);
+				var price=$(this).parent().prev().html().slice(1);
+				$(this).parent().next().html("￥"+price*num);
+				var a=$("tbody tr td:last-child").html();
+				for(var i=0;i<)
+			}else{
+				
+			}
+		})
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//思路:
+//		$("button").click(function(){							 //1.找到按钮绑定点击事件
+//			var price=$(this).parent().prev().html().slice(1);   //2.判断点的+还是-
+//			if($(this).html()=="+"){ //点的+						 //3.取出相对应的数量 做+/-后保存起来 并赋值回去(如果是加，则需转换成numbe类型后做运算；															 //     如果是减，则数量只能大于1时才能减1)
+//				var num=parseInt($(this).prev().html())+1;		 //4.单价*数量后赋值给对应的小计
+//				$(this).prev().html(num);						 //5.计算总计:取出每个商品的小计做求和（循环取出每个小计，															 //				转成number类型后做求和） 循环结束后将和赋值给总计
+//				$(this).parent().next().html('￥'+num*price);
+//				total();
+//			}else{//点的-
+//				var num=$(this).next().html();
+//				if(num>1){
+//					$(this).next().html(num-1);
+//					$(this).parent().next().html('￥'+(num-1)*price);
+//				}
+//				total();
+//			}
+//			function total(){
+//				var sum=0;
+//				var conts=$("tbody tr td:last-child");//类数组   直接.html()只会得到第一个的内容 ,需要用循环
+//				for(var i=0;i<conts.length;i++){
+//					sum+=conts[i].innerHTML.slice(1)*1;
+//				}
+//				$("tfoot tr td:last-child").html("￥"+sum);
+//			}
+//		})
+// 		let trs=document.querySelectorAll("tbody>tr");
+// 		//总计
+// 		let zongji=function(){
+// 			let total=0;
+// 			for(let k=0;k<trs.length;k++){
+// 			let xiaoji=parseInt(trs[k].lastElementChild.innerHTML.slice(1));
+// 				total+=xiaoji;
+// 			}
+// 			document.querySelectorAll("tfoot>tr>td")[1].innerHTML="￥"+total;
+// 		}
+// 		//给每个+/—按钮绑定点击事件
+// 		let buttons=document.getElementsByTagName("button");
+// 		for(let j=0;j<buttons.length;j++){
+// 			buttons[j].onclick=function(){
+// 				//取单价
+// 				let price=this.parentNode.previousElementSibling.innerHTML.slice(1);
+// 				if(buttons[j].innerHTML=="-"){	
+// 					//变化数量
+// 					let change_num=parseInt(this.nextElementSibling.innerHTML);
+// 					if(change_num>1){
+// 						this.nextElementSibling.innerHTML=change_num-1;
+// 					}
+// 					// 小计
+// 					let num=this.nextElementSibling.innerHTML;//变化后的数量
+// 					this.parentNode.nextElementSibling.innerHTML="￥"+price*num;
+// 					//总计
+// 					zongji();
+// 				}else{
+// 					//变化数量,并取出
+// 					let change_num=parseInt(this.previousElementSibling.innerHTML);
+// 					this.previousElementSibling.innerHTML=change_num+1;
+// 					// 小计
+// 					let num=this.previousElementSibling.innerHTML;//变化后的数量
+// 					this.parentNode.nextElementSibling.innerHTML="￥"+price*num;
+// 					//总计
+// 					zongji();
+// 				}
+// 			}
+// 		}
+	</script>
+</body>
+</html>

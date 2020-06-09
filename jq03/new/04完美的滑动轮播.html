@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				vertical-align: top;
+			}
+			img{
+				width: 100%;
+				height: 300px;
+				float: left;
+				position: absolute;
+			}
+			.carousel{
+				width: 100%;
+				height: 300px;
+				overflow: hidden;
+				position: relative;
+			}
+			button:nth-of-type(1){
+				position: absolute;
+				left: 0;
+				top: 0;
+				z-index: 1;
+				
+			}
+			button:nth-of-type(2){
+				position: absolute;
+				left: 20px;
+				top: 0;
+				z-index: 1;
+				
+			}
+			ul{
+				position: absolute;
+				bottom: 10px;
+				left: 50%;
+				z-index: 1;
+			}
+			li{
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				background: #ccc;
+				display: inline-block;
+			}
+			li.active{
+				background:red;
+			}
+			.rimg{
+				left: 100%;
+			}
+			.limg{
+				left: -100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="carousel">
+			
+			<img src="img/wow1.jpg"/>
+			
+			<button><</button>
+			<button>></button>
+			<ul>
+				<li class="active"></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		
+		<script type="text/javascript">
+			var srcs=["img/wow1.jpg","img/wow2.jpg","img/wow3.jpg"];
+			var i=0;
+			$("button").click(function(){
+				if(!$("img").is(":animated")){//没有动画的时候才执行
+					if($(this).html()=="&gt;"){
+						i++;
+						if(i==3){
+							i=0;
+						}
+						$rimg=$(`<img class='rimg' src='${srcs[i]}'>`);
+						$(".carousel").append($rimg);
+						
+						$("img:eq(0)").animate({
+							"left":"-100%"
+						},1000,()=>{
+							$("img:eq(0)").remove();
+						});
+						
+						$("img:eq(1)").animate({
+							"left":"0%"
+						},1000);
+						
+						$($("li")[i]).addClass("active");
+						$($("li")[i]).siblings().removeClass();
+					}else{
+						i--;
+						if(i==-1){
+							i=2;
+						}
+						$rimg=$(`<img class='limg' src='${srcs[i]}'>`);
+						$(".carousel").append($rimg);
+						
+						$("img:eq(0)").animate({
+							"left":"100%"
+						},1000,()=>{
+							$("img:eq(0)").remove();
+						});
+						
+						$("img:eq(1)").animate({
+							"left":"0%"
+						},1000);
+						
+						$($("li")[i]).addClass("active");
+						$($("li")[i]).siblings().removeClass();
+					}
+				}
+			})
+			
+			$("li").click(function(){
+				if(!$("img").is(":animated")){
+					var oldi=$(".active").index();
+					i=$(this).index();
+					if(oldi<i){
+						$rimg=$(`<img class='rimg' src='${srcs[i]}'>`);
+							$(".carousel").append($rimg);
+							
+							$("img:eq(0)").animate({
+								"left":"-100%"
+							},1000,()=>{
+								$("img:eq(0)").remove();
+							});
+							
+							$("img:eq(1)").animate({
+								"left":"0%"
+							},1000);
+					}else{
+						$rimg=$(`<img class='limg' src='${srcs[i]}'>`);
+							$(".carousel").append($rimg);
+							
+							$("img:eq(0)").animate({
+								"left":"100%"
+							},1000,()=>{
+								$("img:eq(0)").remove();
+							});
+							
+							$("img:eq(1)").animate({
+								"left":"0%"
+							},1000);
+					}
+					
+					
+					$(this).addClass("active");
+					$(this).siblings().removeClass();
+					
+				}
+				
+			})
+		</script>
+	</body>
+</html>

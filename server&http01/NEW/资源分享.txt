@@ -1,0 +1,7 @@
+web前端资源分享
+	官方：
+	  W3C：http://www.w3.org/
+	  ECMA：http://www.ecmascript.org/
+
+	第三方国内：
+	  前端网：http://www/w3cfuns.com/portal.php

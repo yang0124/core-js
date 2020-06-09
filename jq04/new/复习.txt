@@ -1,0 +1,39 @@
+1、jQuery事件
+   $("").bind("事件名",()=>{});
+   简写：$("").事件名(()=>{});
+
+   键盘事件：keydown、keyup、keypress
+	如果想要判断我点击是哪个按钮：e.keyCode - 查看keyCode表
+
+   e -> event 可以做什么？
+	1、获取e：e=e||window.event
+	2、取消冒泡：e.stopPropagation()  e.cancelBubble=true;
+	3、事件委托：var target=e.target||e.srcElement;
+	4、阻止浏览器默认行为：e.preventDefault()  e.returnValue=false;
+	5、获取鼠标位置：e.screenX/Y	e.clientX/Y	e.pageX/Y
+	6、获取键码：e.keyCode == 65
+
+2、jQuery动画
+   1、预定义
+	fadeToggle(time,速度曲线,callback) = fadeIn + fadeOut
+
+	slideToggle = slideDown + slideUp
+
+	toggle = show + hide - 此方法如果没有传入时间参数，则无动画
+
+   2、自定义
+	并发：
+	  $("").animate({
+		"css":"value"
+	  },时间,速度曲线,callback)
+
+	排队：
+	   $("").animate({
+		"css":"value"
+	  },时间,速度曲线,callback).animate({
+		"css":"value"
+	  },时间,速度曲线,callback).animate({
+		"css":"value"
+	  },时间,速度曲线,callback).animate({
+		"css":"value"
+	  },时间,速度曲线,callback);

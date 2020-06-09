@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.d1{
+				width: 500px;
+				height: 500px;
+				background: red;
+				position: absolute;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="d1">
+			
+		</div>
+		<script src="jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(".d1").click(function(){
+				$(this).animate({
+					left:"200px"
+				},1000);
+				$(this).animate({
+					top:"200px"
+				},{duration:4000,queue:false});
+			})
+		</script>
+	</body>
+</html>

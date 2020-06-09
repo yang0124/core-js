@@ -1,0 +1,150 @@
+切记：一定要习惯使用帮助文档
+1、前端开发工具
+   1、小型：Editplus NotePad++：几乎没有任何插件，也可以自己装任意的插件
+   2、中型：sublimeText
+   3、大型：DW（适合UI） HBuilder VSCODE Atom WebStrom（破解版）
+   大型：代码提示、补全、重构、文件管理、服务器管理、远程调试、文件监视器...
+
+2、响应式项目
+  （1）css媒体查询
+  （2）meta name="viewport"
+  （3）坚决不去使用绝对单位，使用相对单位（%,rem,em,vw,auto）;
+   
+3、bootstrap框架：是一个HTML/CSS/JS框架，非常类似jQueryUI，但是以响应式为主
+		  是Twitter、最出名的产品推特，两名工程师完成的bootstrap
+  （1）起步 - 下载（提供给我们css、fonts、js）
+  （2）全局css样式
+  （3）组件
+  （4）jquery插件
+  （5）定制
+
+   使用BS的固定步骤：
+	1、引入BS.css;
+	2、引入JQ.js;
+	3、引入BS.js;
+
+全局css样式
+  (1)自带css reset
+  (2)提供了上千个class：实现各种各样的样式
+	
+全局css样式 - 按钮
+  .btn - 长得像一个按钮
+  为按钮赋值：五种常用颜色
+  .btn-default
+  .btn-danger
+  .btn-warning
+  .btn-info
+  .btn-primary
+  .btn-success
+  为按钮赋值：四种常用大小
+  .btn-lg
+  .btn-md
+  .btn-sm
+  .btn-xs
+  块级按钮
+  .btn-block
+  
+全局css样式 - 图片
+ *.img-rounded - border-radius:6px;
+ *.img-circle - border-radius:50%;
+  .img-thumb
+
+全局css样式 - 文本
+  五种文本颜色
+  .text-五种颜色
+  五种背景颜色
+  .bg-五种颜色
+ *对齐方式
+  .text-left/center/right/justify
+
+全局css样式 - 列表
+  .list-unstyled - 去掉小点
+  .list-inline - 水平列表
+
+上午的练习：下载bootstrap
+	1、去尝试使用全局css中的所有内容
+  
+***********************************************************************************
+
+Bootstrap使用起来非常简单！并不是所有的东西都有用
+
+重点的东西：
+1、媒体对象：图文并茂
+   <div class="media">
+	<div class="media-left"></div>
+	<div class="media-body"></div>
+	<div class="media-right"></div>
+   </div>
+
+2、导航：
+   标签页式/胶囊式
+    <ul class="nav nav-tabs/pills">
+	 <li role="presentation"><a href="#">Home</a></li>
+	 <li role="presentation" class="active"><a href="#">Profile</a></li>
+	 <li role="presentation"><a href="#">Messages</a></li>
+    </ul>
+
+3、下拉菜单：
+   <div class="dropup/dropdown">
+	<button class="btn btn-default dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+		    	下拉菜单
+		    <span class="caret"></span>
+		  </button>
+		  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+		    <li><a href="#">Action</a></li>
+		    <li><a href="#">Another action</a></li>
+		    <li><a href="#">Something else here</a></li>
+		    <li><a href="#">Separated link</a></li>
+		  </ul>
+		</div>
+
+4、***导航条
+
+5、轮播
+
+6、模态框
+
+7、**************栅格式布局
+  （1）table布局
+	优：简单，容易控制
+	缺：语义性问题，显示效率低
+
+  （2）div+css布局
+        优：显示效率高
+	缺：不容易控制
+
+  （3）bootstrap提供的栅格式布局系统
+        优势：显示效率高，简单，容易控制
+	缺：无
+
+栅格式布局系统的使用方法
+（1）最外层父元素<div class="container/container-fluid"></div>
+（2）放置行<div class="row"></div>
+（3）放置列<div class="col-*-*"></div>
+（4）不同宽度的屏幕需要使用不同的"列"
+	col-lg-*	col-md-*	col-sm-*	col-xs-*
+（5）每列必须指定宽度，bootstrap将屏幕等分为12分，占12分之几
+	col-lg-1 ~ col-lg-12
+（6）可以指定每种屏幕下的列宽！！！意思是一个div最多可以设置四个屏幕的列宽
+（7）每种屏幕下的列对当前屏幕以及更大尺寸的屏幕都有效，但是对更小的屏幕无效
+	col-lg-*  只管lg屏幕
+	col-md-*  只管lg、md
+	col-sm-*  只管lg、md、sm
+	col-xs-*  全管
+	虽然xs能管所有，但是如果自己写了自己屏幕，那么一定用自己的
+（8）每个列可以在指定的某种屏幕下隐藏
+	.hidden-lg/md/sm/xs - 只管当前屏幕隐藏
+（9）列可以设置向右偏移
+	col-lg-offset-*  只管lg屏幕
+	col-md-offset-*  只管lg、md
+	col-sm-offset-*  只管lg、md、sm
+	col-xs-offset-*  全管
+	虽然xs能管所有，但是如果自己写了自己屏幕，那么一定用自己的
+（10）栅格式布局其实是怪异盒子
+注意：其实就算没有最外层的div和row也可以使用col
+
+作业：1、图片小练习 - 2个
+      2、https://www.bootcss.com/ 使用bootstrap完成
+      3、思维导图
+
+	 下周一

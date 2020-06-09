@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			function flyer(fname,speed){
+//				this.fname=fname;
+//				this.speed=speed;
+//			}
+//			flyer.prototype.fly=function(){
+//				return this.fname+"正在以时速"+this.speed+"飞行";
+//			}
+//
+//			
+//			function plane(fname,speed,rl){
+//				this.fname=fname;
+//				this.speed=speed;
+//				this.rl=rl;
+//			}
+//			plane.prototype.getScore=function(){
+//				return "打爆一台"+this.fname+"就获得死刑";
+//			}
+//			plane.prototype=flyer.prototype;
+//			
+//			var bigbird=new flyer("大鸟",100);
+//			var j20=new plane("歼20",10000,1);
+//			console.log(bigbird);
+//			console.log(j20.getScore());
+			
+//			var smallbird=new flyer("小鸟",50);
+//			console.log(bigbird.fly());
+//			console.log(smallbird.fly());
+			//创建了一个飞行物类
+			class flyer{
+				//创建了自有属性
+				constructor(fname,speed){
+					this.fname=fname;
+					this.speed=speed;
+				}
+				//共有方法
+				fly(){
+					return this.fname+"正在以时速"+this.speed+"飞行";
+				}
+			}
+			//创建飞机类设置了继承自飞行物类
+			class plane extends flyer{
+				//设置自有属性
+				constructor(fname,speed,score){
+					//可以通过super直接获取
+					super(fname,speed);
+					//新的
+					this.score=score;
+				}
+				//由于设置了继承，fly()自动就有
+				//还添加了自己的新方法
+				getScore(){
+					return "打爆一台"+this.fname+"就获得"+this.score;
+				}
+				fly(){
+					return this.fname+"正在以时速"+this.speed+"飞行,可以装载很多人";
+				}
+			}
+			
+			var bird=new flyer("鸟",50);
+			var by747=new plane("by747",10000,1000);
+			console.log(bird.fly());
+			console.log(by747.fly());
+		</script>
+	</body>
+</html>

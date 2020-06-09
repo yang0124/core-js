@@ -1,0 +1,1382 @@
+From: <Saved by Blink>
+Subject: WAI-ARIA Overview
+Date: Fri, 28 Apr 2016 08:33:44 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_2054_2077E23F.751AC909"
+
+------=_NextPart_000_2054_2077E23F.751AC909
+Content-Type: text/html
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.w3.org/WAI/intro/aria.php
+
+<!--?xml version=3D"1.0" encoding=3D"utf-8"?--><!DOCTYPE html PUBLIC "-//W3=
+C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-=
+transitional.dtd"><html xmlns=3D"http://www.w3.org/1999/xhtml" lang=3D"en-U=
+S" xml:lang=3D"en-US"><head><meta charset=3D"UTF-8">
+
+
+
+<meta name=3D"Keywords" content=3D"Web Accessibility Initiative, web access=
+ibility, WAI, W3C, World Wide Web, Web, WWW, Consortium, computer, access, =
+accessibility, disability, disabilities, worldwide, international, W3, stan=
+dard, technology, free, open source, software">
+
+<title>WAI-ARIA Overview</title>
+ =20
+<link href=3D"http://www.w3.org/WAI/wai-main.css" rel=3D"stylesheet">
+<style type=3D"text/css" xml:space=3D"preserve">
+.float-right {
+    float: right;
+    clear: right;
+    width: 240px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    color: #930
+}=20
+.style1 {font-style: italic}
+</style>
+<!--[if IE 7]><link rel=3D"stylesheet" href=3D"/WAI/ie-old.css" type=3D"tex=
+t/css" media=3D"all" /><![endif]--></head>
+
+<body>
+<div id=3D"controls"><ul>
+      <li><a href=3D"http://www.w3.org/WAI/intro/aria.php#skip"><img src=3D=
+"http://www.w3.org/Icons/downinpage.png" alt=3D""> Skip to Content </a></li=
+>
+      <li><a href=3D"http://www.w3.org/WAI/changedesign.html"> | Change=20
+         text size or colors </a> </li>
+   </ul></div>
+
+<div id=3D"masthead"><p id=3D"logos"><a href=3D"http://www.w3.org/" title=
+=3D"W3C Home"><img alt=3D"W3C logo" src=3D"http://www.w3.org/Icons/w3c_home=
+"></a><a href=3D"http://www.w3.org/WAI/" title=3D"WAI Home"><img alt=3D"Web=
+ Accessibility initiative" src=3D"http://www.w3.org/WAI/images/wai-temp"></=
+a></p></div>
+
+    <div id=3D"tagline"><p>WAI: Strategies, guidelines, resources to make t=
+he
+      Web accessible to people with disabilities</p></div>
+
+
+<div id=3D"nav"><h2>Site Navigation</h2><p id=3D"w3cnav"><a href=3D"http://=
+www.w3.org/">W3C Home</a></p><p id=3D"subhomenav"><a href=3D"http://www.w3.=
+org/WAI/">Web Accessibility Initiative (WAI) Home</a></p><ol id=3D"nav1" ty=
+pe=3D"A"><li><a href=3D"http://www.w3.org/WAI/gettingstarted/Overview.html"=
+>Getting Started</a></li><li><a href=3D"http://www.w3.org/WAI/users/Overvie=
+w.html">Designing for Inclusion</a></li><li class=3D"current-nav "><a href=
+=3D"http://www.w3.org/WAI/guid-tech.html">Guidelines &amp;=20
+            Techniques</a><ol class=3D"anno"><li><a href=3D"http://www.w3.o=
+rg/WAI/intro/wcag.php">Web Content (WCAG)</a></li><li><a href=3D"http://www=
+.w3.org/WAI/intro/atag.php">Authoring Tool (ATAG)</a></li><li><a href=3D"ht=
+tp://www.w3.org/WAI/intro/uaag.php">User Agent (UAAG)</a></li><li id=3D"cur=
+rent-node" class=3D"current-nav "><span class=3D"label"><span id=3D"current=
+-icon">=C2=BB</span>WAI-ARIA  (Rich Applications)</span><ol type=3D"i"><li>=
+<a href=3D"http://www.w3.org/WAI/aria/faq.html">FAQ</a></li><li class=3D"ex=
+ternal"><a href=3D"http://www.w3.org/TR/wai-aria/">WAI-ARIA 1.0 <img src=3D=
+"http://www.w3.org/Icons/tr.png" alt=3D"technical report"></a></li><li clas=
+s=3D"external"><a href=3D"http://www.w3.org/TR/wai-aria-primer/">Primer <im=
+g src=3D"http://www.w3.org/Icons/tr.png" alt=3D"technical report"></a></li>=
+<li class=3D"external"><a href=3D"http://www.w3.org/TR/wai-aria-practices/"=
+>Authoring Practices <img src=3D"http://www.w3.org/Icons/tr.png" alt=3D"tec=
+hnical report"></a></li><li class=3D"external"><a href=3D"http://www.w3.org=
+/TR/wai-aria-implementation/">User Agent Implementation <img src=3D"http://=
+www.w3.org/Icons/tr.png" alt=3D"technical report"></a></li><li class=3D"ext=
+ernal"><a href=3D"http://www.w3.org/TR/wai-aria-roadmap/">Roadmap <img src=
+=3D"http://www.w3.org/Icons/tr.png" alt=3D"technical report"></a></li><li><=
+a href=3D"http://www.w3.org/WAI/ARIA/1.0/CR/Overview.html">CR Implementatio=
+n</a></li></ol></li><li><a href=3D"http://www.w3.org/WAI/intro/indieui.php"=
+>Indie UI</a></li><li><a href=3D"http://www.w3.org/WAI/intro/earl.php">Eval=
+uation Language (EARL)</a></li><li><a href=3D"http://www.w3.org/WAI/rdsympo=
+sia.html">Reseach Topics</a></li><li><a href=3D"http://www.w3.org/WAI/techp=
+apers.html">Technical Papers</a></li><li><a href=3D"http://www.w3.org/WAI/i=
+ntro/linking.html">Referencing &amp; Linking</a></li><li><a href=3D"http://=
+www.w3.org/WAI/intro/w3c-process.php">Development Process</a></li></ol></li=
+><li><a href=3D"http://www.w3.org/WAI/managing.html">Planning &amp; Impleme=
+nting</a></li><li><a href=3D"http://www.w3.org/WAI/eval/Overview.html">Eval=
+uating Accessibility</a></li><li><a href=3D"http://www.w3.org/WAI/train.htm=
+l">Presentations &amp; Tutorials</a></li><li><a href=3D"http://www.w3.org/W=
+AI/about-links.html">Getting Involved with WAI</a></li></ol><div id=3D"nav-=
+static"><div class=3D"nav-discover">
+         <p><a href=3D"http://www.w3.org/WAI/yourWAI"><strong><u>Discover n=
+ew resources</u></strong> for people with disabilities, policy makers, mana=
+gers, and you!</a></p>
+      </div><p class=3D"translations"><a href=3D"http://www.w3.org/WAI/wai-=
+translations"><img src=3D"http://www.w3.org/WAI/images/translations-med-1" =
+alt=3D"characters from different languages"> Translations</a></p></div></di=
+v>
+
+<div id=3D"main"><div id=3D"skipwrapper"><a id=3D"skip">-</a></div>=20
+
+  <h1>WAI-ARIA Overview</h1>
+  <div id=3D"contents">
+<h2>Page Contents</h2>
+    <ul>
+      <li><a href=3D"http://www.w3.org/WAI/intro/aria.php#intro">Introducti=
+on</a></li>
+      <li><a href=3D"http://www.w3.org/WAI/intro/aria.php#issues">Making Aj=
+ax and Related Technologies Accessible</a></li>
+	  <li><a href=3D"http://www.w3.org/WAI/intro/aria.php#is">The WAI-ARIA Sui=
+te Documents </a></li>
+	  <li><a href=3D"http://www.w3.org/WAI/intro/aria.php#versions">Versions 1=
+.0, 1.1, future</a></li>
+      <li><a href=3D"http://www.w3.org/WAI/intro/aria.php#wg">Who develops =
+WAI-ARIA</a></li>
+    </ul>
+</div>
+
+  <p>Quick links: <a href=3D"http://www.w3.org/TR/wai-aria/">WAI-ARIA</a>, =
+<a href=3D"http://www.w3.org/TR/wai-aria-implementation/">User Agent Implem=
+entation Guide</a>, <a href=3D"http://www.w3.org/WAI/aria/faq">FAQ</a></p>
+  <p><span class=3D"style1"><strong>See also <a href=3D"http://www.w3.org/W=
+AI/aria/faq#update">FAQ: What is the current status of WAI-ARIA development=
+?</a></strong></span></p>
+  <h2><a name=3D"intro" id=3D"intro">Introduction</a></h2>
+  <p><strong>WAI-ARIA, the Accessible Rich Internet Applications Suite, def=
+ines a   way to make Web content and Web applications more accessible to   =
+people with disabilities. It especially helps with dynamic content and adva=
+nced user interface controls developed with Ajax, HTML, JavaScript, and rel=
+ated technologies. </strong>Currently certain functionality used in Web sit=
+es is not available to some users with disabilities, especially people who =
+rely on screen readers and  people who cannot use a mouse. WAI-ARIA address=
+es these accessibility challenges, for example, by defining new ways for fu=
+nctionality to be provided to assistive technology.  With WAI-ARIA,  develo=
+pers can make advanced Web applications accessible and usable to people wit=
+h disabilities.</p>
+  <p>This page describes the problems that WAI-ARIA addresses, and introduc=
+es the WAI-ARIA suite of technical documents. Many of the terms used in thi=
+s page=E2=80=94including <em>Web content</em>, <em>user agent</em>s, and <e=
+m>assistive technology</em>=E2=80=94are described in <a href=3D"http://www.=
+w3.org/WAI/intro/accessibility.php">Introduction to Web Accessibility</a> a=
+nd <a href=3D"http://www.w3.org/WAI/intro/components">Essential Components =
+of Web Accessibility</a>. Additional information is available in:</p>
+  <ul>
+    <li>Blog post <a href=3D"http://www.w3.org/blog/2014/03/wai-aria-expand=
+s-web-accessibility">Accessible Rich Internet Applications (WAI-ARIA) 1.0 i=
+s a W3C Recommendation</a></li>
+    <li>Press release: <a href=3D"http://www.w3.org/2014/03/aria.html.en">W=
+3C's Accessible Rich Internet Applications (WAI-ARIA) 1.0 Expands Accessibi=
+lity of the Open Web Platform</a></li>
+    <li><a href=3D"http://www.w3.org/WAI/aria/faq">WAI-ARIA FAQ</a> answers=
+ questions such as: "What happens in current and older browsers when WAI-AR=
+IA is implemented?" and "As a Web content developer, what should I do with =
+WAI-ARIA now?"</li>
+  </ul>
+  <h2><a name=3D"issues" id=3D"issues">Making Ajax and Related Technologies=
+ Accessible</a></h2>
+  <p class=3D"float-right"><img src=3D"http://www.w3.org/WAI/intro/tree-nav=
+.png" alt=3D"tree control: a list of items with one of the list items expan=
+ded to show a sub-list" width=3D"240" height=3D"409">
+  <br clear=3D"none">Figure 1: Tree control</p>
+  <p>Web sites are increasingly using more advanced and complex user interf=
+ace controls,  such as tree controls for Web site navigation like the examp=
+le in Figure 1. To provide an accessible user experience to people with dis=
+abilities, assistive technologies need to be able to interact with these co=
+ntrols. However, the information that the assistive technologies need is  n=
+ot available with most current Web technologies.</p>
+  <p>Another example of an accessibility barrier is drag-and-drop functiona=
+lity that is not available to users who use a keyboard only and cannot use =
+a mouse. Even relatively simple Web sites can be difficult if they require =
+an extensive amount of keystrokes to navigate with only a keyboard.</p>
+  <p>Many Web applications developed with Ajax (also known as AJAX), DHTML,=
+ and other technologies pose additional accessibility challenges. For examp=
+le, if the content of a Web page changes in response to user actions or tim=
+e- or event-based updates, that new content may not be available to some pe=
+ople, such as people who are blind or people with cognitive disabilities wh=
+o use a screen reader.</p>
+  <p><strong>WAI-ARIA addresses these accessibility challenges by defining =
+how information about this functionality can be provided to assistive techn=
+ology.  With WAI-ARIA, an advanced Web application can be made accessible a=
+nd usable to people with disabilities.</strong></p>
+  <h3>Technical Solutions </h3>
+  <p>More specifically, WAI-ARIA provides a framework for adding attributes=
+ to identify features for user interaction, how they relate to each other, =
+and their current state. WAI-ARIA describes new navigation techniques to ma=
+rk regions and common Web structures as menus, primary content, secondary c=
+ontent, banner information, and other types of Web structures. For example,=
+ with WAI-ARIA, developers can identify regions of pages and enable keyboar=
+d users to easily move among regions, rather than having to press Tab many =
+times.</p>
+  <p>WAI-ARIA also includes technologies to map controls, Ajax live regions=
+, and events to accessibility application programming interfaces (APIs), in=
+cluding custom controls used for rich Internet applications. WAI-ARIA techn=
+iques apply to widgets such as buttons, drop-down lists, calendar functions=
+, tree controls (for example, expandable menus), and others.</p>
+  <p>WAI-ARIA provides Web authors with the following:</p>
+  <ul>
+    <li> Roles to describe the type of widget presented, such as "menu", "t=
+reeitem", "slider", and "progressmeter"</li>
+    <li> Roles to describe the structure of the Web page, such as headings,=
+ regions, and tables (grids)</li>
+    <li> Properties to describe the state widgets are in, such as "checked"=
+ for a check box, or "haspopup" for a menu.</li>
+    <li> Properties to define live regions of a page that are likely to get=
+ updates (such as stock quotes), as well as an interruption policy for thos=
+e updates=E2=80=94for example, critical updates may be presented in an aler=
+t dialog box, and incidental updates occur within the page</li>
+    <li> Properties for drag-and-drop that describe drag sources and drop t=
+argets</li>
+    <li> A way to provide keyboard navigation for the Web objects and event=
+s, such as those mentioned above</li>
+  </ul>
+   =20
+<h2 id=3D"versions">Versions 1.0, 1.1, future</h2>
+<p><a href=3D"http://www.w3.org/TR/wai-aria/">WAI-ARIA 1.0</a> was publishe=
+d as a completed W3C Recommendation on 20 March 2014.</p>
+<p><a href=3D"http://www.w3.org/TR/wai-aria-1.1/">WAI-ARIA 1.1</a> is expec=
+ted to include only a few changes from 1.0. <span class=3D"listintro">Most =
+ potential changes will be considered for WAI-ARIA 2.0.</span></p>
+<p>The latest status is updated in the  <a href=3D"http://www.w3.org/WAI/ar=
+ia/faq#update">FAQ: What is the current status of WAI-ARIA development?</a>=
+</p>
+   =20
+    <h3 id=3D"wai-aria-1_1">WAI-ARIA 1.1</h3>
+    <p>The 1.1 version will extend WAI-ARIA 1.0 to provide a small number o=
+f features to complete the HTML + ARIA accessibility model. It is intended =
+complement HTML 5.1. For 1.1, user agent implementation guidance is provide=
+d as a suite of accessbility API mapping specifications that describe how t=
+o expose semantics of WAI-ARIA and other web content languages to accessibi=
+lity APIs.</p>
+  <p>Published WAI-ARIA 1.1 Working Drafts are as follows:</p>
+  <ul class=3D"listspaced">
+    <li><strong><a href=3D"http://www.w3.org/TR/wai-aria-1.1/">WAI-ARIA 1.1=
+</a> technical specification</strong>, provides features to define accessib=
+le user interface elements and in order to improve the accessibility and in=
+teroperability of web content and applications. It is primarily for develop=
+ers of Web browsers, assistive technologies, and other user agents; develop=
+ers of Web technologies (technical specifications); and developers of acces=
+sibility evaluation tools.</li>
+    <li><strong><a href=3D"http://www.w3.org/TR/dpub-aria-1.0/">Digital Pub=
+lishing WAI-ARIA Module 1.0</a></strong>, extends WAI-ARIA 1.1 to define an=
+ ontology of roles, states, and properties specific to digital publishing. =
+It facilitates automated processing and accessibility support by providing =
+semantics that are not included in base languages such as HTML. It allows a=
+uthors to convey structural information to assistive technologies, and to e=
+nable semantic navigation, styling, and interactive features used by reader=
+s.</li>
+    <li><strong><a href=3D"http://www.w3.org/TR/graphics-aria-1.0/">Graphic=
+s WAI-ARIA Module 1.0</a></strong>, extends WAI-ARIA 1.1 to allow an author=
+ to express the logical structure of the graphic to assistive technologies.=
+ Assistive technologies could then enable semantic navigation and adapt sty=
+ling and interactive features, to provide an optimal experience for the aud=
+ience.</li>
+    <li><strong><a href=3D"http://www.w3.org/TR/core-aam-1.1/">Core Accessi=
+bility API Mappings 1.1</a></strong>, describes how user agents should expo=
+se semantics of web content languages to accessibility <acronym title=3D"ap=
+plication programming interfaces">APIs</acronym>. The core module defines s=
+upport that applies across multiple content technologies, including general=
+ keyboard navigation support and mapping of general-purpose WAI-ARIA featur=
+es; other specifications will extend this for specific technologies.</li>
+    <li><strong><a href=3D"http://www.w3.org/TR/accname-aam-1.1/">Accessibl=
+e Name and Description: Computation and API Mappings 1.1</a></strong>, desc=
+ribes how user agents determine names and descriptions of accessible object=
+s from web content languages and expose them in accessibility APIs. This al=
+lows assistive technologies to associate and relay the name or description =
+of objects to users.</li>
+    <li><strong><a href=3D"http://www.w3.org/TR/dpub-aam-1.0/">Digital Publ=
+ishing Accessibility API Mappings 1.0</a></strong>, extends Core Accessibil=
+ity API Mappings 1.1 to define how user agents map roles in the Digital Pub=
+lishing WAI-ARIA Module to platform accessibility application programming i=
+nterfaces (APIs).</li>
+    <li><strong><a href=3D"http://www.w3.org/TR/html-aam-1.0/">HTML Accessi=
+bility API Mappings 1.0</a></strong>, extends Core Accessibility API Mappin=
+gs 1.1 and Accessible Name and Description: Computation and API Mappings 1.=
+1 to define how user agents map HTML markup to platform accessibility appli=
+cation programming interfaces (APIs). Provides HTML-specific guidance for h=
+ow the HTML user agent must respond to keyboard focus, native HTML features=
+, and role, state and property attributes provided via WAI-ARIA.</li>
+    <li><strong><a href=3D"http://www.w3.org/TR/svg-aam-1.0/">SVG Accessibi=
+lity API Mappings 1.0</a></strong>, extends Core Accessibility API Mappings=
+ 1.1 to define how user agents map SVG markup to platform accessibility app=
+lication programming interfaces (APIs). When supported by user agents, its =
+features allow SVG authors to create accessible rich internet applications,=
+ including charts, graphs, and other drawings. Provides SVG-specific guidan=
+ce for how the SVG user agent must respond to keyboard focus, native SVG fe=
+atures, and role, state and property attributes provided via WAI-ARIA.</li>
+    <li><strong><a href=3D"http://www.w3.org/TR/wai-aria-practices-1.1/">WA=
+I-ARIA Authoring Practices 1.1</a></strong>, recommends approaches to help =
+web application developers make widgets, navigation, and behaviors accessib=
+le using WAI-ARIA roles, states, and properties. It describes consideration=
+s that might not be evident to most authors from the WAI-ARIA specification=
+ which is oriented primarily at user agent implementers.</li>
+    </ul>
+    <p>Additional documents are expected in this suite, including other acc=
+essibility API mappings and updated authoring guidance. Editors' drafts und=
+er development can be accessed in the <a href=3D"https://github.com/w3c/ari=
+a/">WAI-ARIA GitHub Repository</a>.</p>
+
+  <h3><a name=3D"is" id=3D"is">WAI-ARIA 1.0 </a></h3>
+
+  <p>In-progress "Editors' Drafts" of the WAI-ARIA documents are available =
+from the
+    <!-- @@ link to new anchor -->
+      <a href=3D"http://www.w3.org/WAI/ARIA/">Accessible Rich Internet Appl=
+ications (ARIA) Working Group</a>.</p>
+  <p>Published WAI-ARIA Working Drafts are as follows:</p>
+  <ul class=3D"listspaced">
+    <li><strong><a href=3D"http://www.w3.org/TR/wai-aria/">WAI-ARIA</a> tec=
+hnical specification</strong>, a completed  W3C Recommendation Web standard=
+, combines the two previously-published WAI-ARIA draft specifications: Role=
+s for Accessible Rich Internet Applications (WAI-ARIA Roles) and the States=
+ and Properties Module for Accessible Rich Internet Applications (WAI-ARIA =
+States and Properties). It is primarily for developers of Web browsers, ass=
+istive technologies, and other user agents; developers of Web technologies =
+(technical specifications); and developers of accessibility evaluation tool=
+s.</li>
+    <li><a href=3D"http://www.w3.org/TR/wai-aria-implementation/"><strong>W=
+AI-ARIA User Agent Implementation Guide</strong></a>, a completed  W3C Reco=
+mmendation Web standard, describes how browsers and other user agents shoul=
+d support WAI-ARIA;  specifically, how to expose WAI-ARIA features to platf=
+orm accessibility <acronym title=3D"application programming interfaces">API=
+s</acronym>.</li>
+    <li><a href=3D"http://www.w3.org/TR/wai-aria-practices/"><strong>WAI-AR=
+IA Authoring Practices</strong></a>, a planned W3C Working Group Note, desc=
+ribes how Web content developers can develop accessible rich internet appli=
+cations using WAI-ARIA. It provides detailed advice and examples directed p=
+rimarily to Web application developers, yet also  useful to user agent and =
+assistive technology developers.</li>
+    <li><a href=3D"http://www.w3.org/TR/wai-aria-primer/"><strong>WAI-ARIA =
+Primer</strong></a> introduces developers to the accessibility problems tha=
+t WAI-ARIA is intended to solve, the fundamental concepts, and the technica=
+l approach  of WAI-ARIA. </li>
+    <li><strong><a href=3D"http://www.w3.org/TR/wai-aria-roadmap/">WAI-ARIA=
+ Roadmap</a></strong> defines the path to make rich Web content accessible,=
+ including steps already taken, remaining future steps, and a  timeline. Mu=
+ch of the content from previous drafts of the Roadmap has been moved to the=
+ WAI-ARIA Primer.</li>
+   </ul>
+  <p><em>W3C Recommendations</em> and <em>Working Group Notes</em> are brie=
+fly explained in <a href=3D"http://www.w3.org/WAI/intro/w3c-process">How WA=
+I Develops Accessibility Guidelines through the W3C Process</a>, which also=
+ describes milestones in the W3C Process.</p>
+  <h3>Technical document format</h3>
+  <p>The WAI-ARIA documents follow the <acronym title=3D"World Wide Web Con=
+sortium">W3C</acronym> format for technical
+specifications which includes several sections at the beginning: links to
+different versions, editors, copyright, abstract, and status with the link =
+to
+errata and the email address for comments.<!-- comment out if not added:</e=
+m> Most WAI specifications have a
+link at the top to the Table of Contents.--></p>
+   =20
+  <h2><a name=3D"wg" id=3D"wg">Who develops WAI-ARIA</a></h2>
+  <p>The WAI-ARIA technical documents are developed by the Accessible Rich =
+Internet Applications Working Group (<a href=3D"http://www.w3.org/WAI/ARIA/=
+">ARIA WG</a>),
+which is part of the World Wide Web Consortium (<a href=3D"http://www.w3.or=
+g/">W3C</a>) Web Accessibility
+Initiative (<a href=3D"http://www.w3.org/WAI/">WAI</a>). For more informati=
+on
+about the working group, see the <a href=3D"http://www.w3.org/WAI/ARIA/">AR=
+IA WG
+public page</a>.</p>
+
+  <p><a href=3D"http://www.w3.org/WAI/intro/w3c-process">How WAI Develops A=
+ccessibility Guidelines through the W3C Process: Milestones and Opportuniti=
+es to Contribute</a> describes formal periods for public review. Opportunit=
+ies for review and comment of WAI
+documents are announced on the <a href=3D"http://www.w3.org/WAI/">WAI home
+page</a> and <a href=3D"http://www.w3.org/WAI/IG/">WAI Interest Group</a>
+mailing list. An email address for sending comments is included in the
+"Status of this Document" section.
+  </p>
+
+  <p>Opportunities for contributing to WAI-ARIA and other WAI work are intr=
+oduced
+in <a href=3D"http://www.w3.org/WAI/participation">Participating in WAI</a>=
+.</p>
+
+      <!-- end main -->
+</div>
+
+<div id=3D"footer">
+  <h2><strong>Document Information</strong></h2>
+  <p><strong>Status: </strong>Updated 15 January 2016. (first published Dec=
+ember 2006)<br clear=3D"none">
+  Editor: Michael Cooper. Developed with the Accessible Rich Internet Appli=
+cations Working Group (<a href=3D"http://www.w3.org/WAI/ARIA/">ARIA WG</a>)=
+ and the Education and Outreach Working Group (<a href=3D"http://www.w3.org=
+/WAI/EO/">EOWG</a>).</p>
+  <div class=3D"footer-nav"><p>[<a href=3D"http://www.w3.org/WAI/sitemap.ht=
+ml">WAI Site Map</a>] [<a href=3D"http://www.w3.org/WAI/sitehelp.html">Help=
+ with WAI Website</a>] [<a href=3D"http://www.w3.org/WAI/search.php">Search=
+</a>] [<a href=3D"http://www.w3.org/WAI/contacts">Contacting WAI</a>]<br cl=
+ear=3D"none">
+         <strong>Feedback welcome to <a href=3D"mailto:wai-eo-editors@w3.or=
+g">wai-eo-editors@w3.org</a></strong> (a publicly archived list) or <a href=
+=3D"mailto:wai@w3.org">wai@w3.org</a> (a WAI staff-only list).</p></div><di=
+v class=3D"copyright">
+            <p><a rel=3D"Copyright" href=3D"http://www.w3.org/Consortium/Le=
+gal/ipr-notice#Copyright">Copyright</a> =C2=A9 1994-2014 <a href=3D"http://=
+www.w3.org/"><acronym title=3D"World Wide Web Consortium">W3C</acronym></a>=
+<sup>=C2=AE</sup> (<a href=3D"http://www.csail.mit.edu/"><acronym title=3D"=
+Massachusetts Institute of Technology">MIT</acronym></a>, <a href=3D"http:/=
+/www.ercim.org/"><acronym title=3D"European Research Consortium for Informa=
+tics and Mathematics">ERCIM</acronym></a>, <a href=3D"http://www.keio.ac.jp=
+/">Keio</a>), All Rights Reserved. W3C <a href=3D"http://www.w3.org/Consort=
+ium/Legal/ipr-notice#Legal_Disclaimer">liability</a>, <a href=3D"http://www=
+.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a>, <a rel=
+=3D"Copyright" href=3D"http://www.w3.org/Consortium/Legal/copyright-documen=
+ts">document use</a> and <a rel=3D"Copyright" href=3D"http://www.w3.org/Con=
+sortium/Legal/copyright-software">software
+         licensing</a> rules apply. Your interactions with this site are in
+         accordance with our <a href=3D"http://www.w3.org/Consortium/Legal/=
+privacy-statement#Public">public</a> and <a href=3D"http://www.w3.org/Conso=
+rtium/Legal/privacy-statement#Members">Member</a> privacy
+         statements.</p>
+         </div>
+</div>
+
+
+</body></html>
+------=_NextPart_000_2054_2077E23F.751AC909
+Content-Type: image/jpeg
+Content-Transfer-Encoding: base64
+Content-Location: http://www.w3.org/WAI/images/perspective.jpg
+
+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
+shQ6yyyqKaCy/9k=
+------=_NextPart_000_2054_2077E23F.751AC909
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://www.w3.org/WAI/images/tagbararc.png
+
+iVBORw0KGgoAAAANSUhEUgAAAGIAAAAfCAMAAAArx+gjAAAAB3RJTUUH2QYZFCc2VeQmogAAAAlw
+SFlzAAAK8AAACvABQqw0mAAAAwBQTFRFnDEA1nMY1nsp3oxC3pRK3pRS3pxS3pxa55xj56Vr561z
+561777WE772U78ac78al786t99a199a9997G9+fW/+/e///3////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////5F9o3AAA
+ABh0Uk5T//////////////////////////////8AzRMu6gAAAHNJREFUeNrt0UsKgCAYReGbJmkP
+I/lp/0vNhoEzOZPwbODjcqXOnIsxbjnnYne7XuGjzek0lnibQjaYeJWl0ERtMZzQtBpN1O8vnJB2
+nlAwnJA3nFDgCSWe0MkTnifqDJzwPCHjicITB08knnC/IEajUaMHOXoMu0BV51UAAAAASUVORK5C
+YII=
+------=_NextPart_000_2054_2077E23F.751AC909
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://www.w3.org/Icons/downinpage.png
+
+iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAMAAACecocUAAAAB3RJTUUH2QYZFC4ETPHMawAAAAlw
+SFlzAAAK8AAACvABQqw0mAAAAwBQTFRFnDEAzmMA/5xj////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////dfxEdAAA
+AAR0Uk5T////AEAqqfQAAAAsSURBVHjaY2BABswwgM6GyYMwE5jJBFEDYjLC1COTjCBhmDkMSGYy
+QdkIAAArhACsN1guewAAAABJRU5ErkJggg==
+------=_NextPart_000_2054_2077E23F.751AC909
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.w3.org/WAI/wai-main.css
+
+body { margin: 0px 1em 1em; padding: 0px; font-family: 'Trebuchet MS', sans=
+-serif; color: black; line-height: 135%; font-size: 90%; background: rgb(25=
+5, 250, 245); }
+
+img { border-style: none; vertical-align: baseline; max-width: 100%; }
+
+form { margin: 0px; padding: 0px; }
+
+a:link { color: rgb(0, 51, 102); }
+
+a:visited { color: rgb(102, 0, 51); }
+
+#controls { display: block; color: black; text-align: right; margin: 0px -1=
+em; padding: 0.2em; border-bottom-width: 1px; border-bottom-style: solid; b=
+order-bottom-color: black; font-family: Arial, sans-serif; border-right-wid=
+th: 2px; border-right-style: solid; border-right-color: rgb(204, 204, 204);=
+ background: rgb(204, 204, 204); }
+
+#controls * { display: inline; color: black; text-decoration: none; margin:=
+ 0px 0px 0px 0.33em; padding: 0px; }
+
+#controls a:hover, #controls a:focus { text-decoration: underline; }
+
+#masthead { margin-left: 24%; background: url(http://www.w3.org/WAI/images/=
+perspective.jpg) no-repeat; }
+
+* > #masthead { background-position: 0.6em 0px; }
+
+#masthead p { margin: 0px 0px 0px -24%; width: 24%; }
+
+#masthead > p { margin: 0px 0px 0px -31.58%; width: 31.58%; }
+
+#masthead p { padding: 0px 0.6em 0px 0px; border-right-width: 1px; border-r=
+ight-style: solid; border-right-color: rgb(0, 51, 102); white-space: nowrap=
+; min-height: 48px; color: rgb(255, 255, 255); background: rgb(0, 90, 156);=
+ }
+
+#masthead img { vertical-align: bottom; color: rgb(255, 255, 255); backgrou=
+nd: rgb(0, 90, 156); }
+
+#tagline { display: block; overflow: hidden; margin: 0px; padding: 0px; col=
+or: white; min-height: 23px; background: url(http://www.w3.org/WAI/images/t=
+agbararc.png) 100% 0% no-repeat rgb(153, 51, 0); }
+
+#tagline { clear: both; }
+
+#tagline p { margin: 0px; padding: 0.3em 20px 0.3em 0.3em; text-align: righ=
+t; }
+
+#nav { clear: left; float: left; width: 24%; padding: 0px 0.3em; color: rgb=
+(0, 51, 102); font-size: 0.95em; }
+
+#nav h2 { position: absolute; left: -999px; width: 990px; }
+
+#nav a, #what a { color: rgb(0, 51, 102); text-decoration: none; }
+
+#nav1 a, #nav-static a { display: block; width: 100%; }
+
+#nav a:hover, #nav a:focus, #what a:hover, #what a:focus, #contents a:hover=
+, #contents a:focus { text-decoration: underline; }
+
+#nav img { max-width: 100%; }
+
+#w3cnav { margin: 0px -0.3em 0em; padding: 0.3em 0.3em 0.3em 0px; border: n=
+one; background: white; }
+
+#wainav, #subhomenav, #nav1 { color: rgb(0, 51, 102); border-width: 1px 2px=
+ 1px 1px; border-style: solid; border-color: rgb(0, 51, 102); margin: 0px -=
+0.3em; padding: 0px; position: relative; background: rgb(223, 235, 247); }
+
+#wainav, #subhomenav { padding: 0.5em 0.1em 0.5em 0.3em; font-weight: bold;=
+ }
+
+* html #w3cnav { border-bottom-width: 1px; border-bottom-style: solid; bord=
+er-bottom-color: rgb(0, 51, 102); }
+
+#nav1 { margin-bottom: 1em; }
+
+#nav1 ul, #nav1 ol { margin: 0px; padding: 0px; }
+
+#nav1 li { padding: 0.5em 0.1em 0.5em 1.5em; border-bottom-width: 1px; bord=
+er-bottom-style: solid; border-bottom-color: rgb(0, 51, 102); margin: 0px; =
+list-style: none; }
+
+#nav1 li li { margin: 0.2em 0.1em 0.2em 1em; list-style: square; padding: 0=
+px; border-bottom-style: none; vertical-align: top; }
+
+#nav ol#nav1 .anno li li.nav-head, #nav1 li li.nav-head { list-style: none;=
+ color: rgb(51, 102, 153); margin-top: 0.5em; }
+
+#nav .anno { margin: 0px; padding: 0px; border-top-width: 0px; }
+
+#nav ol#nav1 .anno li { padding: 0.1em 0em 0.1em 0px; list-style: none; mar=
+gin-right: 0px; border-top-width: 1px; border-top-style: solid; border-top-=
+color: rgb(102, 153, 204); margin-left: 1em; }
+
+#nav ol#nav1 .anno li li { margin: 0.1em 0em 0.1em 1em; list-style: square;=
+ padding: 0px; border: none; }
+
+#current-node span.label, #nav ol li li#current-node span.label, #current-n=
+ode { font-weight: bold; color: black; background-color: rgb(255, 250, 245)=
+; }
+
+#current-node span.label, #nav ol li li#current-node span.label { display: =
+block; }
+
+#nav1 .current-nav { background: rgb(239, 245, 251); }
+
+#current-node { position: relative; }
+
+#current-icon { color: rgb(153, 51, 0); position: absolute; top: 0.25em; le=
+ft: -1.25em; font-weight: bold; font-size: 177%; line-height: 0; display: b=
+lock; }
+
+* html #current-icon { left: -3em; }
+
+* html #current-icon { vertical-align: bottom; }
+
+.current-page { color: rgb(153, 51, 0); font-weight: bold; font-size: 177%;=
+ }
+
+.sidebar { margin: 0px 0px 0px -13.5%; width: 24%; }
+
+* > .sidebar { margin: 0px 0px 0px -36.9863013698%; width: 31.58%; }
+
+.sidebar { clear: left; float: left; padding: 0px 0px 0px 0.3em; font-size:=
+ 0.95em; }
+
+.sidebar h2 { position: absolute; left: -999px; width: 990px; }
+
+#main { margin: 0px 0px 0px 27%; }
+
+h1 { margin: 0px; padding: 1.3em 0px 0px; font-weight: bold; font-style: no=
+rmal; font-variant: normal; font-stretch: normal; font-size: 145%; line-hei=
+ght: normal; font-family: Georgia, serif; }
+
+h1 .subtitle { font-size: 85%; }
+
+h2 { color: rgb(153, 51, 0); border-bottom-width: 1px; border-bottom-style:=
+ dashed; border-bottom-color: rgb(153, 51, 0); }
+
+#main h2 { font-size: 1.35em; margin-top: 1em; margin-bottom: 0px; }
+
+#announce h2 { font-size: 1.15em; margin: 1em 0px 0.5em; }
+
+#main h3 { color: rgb(153, 51, 0); font-size: 1.25em; font-family: 'Trebuch=
+et MS', sans-serif; }
+
+#main h4 { font-size: 1.15em; font-family: 'Trebuchet MS', sans-serif; }
+
+#main h5 { font-size: 1.05em; font-family: 'Trebuchet MS', sans-serif; }
+
+#what, #announce, #contents { float: right; clear: right; margin: 0px 0px 1=
+em 2em; padding: 0px 0.3em 0.5em 1em; }
+
+#what, #contents { width: 25%; }
+
+#announce { width: 25%; background: rgb(255, 250, 245); }
+
+* > #announce { width: 34.2465753425%; }
+
+#what, #contents { line-height: 115%; }
+
+#what p { font-size: 0.9em; font-weight: bold; margin: 1em 0px 0.3em; paddi=
+ng: 0px; border-bottom-style: none; }
+
+#contents h2 { font-size: 1em; margin: 1em 0px 0.3em; padding: 1em 0px 0.3e=
+m; border-bottom-style: none; }
+
+#what p:first-child, #contents h2:first-child { margin-top: 0px; }
+
+#what p, #contents h2 { margin-top: 0.5em; margin-bottom: 0.1em; }
+
+#what ul { font-size: 0.9em; }
+
+#what ul, #announce ul, #contents ul { margin: 0px; padding: 0px; }
+
+#announce li, #contents li { margin: 0px 0px 0.3em; }
+
+#announce p { margin-top: 0px; padding-top: 0px; }
+
+#what { border-right-width: 1px; border-bottom-width: 1px; border-left-widt=
+h: 1px; border-style: none solid solid; border-right-color: rgb(153, 51, 0)=
+; border-bottom-color: rgb(153, 51, 0); border-left-color: rgb(153, 51, 0);=
+ background: rgb(255, 255, 204); }
+
+#announce { border: 1px solid rgb(153, 51, 0); background: rgb(255, 250, 24=
+5); }
+
+#what h2 { position: absolute; left: -999px; width: 990px; }
+
+#what ul { padding-left: 1.3em; list-style: url(http://www.w3.org/WAI/image=
+s/bullet-c60.gif); }
+
+#announce ul { padding-left: 1.1em; list-style: url(http://www.w3.org/WAI/i=
+mages/bullet-036.gif); }
+
+#contents { border: 1px dashed rgb(153, 51, 0); font-weight: bold; color: r=
+gb(153, 51, 0); font-size: 0.9em; background: rgb(255, 250, 245); }
+
+#contents h2 { color: black; padding-top: 0.5em; margin-top: 0.5em; }
+
+#contents ul { list-style: none; padding-left: 0px; }
+
+#contents li { display: inline; }
+
+#contents a { color: rgb(153, 51, 0); display: block; margin: 0.4em 0px; pa=
+dding: 0px 0px 0px 1.5em; background: url(http://www.w3.org/Icons/downinpag=
+e.png) 0% 0% no-repeat; }
+
+#footer { border-top-width: 1px; border-top-style: solid; border-top-color:=
+ rgb(153, 51, 0); clear: both; color: rgb(51, 51, 51); font-size: 0.9em; }
+
+#footer h2 { position: absolute; left: -999px; width: 990px; }
+
+#footer a { color: inherit; text-decoration: underline; }
+
+#footer .cc { border: 9px solid rgb(255, 250, 245); float: left; }
+
+.copyrightcc { line-height: normal; }
+
+dt { margin-top: 0.5em; }
+
+li { margin-bottom: 0.1em; }
+
+ul.listspaced li { margin-bottom: 1em; }
+
+ol.listspaced li { margin-bottom: 1em; }
+
+.listtight { margin-bottom: 0px; }
+
+.listintro, listintrop { padding-bottom: 0px; margin-bottom: 0px; }
+
+.listafter { padding-top: 0px; margin-top: 0.5em; }
+
+.listwithp, .listafterpul { padding-top: 0px; margin-top: 0px; }
+
+.no-display { position: absolute; left: -999px; width: 990px; }
+
+#skipwrapper { width: 1px; height: 1px; overflow: hidden; float: right; }
+
+hr { color: rgb(51, 102, 153); background-color: rgb(51, 102, 153); }
+
+.float-right { float: right; }
+
+.float-left { float: left; }
+
+.subtext { font-size: 0.9em; font-style: italic; color: rgb(51, 51, 51); }
+
+.center { text-align: center; }
+
+.right-align { text-align: right; }
+
+.border1c60 { border: 1px solid rgb(153, 51, 0); }
+
+.changed { background: rgb(255, 255, 204); }
+
+.highlight-version { border: 1px solid rgb(102, 51, 0); color: rgb(102, 51,=
+ 0); font-weight: bold; padding: 0.5em; background-color: rgb(204, 255, 204=
+); }
+
+.termref { text-decoration: none; color: rgb(0, 0, 0); padding-bottom: 0px;=
+ margin-bottom: 0px; border-bottom-style: dashed; border-bottom-color: rgb(=
+128, 128, 128); border-bottom-width: 1px; background-color: transparent; }
+
+a.termref:link { color: rgb(0, 0, 0); background: inherit; }
+
+a.termref:hover, .termref:active, a.termref:focus { color: rgb(0, 0, 204); =
+border-bottom-style: solid; border-bottom-color: rgb(0, 0, 204); border-bot=
+tom-width: 1px; background: inherit; }
+
+.subhead { font-size: 0.75em; display: block; }
+
+.nav-discover, #nav .translations { margin-left: -0.3em; margin-right: -0.3=
+em; }
+
+.nav-discover { border: 1px solid rgb(153, 51, 0); padding-left: 31px; padd=
+ing-right: 5px; font-style: italic; background: rgb(255, 255, 204); }
+
+.nav-discouver a { text-decoration: underline; }
+
+.nav-discover h2 { position: absolute; left: -999px; width: 990px; }
+
+#nav .translations { padding-left: 32px; }
+
+p.totop { display: block; text-align: right; background-color: rgb(239, 245=
+, 251); }
+
+p.totop a { padding-left: 1em; background: url(http://www.w3.org/Icons/topo=
+fpage.png) 0% 50% no-repeat; }
+
+.quiet { color: rgb(79, 79, 79); }
+
+.quiet a { color: rgb(79, 79, 79); }
+------=_NextPart_000_2054_2077E23F.751AC909
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://www.w3.org/Icons/w3c_home
+
+iVBORw0KGgoAAAANSUhEUgAAAEgAAAAwCAMAAACFQszZAAADAFBMVEUAAAABAQECAgIFBQUGBgYI
+CAgMDAwODg4SEhIUFBQVFRUYGBgaGhodHR0fHx8gICAmJiYoKCgsLCwxMTE1NTU2NjY3Nzc4ODg7
+Ozs/Pz9ERERFRUVGRkZJSUlOTk5PT09WVlZdXV1eXl5gYGBhYWFkZGRnZ2dsbGxtbW1vb29wcHBx
+cXF0dHR8fHwAWpwBW5wCW50DXJ0EXZ4FXZ4GXp4IX58JYJ8LYaAMYqEOY6EPZKISZqMTZqMUZ6QW
+aKUYaqUaa6Yba6Yebagfbqggb6ghb6kjcaokcaoodKwtd60yeq80fLA1fLE3frE4frI5f7I6gLM8
+gbNBhLVChbZEhrZHiLhJibhKirlLi7lOjLpRjrtVkb1ZlL9alL9blb9dlsBfl8FimcJnncRpnsVq
+n8Vrn8ZsoMZtocZuocdvosdxo8hzpMl1psl3p8p4qMt6qct8qsx9q81+rM2BgYGEhISJiYmKioqM
+jIyNjY2Pj4+RkZGSkpKWlpaXl5eYmJiampqdnZ2fn5+goKChoaGioqKlpaWmpqaoqKiqqqqrq6us
+rKytra2vr6+xsbGysrKzs7O0tLS3t7e5ubm8vLy/v7+Crs6Dr8+FsNCGsdCHsdCIstGLtNKMtdKW
+u9aXvNeYvNeZvdebvtigwtqkxNylxdyox92qyN6vy+CwzOCxzeGyzeG0zuK30OO70+W81OW+1ebB
+wcHCwsLDw8PFxcXGxsbHx8fNzc3Ozs7Pz8/T09PY2NjZ2dnb29vc3Nzd3d3f39/A1ufB1+fD2OjF
+2ejH2+nI2+rK3erL3evM3uvN3uvO3+vN3+zR4e3S4u7T4+7U4+7V5O/X5e/Y5e/Z5vDa5vDb6PHc
+6PHg4ODh4eHk5OTn5+fp6enr6+vt7e3u7u7h7PPi7PTk7vXn7/bp8fbq8ffr8vft8/ju9Pjw8PDy
+8vL09PT19fX39/fw9fnz9/r0+Pv2+fz3+vz5+fn7+/v4+vz5+/36/P37/P38/Pz9/f38/f79/v7+
+/v7+/v/////MzMyRmidfAAAAAWJLR0QAiAUdSAAAAAlwSFlzAAAASAAAAEgARslrPgAABClJREFU
+SMftlwlUlFUUxx9UQ2JpViRkiJW08zEwhAZBhQZMKAa2TBFFIbRQZBISGNECibZHVChTZkQREUbR
+BrTQoqMg0b4QhBiyCBEUEgzveO973+P7ZhgGzsFz6py858D3f/e773e++9679wE5hhwScyFmldFp
+GJnO5MOgfxP07U6TqV121JlMpl7lfTsMTTsU67Wa3wk/5pomGRQnSVKy/CYatFEJTJYsrZZ5B9Ld
+XM75EdUZlFal5T2a1s1AxRChl2cWgjYoIL0V6HN0dpyIh1nzCKXvOjTTtA3nLqxYx0A9Oghp4TMb
+Qfr3CU6LFSdiBJxDrrwsjnyLepCKnx/POdOzOp2MyycUdKkAGWEQcAWzpSC92QdliAKbtc2BPNSV
+nfOEx4AMUudzG+h4ATLAYBNTf4WBvB5VvzMhDvOysk9zJBri9CvNeKbm7dyNZFw+5aBDZE6fPwy+
+Z7IA1OJWVNmEHLUexTtATIGVfyAz82lxjlT5fIVrUc91KchwpvZcAPI5Jj0IyeWvP9DM6LQ6kLcq
++WCaUgHX8SCTqDghl/7Jtl5DThezs+6hViBVPrjwUhTXISDLUWz3BvUq81UTx2oxe2i/NWgwQOTD
+joLkww56Pe7ZIIjRSFAreehTxH3CEgGLEfkU8wNTJBY4BsXLIHx388gccq890FaRTxwHxaKOArEV
+nr2XgLhRjryPVNkDtWl5PsMXwj6FS1LgMBSsjyRp2+DlakRrr+Zbud7pH3sgupznU4v7lMSrswge
+kfjufP6Vui04yDuO2gXl83yw2j8p590gVqybqDRvzPPDk+yDdkksHz3+xj3U0+FAsZNlZSX54Uha
+BJVtnm8fNHox5tPCv+s67Aa1qlqh9MDtSLoJVIp9EDvFyUa+Urg6xmR19YJdg9UGBfn+JCCsKz1U
+u66d75dBr+4nYF/iJ70Bx3kSEKt0P0mKlk+Qn0WHQwsCz/N0AlPdIga+NYWoN3NtsIhdAZ6EKYCM
+fHIj6kaujRaxV4HnhimAeH8O44NQdm5+s4i9HFyJv1jONw+MB/Ebg7cfegvqyywnXQSuNU92Wfge
+fM8GiN1h5Vy/ifou/M479X9wVwO6XmvyUnN+Ovp+G6Ba0X6o3KC+oPQVOAjPclcC9pLfqedjyoxu
+N3KWDdBIsNx+0KBBBcMl1uoLXeF1dHyGHe9aSj92zhMxXacQ8rANEPaiIqGhQcXhcxX2y5s//e4l
+/EQt3mupR9zdz0IqjydkvtkWqFhusWh7faRifO5borpoE9EzdDI59ryc3LVzHQiZ3UxtgXp0Ucog
+StfDnnVBY5wr/2aeDldx1c75iNoE0egCRRdEy+KbZRyjTRAF0322I+O4N9MJQC98reiGF8c2oSQu
+InzlHQ2qwB9ST13gVame+h/90+//AjLbsimAZh6af7NOOAhIdkqdYiybxQAAAABJRU5ErkJggg==
+------=_NextPart_000_2054_2077E23F.751AC909
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://www.w3.org/WAI/images/wai-temp
+
+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
+t0L+Bzsp55x08OCPAAAAAElFTkSuQmCC
+------=_NextPart_000_2054_2077E23F.751AC909
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://www.w3.org/Icons/tr.png
+
+iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAYAAACprHcmAAAAB3RJTUUH1QcfEiQPSog3zAAAAAlw
+SFlzAAAK8AAACvABQqw0mAAAAIxJREFUeNqNUIENwzAIgyofZTclN9Gbmps8jJqNVK1UJCIUbINR
+qQ21VnkThcAxhpjZXV/bqfPpOwoLAnvv8Zmm6GFtYW5XKU5JQKT8g/PeTsBUT7kqO0FnvQ9BakVd
+splztBIYHszgBqcy/HIGOyDAmv7HJnuMwMXzEAuBuO3GyM8QV8hn1ZB/ETzpF6wNcZ+X+N+4AAAA
+AElFTkSuQmCC
+------=_NextPart_000_2054_2077E23F.751AC909
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.w3.org/WAI/images/translations-med-1
+
+R0lGODlhQQAOAPcAAAAAAP////jr3cxmAM9wEdN6ItaFM9qPRN2ZVeCjZuStd+e4iOvCme7MqvHW
+u/z17vXgzP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAABEALAAAAABBAA4A
+AAj+AAMIHEiwoMGDCBMqXMiwoUAGBRxKXLiggIOJBCFidGgAgUEHBAQMZEBggAEIAiEUGDCAQYAF
+LGPKZKlg5swFAR4gYHlApMAEMhssFDBA6IEDAgskeDnAp8AFBEo+QKjAgEEDSF8WmJrAgFODOwcQ
+uMhgwEMCAYheNPiAQIICB3AOFLByQdWCQOUGOIDgwYC1B6GKNGC1bE4DS9suNbgAAUQHWwcmECmA
+cFWnZV0GQBByAEyxehlHzCwWZYCyB1hODQBSgEYEHn8OPEBA6GIHLQdyJkoAJUzNAxd0HTDaLFMB
+ld0maCASQu3TER8UkLsAQmWTAhVchGl6c2/PA7GHEqyYgEHF08YDTH+7+uEAoDMPwM2Z+kBXgQeE
+li0vcHfunxHphlRlxaGEG2QKEEQXYBoJ9IABod3VFkoQtDTAVJwFQIBeHRHkHHE7uWYSTQF0mFCD
+VBWWVQANKCCUdy/1xtSLJ6YnUAMDxHYQigcJoCNCGQZQE2gMGVaQAwbIFNpGBwWJUEAAADs=
+------=_NextPart_000_2054_2077E23F.751AC909
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://www.w3.org/WAI/intro/tree-nav.png
+
+iVBORw0KGgoAAAANSUhEUgAAAPAAAAGZCAMAAACAB0yGAAAAB3RJTUUH1wscFjIQRpzE1gAAAAlw
+SFlzAAALEgAACxIB0t1+/AAAAZJQTFRF/P78BAIE3N7c5OLk3Nrc7O783N783MKcRAJMhML8lKrk
+9PL07Ors1NbU3MLcTAIEBAJMpGYEBGachD4EBGa8xIZMPGZ03N68bAJMRAIE3KZ0/Pr8BAJ0pN78
+bAIEZKb8tNL89Pb05ObkRAJ0vN78BD6cxN78PIbc7O7sPD50PAJ0ZAJMZAIEhMK8PAIEPAJMzM7U
+ZD6cdAIEpKa8ZGZ0pN68ZAJ0ZD4E7NKclNL87O68tG4EnEoEBEKc7LJ01JJMRG50bLL8tO787O7c
+lEIEtLK81O78RJLcREJ0lNK8REKctJJM1O7c/N6cTJ7cvHYE/L50nN78dL78/P68/P7cvP78BHa8
+dJ6cBEqc3P78TEqc3J5MdHa8BEJ0dEoEvHZM/N68vJ6cBHacnK7ktG50tNKcBG689Pr8PD6clG4E
+bG5MxN7cREJMbLLctLJ0lEJ0ZIacxMKchGYEpMKcZGZMpIZMtG5M1NKcPD5MZKbcpKZ0hD50lLKc
+BG6cpGZ0BEpMdHYEnN68dHZ0TJ6cnJ50vJ5MlbZd4gAAF9RJREFUeNrtXQlj28h1JnhAkikv6Zha
+mrpoSpalXXmjDZNuJK8tRbZjp2l1WLZVu2raNOs9mm7bJJs22yvp+b8z772ZAUACJAjMRRrPpEgc
+hPHxmxkQb977XqlUWGGFTbl575IhYNvfuElyC8AzbgXgWbcC8KxbAXjWrQA86xYL+OUD+NF5CW/P
+6WVii/vc1es37O9ZtgMaAOw1n6sFfAYHfPlg9ZWDgNmpMdTIiDJ70fcuSqWTBsB2ETCe4BW07Bf9
+/+17hP4cmGenXWIbYA28eKewL+PtRb/5nH30/9iW/8ceIbaSnXT4OvH5y1JwaHkAi4BLZ94pB4wt
+XOCDVee8k580CFMIMH4lV5GtZOwzq69g+ykcmo4oD+0KYOyL2BZPOs3njKMLOPHm86tQFz0Pny8D
+FB3szmXHuPL+x7s46fyh8/oNrmS7XshDOwL4ggPmJ0MnDycKRF2UxPAWAUznjIDFVnHQ/+5fXrE/
+q694S/FO5edcAAxffBJg/IuUjwAst+JBYZez1f96/eYMGoiDgFlrY6caAcz6JG/SsNeVd4o8nnQA
+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
+------=_NextPart_000_2054_2077E23F.751AC909--

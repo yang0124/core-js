@@ -1,0 +1,135 @@
+jQuery（简化DOM） + bootstrap + node.js后端语言 + svn/git + 最后一周就做一个项目。。
+
+都是我们现在需要做出的改变：
+
+   1、内容量相对变更多
+   2、思路|习惯使用帮助文档（或百度）
+   3、代码速度 - 180左右
+
+jQuery框架
+  javascript类库（js库）
+     简单来说，javascript类库就是.js文件
+     定义 - 预定义了很多的对象（属性和方法）
+     目的 - 为了简化javascript的开发
+	    不是简化了javascript，而是简化了DOM操作
+     js库举例
+	jQuery - 三大框架（vue/react/angular×）出现之前，全球最火的
+	Prototype - 三大框架（vue/react/angular×）出现之前，全球第二火的
+	...
+	目前大概8000+个js库
+
+     问题
+	没有任何办法将所有js库学习掌握
+	以某个js库为案例，学习js库的特点
+	js库的底层都是基于javascript封装的
+
+     基本内容
+	jQuery -- 就是一个js文件
+	06年创建JQ
+	版本
+	  1.xx - 我提供的1.11.3版本，也支持新推出的功能！
+	  2.xx - 从2.xx版本开始就不再支持老IE了
+	  3.xx
+
+     为什么有人的叫jQuery类库，有的人叫jQuery框架？
+	四个方面构成，就可以称呼为框架
+	jQuery - 针对PC端web开发
+
+	jQuery UI - 针对UI布局效果（太老了太丑了）
+	jQuery Mobile - 针对移动端web（太老了过时了） - 混合开发（APP）
+	Qunit - 专门用于软件测试人员测试javascript（国内无人使用）
+
+-----------------------------------------------------------------------------------
+
+    1、使用JQuery步骤
+       1、在HTML页面引入jQuery文件
+       2、使用jQuery的选择器获取元素
+       3、使用jQuery提供的API完成需求
+
+    2、jQuery对象
+        工厂函数：$() | jQuery()
+       	作用：接受jQuery选择器内容，1、可以帮我们查找元素
+				    2、将DOM元素转为JQ元素   
+	约定：在jQuery选择器获得元素，保存在变量中的时候，变量之前要使用$
+	注意：只是建议，不用$号也可以，目的就是一眼就能看出这是一个jQuery对象
+	      因为jQuery对象只能使用jQuery的API，而DOM对象不能使用jQuery的API
+	          DOM对象只能使用DOM的API，而jQuery对象不能使用DOM的API
+
+    3、*****转换
+       1、jQuery对象转换DOM对象（切记：变成DOM就不能再用jQuery的API了）
+		jquery对象[下标]
+       2、***DOM对象转换jQuery对象
+		$(DOM对象)
+
+    4、JQ的特点
+	1、具有相对完善的处理机制 - js有的他都有，js没有他也有
+        2、***隐式迭代 - 悄悄地循环，切记千万不要自己使用循环，一旦使用下标就变成DOM
+        3、链式操作 - 链
+
+    5、*****jQuery选择器
+	基本内容
+	  jQuery选择器的用法非常类似与css选择器
+		jQuery的作者个人非常喜欢css选择器
+	  jQuery选择器的特点
+		数量众多 - 几十个选择器 -- 记不住
+		混合使用，难度大 -- 没有标准答案
+
+	回忆：css选择器
+	  选择器用法：$("选择器")
+	    id选择器：#id
+	    class选择器：.class
+	    元素选择器：标签名
+	    通配符选择器：*
+	    群组选择器：selector1,selector2
+
+	  层级选择器
+	    父子：父>子
+	    后代：父 子
+	    相邻的下一个兄弟：前一个+后一个
+	    后面所有的兄弟：前一个~后一个
+
+	  伪类选择器：
+	    跟css一模一样
+
+	  过滤选择器：
+	    :odd - 匹配索引值/下标为奇数
+	    :even - 匹配索引值/下标为偶数
+	    :eq(i) - 匹配索引值为i的元素
+	    :lt(i) - 匹配索引值为i的元素
+	    :gt(i) - 匹配索引值为i的元素
+	    :not(selector) - 匹配除了selector的其他元素
+	    :header - h1~h6
+
+          内容过滤选择器
+	    :contains(txt) - 匹配包含指定文本的元素
+
+	  属性过滤选择器：<input type name value >
+	    [name=user]
+
+上午的练习：1、你随意的写html，尝试使用20种jQuery选择器
+	    2、将DOM转为JQ
+	       将JQ转为DOM
+	    3、给所有JQ绑定事件设置样式
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
+
+  

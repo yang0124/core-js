@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>演示常用DOM方法</title>
+<style type="text/css">
+  div{
+    width: 200px;
+    height: 200px;
+    border:1px solid red;
+  }
+  .mini{
+    width:100px;
+    height:100px;
+    background-color: blue;
+  }
+  .one{
+    width:300px;
+    height:300px;
+    background-color: red;    
+  }
+  .a{
+    font-size: 39px;
+  }
+  .b{
+    font-size: 19px;
+  }
+</style>
+</head>
+<body>
+<input type="button" id="btn1" value="attr"/>
+<input type="button" id="btn2" value="addClass"/>
+<input type="button" id="btn3" value="removeClass"/>
+<input type="button" id="btn4" value="toggleClass"/>
+<input type="button" id="btn5" value="hasClass"/>
+<input type="button" id="btn6" value="css"/>
+
+<input type="button" id="btn7" value="切换"/>
+
+
+<br />
+<br />
+<br />
+<div></div>
+<div class="b">aaa</div>
+<script type="text/javascript" src="jquery-1.11.3.min.js">   
+</script>
+<script type="text/javascript">
+ //attr("class",className);
+ $("#btn1").click(function(){
+  $("body>div:first").attr("class","mini");
+ });
+ //addClass 追加样式
+ $("#btn2").click(function(){
+  $("body>div:first").addClass("one");
+ });
+ //removeClass
+ //不添加参数 删除所有样式
+ //添加参数   删除指定的样式
+ $("#btn3").click(function(){
+  //$("body>div:first").removeClass("one");删除某一个class
+  $("body>div:first").removeClass();
+ });
+ //toggleClass(className)
+ //作用-是在没有样式与指定样式之间切换
+ // addClass()+ removeClass(); 组合
+ $("#btn4").click(function(){
+  //$("body>div:first").removeClass("one");
+  $("body>div:first").toggleClass("mini");
+ });
+  //作用判断:是否含有指定样式 
+ $("#btn5").click(function(){
+    console.log($("body>div:first").hasClass("one"));
+ });  
+ $("#btn6").click(function(){
+    $("body>div:first").css({
+         "width":400,
+         "height":400,
+         "background":"green"
+    });
+ });
+
+ $("#btn7").click(function(){
+  //$("body>div:first").removeClass("one");
+  $("body>div:last").toggleClass("a");
+ });
+
+</script>
+</body>
+</html>

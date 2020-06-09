@@ -1,0 +1,158 @@
+ES6新特性：
+1、模板字符串：`我的名字${name}`
+
+2、块级作用域：let
+
+3、箭头函数
+
+4、for...of
+
+-----------------------------------------------------------------------------------
+
+1、*****解构赋值：解析结构进行赋值
+   作用：赋值方式进行了增强
+   写法：
+     1、//数组长相解构赋值
+	var [a,b,c]=[1,2,3];
+	//对象长相解构赋值
+	var {a,b=默认值,c}={c:3,a:1};
+
+     2、函数中，传参的顺序是可以随意的
+	function f1({name="磨人的小妖精",age}){
+		console.log(name);
+		console.log(age);
+	}
+	f1({age:32,name:"天棒"});
+
+     3、return 可以返回多个数据
+	function f1(){
+		return {age:32,height:172,name:"代越"};
+	}
+	var {name,age,height}=f1();
+	console.log(name);
+	console.log(age);
+	console.log(height);
+
+2、Set和Map类型：他们都是属于数据类型（类似与数组/对象）
+  *Set：类型，和数组类似，但是没有length，用size获取自己的长度
+	不可能出现重复的！！！
+	作用：用于去重
+	创建：var s=new Set(arr);
+	添加：s.add(新内容);
+	遍历：forEach、for...of
+	将Set变回arr：[...s]; //...用于解开结构
+
+   Map：类型，类似于对象，可以为他设置值，也可以读取值
+	创建：var m=new Map();
+	添加：m.set("属性名","属性值");
+	读取：m.get("属性名");
+	遍历：m.forEach(原来一样)
+
+
+3、*****class：用于简化对象的封装、继承、多态
+   详情见：04class.html
+   constructor：相当于以前的构造函数，可以设置自有属性
+   super：相当于调用了你继承的那个类的构造函数
+
+上午的练习：
+  1、随意的写一些结构赋值
+  2、尝试使用Set类型为数组去重，再变回数组
+  3、使用class创建一个类，并且设置自有和共有
+	    在创建一个类，设置继承，多态
+	    但是不能写飞行物和飞机
+
+4、ES6模块化：
+   作用：用于分工合作，每个js文件都是一个模块，每个工程师可以单独开发自己的模块
+   语法：1、子模块要公开
+	    export var obj={}/[]/[{},{},{}];
+	
+	 2、主模块要引入
+	    import {obj} from "./文件路径";
+
+	 3、HTML引入主模块
+	    <script src="主模块路径" type="module"></script>
+
+5、*****Promise：以后在你使用异步的时候，但是又希望保证顺序
+   喜欢异步操作：
+	1、效率高
+   问题：异步的执行顺序说不准
+   
+function ajax1(resolve){//resolve()用于开启下一步的
+	setTimeout(()=>{
+		console.log(1);
+		resolve();
+	},Math.random()*1000);
+}
+function ajax2(){
+	return new Promise(function(resolve){
+		setTimeout(()=>{
+			console.log(2);
+			resolve();
+		},Math.random()*1000);
+	})
+}
+function ajax3(){
+	return new Promise(function(resolve){
+		setTimeout(()=>{
+			console.log(3);
+			resolve();
+		},Math.random()*1000);
+	})
+}
+//then是属于promise对象的API
+new Promise(ajax1).then(ajax2).then(ajax3);
+
+真的ajax固定顺序详见：07Promise.html
+
+***********************************************************************************
+
+*****HTML5新特性 - 本地存储 
+  （1）cookie - 用起来不舒服，可能会被客户端禁用，大小限制（2-4kb）
+  （2）webStorage - sessionStorage 和 localStorage，更简单，大小限制（4Mb）
+		    老IE不支持
+
+客户端本地存储技术，用于在客户端保存一些访问数据
+	作用：1、登录注册不用再输入
+	      2、主题
+  具体分为两个对象：
+	window.sessionStorage：会话级客户端存储，窗口一关闭，内存就会释放，会话级客户			       	       端存储的数据也就会被删除掉
+
+	window.localStorage：本地级客户端存储，即使浏览器关闭，只要下次在访问此网页，			     	     还在
+
+      不需要创建直接使用
+      常用方法：两者的API是完全相同的
+	sessionStorage.length - 长度
+	//保存一个数据
+	  sessionStorage.setItem(k,v);
+	  sessionStorage["k"]=v;
+	 *sessionStorage.k=v;
+	//读取一个键值对
+	  sessionStorage.getItem(k,v);
+	  sessionStorage["k"];
+	 *sessionStorage.k;
+	//删除一个键值对
+	  sessionStroage.removeItem(k);
+	//删除所有的键值对
+	  sessionStroage.clear();
+
+作业：
+  1、上午的练习
+  2、模块化只要能够导出，另一边能够导入
+  3、写一个能够控制先后顺序的ajax
+  4、做一个主题
+  5、下周一交：http://demo.cssmoban.com/cssthemes5/twts_104_food-funday/index.html#
+  
+	
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function ajax1(resolve){//resolve()用于开启下一步的
+				setTimeout(()=>{
+					console.log(1);
+					resolve();
+				},Math.random()*1000);
+			}
+			function ajax2(){
+				return new Promise(function(resolve){
+					setTimeout(()=>{
+						console.log(2);
+						resolve();
+					},Math.random()*1000);
+				})
+				
+			}
+			function ajax3(){
+				return new Promise(function(resolve){
+					setTimeout(()=>{
+						console.log(3);
+						resolve();
+					},Math.random()*1000);
+				})
+			}
+			//then是属于promise对象的API
+			new Promise(ajax1).then(ajax2).then(ajax3);
+		</script>
+	</body>
+</html>

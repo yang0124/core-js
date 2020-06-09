@@ -1,0 +1,21 @@
+svn：集中式：所有的文件其实都是上传到了服务器端
+    客户端：
+        0、检出：svn checkout 
+	1、svn add 添加到本地 svn commit 提交
+	2、svn update 更新
+	仓库地址和用户名密码都是由项目经理来告诉你
+
+git：分布式，github人人都能登录
+github：基于 Git 的代码托管和研发协作平台
+       *面试题：如果给你一个git仓库地址你怎么去拉下来，怎么去上传？
+	  1、拉：
+	     git clone 仓库地址 只用一次
+	     git pull origin master 更新 反复使用
+
+	  2、推：
+	     git add .
+	     git commit -m"必须写日志"
+	     git push -v origin master
+
+	  3、你用过github吗？那你说一下你的仓库地址吧
+		网址/用户名/仓库名

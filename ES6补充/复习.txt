@@ -1,0 +1,60 @@
+Node_gulp：Node.js的插件
+1、安装固定的4步骤
+
+2、文件名gulpfile.js，在cmd运行gulp可以打包项目
+
+3、gulp.task("任务名",()=>{
+	gulp.src("所有的文件")
+	    .pipe(所有插件操作)
+	    .pipe("目标文件中")
+   })
+
+***********************************************************************************
+
+ES5：
+1、保护对象：每个对象的每个属性都具有四大特性
+	value/writable/enumerable/configurable
+	Object.definedProperties(obj,{
+		"属性名":{四大特性}
+	})
+
+2、三种防篡改级别：
+	防扩展：Object.preventExtensions(obj)
+	密封：Object.seal(obj)
+	冻结：Object.freeze(obj)
+
+3、数组API：3组6个
+	arr.xxx((val,i,arr)=>{
+		
+	})
+   1、判断：some、every
+   2、遍历：forEach、map
+   3、过滤&汇总：filter、reduce
+
+4、Object.create()：只有父亲也可以立马创建出儿子
+
+5、严格模式："use strict";
+
+6、*****call、apply：临时借用，将函数中的this换成了指定的对象，立刻执行
+	bind：买，永久将函数中的this替换为了指定对象，需要调用后才可以执行
+
+***********************************************************************************
+ES6:
+1、模板字符串：`我的名字${name}`
+
+2、块级作用域：let
+
+3、箭头函数
+
+4、for...of
+
+
+
+
+
+
+
+
+
+
+	

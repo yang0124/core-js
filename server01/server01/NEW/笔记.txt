@@ -1,0 +1,228 @@
+学习原因
+  web前端招聘要求 - 熟悉或掌握一门服务器端技术者优先（php、node.js）
+  对web前端，熟悉服务器端机制或流程，更好提高前端开发
+  放置背锅...  
+-----------------------------------------------------------------------------------
+扩展内容
+  全栈开发工程师
+    全栈 - 客户端（PC+移动） + 服务器端 + 数据库
+    技术类发展方向2个：
+	全栈 - 涉及多个领域，但是每个领域都不是特别的精通
+	专家 - 在一个领域就是顶级的，没机会了
+    可能称为全栈语言
+	Java - 没有移动端
+	JavaScript语言
+	   客户端 - 开发根本
+	   服务器端 - Node.js
+	   数据库 - MySQL + mangoDB
+	   移动端 - 跨所有平台的（andriod + ios）
+
+  MySQL一天 + PHP一天
+  对服务器端技术的掌握 - 入门
+  实现：注册、登录、一条龙操作
+
+基本内容
+  服务器概念
+    简单来说就是一台PC机
+    商业中使用小型机（联想造价大概几十万好的上百万） 中型机 大型机、超级计算机（国家）
+  
+  对于开发人员
+	硬件服务器 - PC机
+	软件服务器 - 中间件（安装Xampp）
+
+  软件架构
+     C/S - 客户端/服务器端
+	举例：
+	  QQ
+	  大型网络游戏
+	优：运行稳定
+	    对带宽要求相对较低
+	    用户体验感好
+	缺：占硬盘空间
+	    更新过于复杂（客户端/服务器端都要更新）
+
+     B/S - 浏览器端/服务器端
+	举例：
+	  网页QQ
+	  网页游戏
+	优：实现更容易
+	    更新容易（只需要更新服务器端）
+	缺：对带宽要求相对较高
+	    用户体验感相对较差（越来越好）
+  
+  如果没有服务器的话，其实我们的都是一个静态网页
+
+  将电脑变成一个服务器端：需要安装Xampp
+	apache - 用于运行PHP的环境，其实也就是打开了服务器端
+	  出现错误：1、电脑缺少......dll文件
+		       解决：将api-ms-win-crt-conio-l1-1-0.dll文件放到
+			     C:\Windows\SysWOW64
+		    2、日志 - error:apache shutdown unexpectedly
+			1、安装的时候切记不要安装在某个盘的某个文件下
+			   必须安装在盘符下面：C:xampp √
+					       D:TEST/xampp 错误
+			2、apache服务使用端口被占用了
+			   解决：
+				打开C:\xampp\apache\conf\httpd.conf
+				查找：listen 80 修改为 任意4位数
+
+        如果成功开启了apache，恭喜你，意味着你的服务器已经开启
+        
+	搭建一个本地的web应用
+	  将你的项目，全部复制到C:\xampp\htdocs，你的项目已经上线了！
+
+	访问：
+	  127.0.0.1:端口号 - 注意默认端口可以不用写出来
+	  localhost:端口号
+
+	如何访问别人的？
+	  需要别人提供给你ip地址：打开cmd，输入ipconfig，注意看ipv4
+
+	修改顶级域名（假象）
+	  打开：C:\Windows\System32\drivers\etc\hosts文件
+
+	tomcat - 用于运行java的环境
+
+上午实现：服务器能够开启了！！！
+	  1、服务器端的运行的代码是运行的放在 C:\xampp\htdocs
+	  2、将项目在本地服务器上线了
+	  3、修改端口号和域名
+
+上午的练习：1、！！！能够打开apache！！！能够运行服务器！！！
+	    2、将你项目在本地服务器上线
+	    3、保证自己能访问
+	    4、让你同桌访问
+
+-----------------------------------------------------------------------------------
+
+MySQL - 数据库产品：放着很多很多的数据
+	关系型数据库 - 以表格（行和列）为主
+	  Oracle - Oracle(甲骨文)
+		   主要应用于企业级开发市场（安全性高）
+	  MySQL - Oracle(甲骨文)
+		   主要应用于互联网开发市场（免费的）
+	  sql server - 微软
+	  DB2 - 弃用
+	  Access - 弃用（office）
+
+	非关系型数据库 - 没有固定的格式
+	  是一种运动 - 反关系型数据库
+	  主流产品
+	  mangoDB - 以JSON格式为主
+
+   MySQL产品
+	最初是由软点化公司MySQL AB退出
+	  原因 - 免费 开源 好用
+	  网站架构 - LAMP（Linux + Apache + MySQL + PHP）
+	  企业级开发 - Linux（AIX）+ javaEE + oracle + weblogic
+
+	MySQL AB公司后期被sun公司收购
+	  sun公司明星产品 - java	
+
+	sun公司后期被oracle公司收购
+	  明星产品
+	  oracle
+	  mysql - 社区版（免费） 和 商业版（收费）
+	  java 
+
+
+   MySQL基本内容
+	MySQL - 默认使用端口号3306
+		不要修改
+	访问数据库
+	  图形化界面
+	    启动图形化界面的要求
+		apache和mysql要同时开启
+		打开浏览器：http://localhost:端口号/phpmyadmin
+
+	 *命令行方式：
+	    1、打开cmd
+	    2、输入：cd c:/xampp/mysql/bin
+	    3、登录：mysql -uroot -p
+	    4、一直回车，直到看到welcome to the mariaDB
+	    5、退出：exit;
+
+恭喜你，你就可以敲SQL语句
+
+SQL语句（语言） - 所有关系型数据库的通用操作语言
+注意：SQL官方建议 - 所有关键词都全部大写
+      每句SQL语言结束都要加结束符
+        
+数据库 - 数据仓库
+  
+  数据库操作
+    创建数据库 - CREATE DATABASE 数据库名称;
+      设置编码 - CREATE DATABASE 数据库名称 CHARACTER SET utf8;
+     *增加判断 - CREATE DATABASE IF NOT EXISTS 数据库名称 CHARACTER SET utf8;
+
+    查看数据库 - SHOW DATABASES;
+
+    切换数据库 - USE 数据库名称;
+
+    删除数据库 - DROP DATABASE 数据库名称;
+	       *DROP DATABASE IF EXISTS 数据库名称;
+	切记：不要删除别人的任何数据库
+
+-----------------------------------------------------------------------------------
+
+  数据表操作
+    数据类型
+      数值数据类型：INT - 整型
+		    FLOAT/DOUBLE - 浮点型
+		    DECIMAL - 精确值
+      日期类型：DATE - YYYY-MM-DD
+		DATETIME - YYYY-MM-DD HH:mm:ss
+		TIMESTAMP - 时间戳（标识：唯一不可重复）
+      字符串数据类型：
+		CHAR - 长度固定的字符串
+		VARCHAR - 长度可变的字符串
+
+     *创建数据表：
+	CREATE TABLE 表名(
+	   字段名称1 数据类型,
+	   字段名称2 数据类型,
+	);
+
+        举例：
+	CREATE TABLE woman(
+	   id INT PRIMARY KEY AUTO_INCREMENT,
+	   name VARCHAR(30),
+	   pwd VARCHAR(30),
+	   email VARCHAR(30)
+	);
+
+	主键约束：PRIMARY KEY：不可重复！
+	主键自增：AUTO_INCREMENT：自增
+
+-----------------------------------------------------------------------------------
+
+  *****数据的操作（INSERT/UPDATE/DELETE/SELECT）
+       新增：INSERT INTO 数据表名 VALUES(字段值1,字段值2...);
+       举例：INSERT INTO man VALUES(0,"李鹏","lp123123","lp@qq.com");
+	 
+       修改（更新）：
+	     UPDATE 数据表名 SET 字段名=字段值;
+             注意：默认修改所有记录的当前字段
+            *UPDATE 数据表名 SET 字段名=字段值 WHERE 字段名=字段值;
+	     举例：
+	     UPDATE man SET name="李鹏" WHERE id=1;
+	     个人比较推荐通过id去找位置，因为id是不可能重复
+
+       删除：DELETE FROM 数据表名;
+	     注意：默认删除所有的数据记录
+	     DELETE FROM 数据表名 WHERE 字段名=字段值;
+	     举例：
+	     DELETE FROM man WHERE id=2;
+
+       查看：SELECT * FROM 数据表名;
+	     特殊：默认查找表中所有的记录
+	     SELECT 字段名,字段名 FROM 数据表名;
+	     SELECT 字段名,字段名 FROM 数据表名 WHERE 条件;
+
+-----------------------------------------------------------------------------------
+
+作业：
+  1、使用命令行方式创建h51906数据库（man、woman），每个表至少5条记录
+  2、使用命令行方式创建city数据库（cq,bj,sz,sh,tj），每个表至少5条记录
+  3、熟背增删改查SQL语句
+  4、艾米雪 - 一周下周2交

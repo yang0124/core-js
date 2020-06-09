@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实现多页签切换效果</title>
+    <script src="jquery-1.11.3.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #tab li {
+            float: left;
+            list-style: none;
+            width: 80px;
+            height: 40px;
+            line-height: 40px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        #container {
+            position: relative;
+        }
+
+        #content1, #content2, #content3 {
+            width: 300px;
+            height: 100px;
+            padding: 30px;
+            position: absolute;
+            top: 40px;
+            left: 0;
+        }
+
+        #tab1, #content1 {
+            background-color: #ffcc00;
+        }
+
+        #tab2, #content2 {
+            background-color: #ff00cc;
+        }
+
+        #tab3, #content3 {
+            background-color: #00ccff;
+        }
+
+        .foreground {
+            z-index: 1;
+        }
+    </style>
+    <script type="text/javascript">
+    	$("tab")
+    </script>
+</head>
+<body>
+<h2>实现多标签页效果</h2>
+
+<ul id="tab">
+    <li id="tab1">10元套餐</li>
+    <li id="tab2">30元套餐</li>
+    <li id="tab3">50元包月</li>
+</ul>
+    <div id="container">
+        <div id="content1"  style="z-index: 1;">
+            10元套餐详情：<br />&nbsp;每月套餐内拨打100分钟，超出部分2毛/分钟
+        </div>
+        <div id="content2" >
+            30元套餐详情：<br />&nbsp;每月套餐内拨打300分钟，超出部分1.5毛/分钟
+        </div>
+        <div id="content3" >
+            50元包月详情：<br />&nbsp;每月无限量随心打
+        </div>
+    </div>
+
+    <script>
+// 		$("li").click(function(){
+// 			$("#container div").css("z-index","0");
+// 				var $X=$(this).index();
+// 				$($("#container div")[$X]).css("z-index","1");	
+// 		})
+		//事件的委派方法
+   			$("ul").click(e=>{
+   				var target=e.target;
+   				$("#container div").css("z-index","0");
+   				if(target.nodeName=="LI"){
+   					var $X=$(target).index();
+   					$($("#container div")[$X]).css("z-index","1");
+   				}
+   			})
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<a href="#" id="a1" class="a2" title="a3" dy="a4">百度一下</a>
+		<a href="#" id="a1" class="b2" title="a3" dy="b4">百度一下</a>
+		<a href="#" id="a1" class="c2" title="a3" dy="c4">百度一下</a>
+	
+		<script src="jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//只会获取到第一个元素的属性
+			//没有隐式迭代了
+			//getAttribute
+//			console.log($("a").attr("class"));
+//			console.log($("a").attr("dy"));
+			
+			
+			//setAttribute
+//			$("a").attr("class","a100");
+			$("a").attr("dy","");
+
+			$("a").attr("动物园","zoo");
+		</script>
+	</body>
+</html>

@@ -1,0 +1,8 @@
+cookie：浏览器缓存，是一种客户端存储技术，比如：用户名密码记住功能...
+	保存：document.cookie="key=value&key=value..." 关闭浏览器立马死亡
+可设置生命周期：document.cookie="key=value&key=value...;expires="+date.toGMTString()
+	读取：document.cookie
+
+作业：
+  1、输入用户名和密码，如果勾上了30天不用重新输入，
+	

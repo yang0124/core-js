@@ -1,0 +1,37 @@
+1、jQuery封装的ajax
+   封装三层：
+     1、最麻烦的
+	$.ajax({
+	    "url":,
+	    "data":,
+	    "type":,
+	    "dataType":,
+	    "success":fn,
+	    "error":fn
+	})
+
+     2、第二层
+	$("").load("url","data",fn);
+	
+	$.get("url","data",fn,"JSON");
+	$.post("url","data",fn,"JSON");
+
+     3、第三层 - 特殊用法
+	$.getScript("url");
+
+	$.getJSON - 通过JSONP的原理进行了跨域
+	具体用法：
+	1、前端：允许前端跨域
+	   $.getJSON("url?callback=?",(data)=>{});
+
+	2、后端：允许被前端跨域
+	   $arr=[];
+
+	   echo $_GET["callback"]."(".JSON_encode($arr).")";
+
+全栈 - 增删改查 - 图书管理系统 - h51906 - books
+				       - users
+
+工作流程：
+	前端：HTML+CSS+JS(静态网页)
+	      +ajax调用后端接口（xx.php）可以实现动态网页

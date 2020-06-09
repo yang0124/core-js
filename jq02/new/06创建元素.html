@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr=["京东","百度","淘宝","苏宁","唯品会"];
+			var srcs=["01.html","02.html","03.html","04.html","05.html"];
+
+			for(var i=0;i<arr.length;i++){
+				var $a=$(`<a href='${srcs[i]}'>${arr[i]}</a>`);
+				$("body").append($a);
+			}
+		</script>
+	</body>
+</html>

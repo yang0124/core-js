@@ -1,0 +1,13 @@
+.bordered(){
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+.whb(@w: 100px,@h: 100px,@b: pink){
+    width: @w;
+    height: @h;
+    background: @b;
+}
+.d1{
+    .bordered;
+    .whb(@h: 300px);
+}

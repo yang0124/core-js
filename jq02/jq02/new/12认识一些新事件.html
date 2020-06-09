@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				background: red;
+				position: fixed;
+				top: 0;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div>11</div>
+		<script src="jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("div").dblclick(function(){
+				console.log(1);
+			})
+			
+			//keydown只要是键盘按钮都可以触发
+			//keypress只有字母和数字可以触发
+			//两者触发的时机是一样的，按下会触发，按住也会触发
+			$(document).mouseleave((e)=>{//意味着整个页面都可以触发
+				console.log(1);
+				//e=e||window.event;
+//				if(e.keyCode==65){
+//					var $left=parseInt($("div").css("left"));
+//					console.log($left);
+//					$("div").css("left",$left-10+"px");
+//				}else if(e.keyCode==68){
+//					var $left=parseInt($("div").css("left"));
+//					console.log($left);
+//					$("div").css("left",$left+10+"px");
+//				}else if(e.keyCode==87){
+//					var $top=parseInt($("div").css("top"));
+//					console.log($top);
+//					$("div").css("top",$top-10+"px");
+//				}else if(e.keyCode==83){
+//					var $top=parseInt($("div").css("top"));
+//					console.log($top);
+//					$("div").css("top",$top+10+"px");
+//				}
+//				
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,117 @@
+JQ基本操作
+1、元素的内容
+  *html() - 类似于原生DOM中的innerHTML - 能够识别标签
+   获取：$("").html();
+   设置：$("").html("html");
+
+   text() - 类似于原生DOM中的innerText - 不能够识别标签
+   获取：$("").text();
+   设置：$("").text("text");
+
+2、元素的属性
+  *attr() - 类似于原生DOM中的get/setAttribute
+   获取：$("").attr("属性名");
+   设置：$("").attr("属性名","属性值");
+   删除：$("").attr("属性名","");
+
+3、值的操作
+  *val() - 类似原生DOM中的value属性
+   获取：$("").val();
+   设置：$("").val("value");
+
+4、元素的样式
+   attr("class","className"); 设置样式
+   1、JQ操作class修改样式 
+	*$("").addClass("class");//追加class
+	*$("").removeClass();//删除class
+		不传参数，删除所有的class
+		传递参数，删除指定的class
+	*$("").toggleClass("d1");//切换class
+		注意：是在有d1和没有d1之间做切换，不会影响其他的class
+	hasClass("className") 判断有没有某个class
+		结果是boolean值
+
+   2、直接修改css样式
+      获取：$("").css("css属性名");//获取的是当前生效的样式
+      设置：$("").css("css属性名","css属性值");
+	如果希望同时修改多个css：
+	    *$("").css({
+		"css属性名":"css属性值",
+		"css属性名":"css属性值",
+		"css属性名":"css属性值"
+	    })
+
+5、遍历元素
+   *父元素：parent();
+   *子元素：children();
+   祖先元素：parents();
+
+   *上一个兄弟：prev();
+   *下一个兄弟：next();
+   *所有兄弟：siblings();
+
+6、元素的操作：
+   *创建：$("<li id='cq' class='cq'>重庆</li>")
+
+   插入节点 - 子节点
+	*$("父").append(新);
+	$("父").prepend(新);
+
+   插入节点 - 兄弟元素
+	$("兄弟").before(新); //压入前面做兄弟
+	$("兄弟").after(新); //压入后面做兄弟
+	
+   *删除：$("").remove(); //将你找到的元素直接删除
+
+   替换元素：
+	被替换.replaceWith(新);
+	新.replaceAll(被替换);
+
+   克隆：
+   clone();
+   复制该元素，但是不具备任何JS效果：clone(true);
+
+
+作业：从今往后永远之用JQ代替DOM
+1、day02/exam/01 02 03 04 05 06
+   注意：6道题都用JQ
+   升级：1、表格隔行变色：点一下奇数行变色，点第二下偶数行变色
+         2、06.html 再次点击可以关闭，而且可以同时展开多个，并且二级导航也可以点，如果	    触发冒泡的话，怎么解决
+
+
+-----------------------------------------------------------------------------------
+新：
+  jQuery的事件
+  1、window.onload 和 $(document).ready()
+     1、window.onload会在执行前等所有的资源（css/dom/js/img）执行完毕后再运行
+	特点：一个页面只能写一个window.onload
+     2、$(document).ready()会等待dom加载完毕后就执行
+	特点：一个页面可以写多个
+	语法：1、$(document).ready(function(){//该运行代码})
+	      2、$().ready(function(){//该运行代码})
+	      3、$(function(){//该运行代码})
+
+  2、如果$和别的类库冲突了
+     1、放弃$控制权：jQuery.noConflict();
+     2、如果还希望重新获得$控制权：
+	1、jQuery(function($){}})
+	2、(function($){})(jQuery);
+
+ *3、绑定事件：
+     $("").bind("事件名",function(){})
+     简写：$("").事件名(d1)
+     function d1(){}
+
+     事件：新的事件
+     取消冒泡：
+     利用冒泡：
+     阻止默认行为：
+	和以前完全一模一样，因为event对象是属于BOM的，JQUERY并没有任何简化
+
+     判断元素隐藏或者显示：
+     $("").is(":hidden");//如果隐藏则为true，否则为false
+     *判断元素的动画是否执行完毕了
+     $("").is(":animated")
+
+上午的练习：尝试键盘事件，并且对应上键码做不同的操作
+            尝试mouserover和moverout 以及 mouseenter和mouseleave的区别

@@ -1,0 +1,10 @@
+$b-g: blue;
+h1{
+    $w: 100px;
+    width: $w; 
+    background: $b_g;
+}
+span{
+    background: $b_g;
+    border: 1px solid $b_g;
+}

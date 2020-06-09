@@ -1,0 +1,31 @@
+   
+  -创建库，库名user
+   CREATE DATABASE user;
+  -查询当前mysql所有库名称 
+   SHOW DATABASES;
+  -删除指定库
+   DROP DATABASE user;
+  -创建库时同时指定编码
+   CREATE DATABASE user02 CHARACTER SET utf8; 
+  -查询user02这库创建时指令      
+   SHOW CREATE DATABASE user02; 
+  -创建表
+  use user03;        
+   CREATE TABLE t_userinfo (
+     id int,
+     name varchar(20),
+     age int
+   ); 
+   #添加记录
+   INSERT INTO t_userinfo VALUES(1001,'tom',21);
+   INSERT INTO t_userinfo VALUES(1002,'jerry',19);
+   #查询添加记录
+   SELECT * FROM t_userinfo; 
+   示例:添加新列
+   ALTER TABLE t_userinfo ADD rdate datetime;
+   示例:修改列属性
+   ALTER TABLE t_userinfo MODIFY name varchar(30);
+   -删除数据表指令
+   #DROP TABLE t_userinfo;
+   -查看数据表指令
+   DESC t_userinfo;

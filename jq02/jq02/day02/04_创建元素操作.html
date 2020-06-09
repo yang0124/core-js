@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>演示常用DOM方法</title>
+<style type="text/css">
+ 
+</style>
+</head>
+<body>
+
+
+
+<ul id="city">
+      <li id="bj" name="beijing">北京<span>...</span></li>
+      <li id="sh" name="shanghai">上海</li>
+      <li id="gz" name="guangzhou">广州</li>
+</ul>
+<p>这是一个段落</p>
+<button>按钮</button>
+
+<script type="text/javascript" src="jquery-1.11.3.min.js">
+	
+</script>
+
+<script type="text/javascript">
+//替换    新建button按钮 将原有p元素替换
+//$("p").replaceWith("<button>按钮</button>");
+$("<h1>按钮...</h1>").replaceAll($("p"));
+//console.log($("p").length);
+
+
+
+////1:创建元素
+//var li = $("<li></li>");
+//2:设置属性
+//li.text("重庆");
+//li.attr("id","cq");
+//3:追加
+//$("#city").append(li);
+
+//$("#city").append("<li id='cq' name='chongqing'>重庆</li>");
+
+
+  //删除元素
+  //$("#bj").remove();
+  //清除节点后代元素,包含文本
+//  $("#bj").empty();
+
+</script>
+</body>
+</html>

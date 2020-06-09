@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title></title>
+  <link href="css/bootstrap.css" rel="stylesheet">
+
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.min.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<div class="container">
+  <h1>组件——导航(nav)</h1>
+
+  <h3>标签页式导航</h3>
+  <ul class="nav nav-tabs">
+    <li><a href="#" data-toggle="tab">十元套餐</a></li>
+    <li class="active"><a href="#" data-toggle="tab">二十元套餐</a></li>
+    <li><a href="#" data-toggle="tab">三十元套餐</a></li>
+  </ul>
+  <br><br>
+  <ul class="nav nav-tabs nav-justified">
+    <li><a href="#" data-toggle="tab">十元套餐</a></li>
+    <li class="active"><a href="#" data-toggle="tab">二十元套餐</a></li>
+    <li><a href="#" data-toggle="tab">三十元套餐</a></li>
+  </ul>
+
+  <h3>胶囊式导航</h3>
+  <ul class="nav nav-pills">
+    <li><a href="#" data-toggle="tab">十元套餐</a></li>
+    <li class="active"><a href="#" data-toggle="tab">二十元套餐</a></li>
+    <li><a href="#" data-toggle="tab">三十元套餐</a></li>
+  </ul>
+  <br><br>
+  <ul class="nav nav-pills nav-justified">
+    <li><a href="#" data-toggle="tab">十元套餐</a></li>
+    <li class="active"><a href="#" data-toggle="tab">二十元套餐</a></li>
+    <li><a href="#" data-toggle="tab">三十元套餐</a></li>
+  </ul>
+
+
+  <h3>竖直型(栈型)胶囊式导航</h3>
+  <ul class="nav nav-pills nav-stacked">
+    <li><a href="#" data-toggle="tab">十元套餐</a></li>
+    <li class="active"><a href="#" data-toggle="tab">二十元套餐</a></li>
+    <li><a href="#" data-toggle="tab">三十元套餐</a></li>
+  </ul>
+
+
+  <h3>标签页组件完整版</h3>
+  <ul class="nav nav-pills">
+    <li><a href="#tc10" data-toggle="tab">十元套餐</a></li>
+    <li class="active"><a href="#tc20" data-toggle="tab">二十元套餐</a></li>
+    <li><a href="#tc30" data-toggle="tab">三十元套餐</a></li>
+  </ul>
+  <div class="tab-content">
+    <div id="tc10" class="tab-pane">十元套餐详情：Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci asperiores aspernatur deserunt ea, eaque illum impedit iste iure magnam minima neque omnis quia quo ratione reiciendis sunt unde ut, veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam aperiam asperiores autem blanditiis dolorem earum eveniet, expedita fugit ipsam magni odit pariatur sequi, sit, soluta tempora veritatis! Dolore, quisquam.</div>
+    <div id="tc20" class="tab-pane active">二十元套餐详情：Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor enim fugit molestiae obcaecati officia perferendis quibusdam rerum sapiente totam voluptatem. Doloribus impedit natus praesentium provident qui sapiente suscipit vitae, voluptates! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur assumenda cupiditate dolorum ducimus, exercitationem harum inventore, ipsam magni minus molestias natus numquam officia possimus, quidem quo quos ratione ullam voluptate.</div>
+    <div id="tc30" class="tab-pane">三十元套餐详情：Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, dolores eum fugit in mollitia quas. Cumque ipsa nemo totam? Asperiores atque consequatur, iste minus molestias natus quidem quisquam voluptas voluptatibus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet, aut corporis cupiditate dolores dolorum, eaque eius eos eum expedita magnam maiores nam necessitatibus nulla obcaecati sed, voluptas voluptatibus. Culpa.</div>
+  </div>
+</div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/bootstrap.js"></script>
+<script>
+  (function () {
+    var s = document.createElement("script");
+    s.onload = function () {
+      bootlint.showLintReportForCurrentDocument([]);
+    };
+    s.src = "js/bootlint.js";
+    document.body.appendChild(s)
+  })();
+</script>
+</body>
+</html>

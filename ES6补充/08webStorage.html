@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				transition: all 1s;
+			}
+			img:hover{
+				filter: blur(10px)
+			}
+		</style>
+	</head>
+	<body>
+		<img src="2.jpg"/>
+		<a href="08webStorage1.html">去吧</a>
+		<script type="text/javascript">
+			localStorage.setItem("name","吕奎");
+			localStorage["age"]=36;
+			localStorage.salary=3500;
+			console.log(localStorage);
+		</script>
+	</body>
+</html>

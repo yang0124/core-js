@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="wdatepicker/WdatePicker.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<input />
+		<script type="text/javascript">
+			$("input").focus(function(){
+				WdatePicker({
+					isShowToday: false,
+					isShowClear: false,
+					isShowOK: false,
+					dateFmt: "yyyy年MM月dd日 HH:mm:ss",
+					maxDate: "{%y+1}-%M-%d",
+					minDate: "500-01-01 00:00:00",
+					lang: "zh-tw"
+				});
+			})
+		</script>
+	</body>
+</html>

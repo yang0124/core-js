@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>魔兽世界</li>
+			<li>魔兽争霸</li>
+			<li>星际争霸</li>
+			<li>暗黑破坏神</li>
+			<li>守望先锋</li>
+			<li>炉石传说</li>
+			<li>风暴英雄</li>
+		</ul>
+		
+		<script src="jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+//			var $new=$("<li>Dota2</li>");
+//			
+//			
+//			$new.replaceAll($("li:first"));
+//			$("ul").append($new);
+//			$("ul").prepend($new);
+
+//			$("ul").before($new);
+//			$("ul").after($new);
+
+//			$("li:contains(暗黑破坏神)").remove();
+			
+//			$("html").remove();
+
+			$("li").click(function(){
+				$("ul").append($(this).clone(true));
+			})
+
+		</script>
+	</body>
+</html>

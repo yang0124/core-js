@@ -1,0 +1,25 @@
+@charset "UTF-8";
+@mixin whb($w:200px,$h:200px,$b:blue){
+    width: $w;
+    height: $h;
+    background: $b;
+}
+@mixin font($fs: 14px,$fw: none,$ft: none,$ff:"微软雅黑"){
+    font-size: $fs;
+    font-weight: $fw;
+    font-style: $ft;
+    font-family: $ff;
+}
+.d1{
+   @include whb;
+   @include font;
+}
+.d2{
+   @include whb(400px,400px,#e4393c);
+   @include font(16px,bold,italic,"楷体");
+}
+.d2{
+   @include whb($b:pink);
+   @include font($ft:italic,$fw:bold)
+}
+

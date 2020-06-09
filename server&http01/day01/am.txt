@@ -1,0 +1,260 @@
+今天学习的内容
+1:总结上周内容 jquery
+2:jquery 插件/瀑布流/自定义插件
+3:service 服务器端技术
+#--------------------------- 
+1:总结上周内容 jquery
+  jquery 选择器
+  id class 元素 通配符..
+  过滤器 :first :eq
+  内容
+  jquery 方法 html() text() val() 
+  attr() css() addClass removeClass()...
+  动画/事件
+  bind(); live(); on(); one();
+  插件:日历/验证表单/
+2:jquery 插件瀑布流/自定义插件
+  瀑布流:原理
+  绝对定位: top left
+
+  如何使用
+  1:引入相关文件
+  2:引入jquery js
+  3:引入masonry文件 js css
+  4:定义html
+  -定义容器元素
+  <div id="box">
+     <div>aa</div>
+     <div>bb</div>
+  </div>
+  -定义成员元素
+  <div></dov>
+  -css样式
+  -js
+  *1:获取容器元素
+  *2:调用masonry()
+  选项
+  默认参数:itemSelector   成员元素
+  默认参数:columnWidth    列宽像素
+  -方法
+  -事件
+  
+  第二种风格:
+  1:如果元素宽按百分比设置
+  -成员元素设<div  class="item-sizer" />
+  2:itemSelector: '.item-sizer',
+  3:percentPosition: true
+    true   按照百分比方式设置成员元素 
+    false  默认
+
+
+  参数:stamp : '.stamp',  标题
+  风格：颜色：大小 直接修改css 选项...
+  
+
+  自定义插件{面试}
+  -对象方法       - $(选择器).方法名()
+  -全局函数的插件 - $.方法名();
+  -选择器插件
+    *这一类插件- 用于扩展jquery选择器
+    *开发使用这类插件少
+    *典型的代表- xpath 插件
+
+  制作插件的机制  
+   extend 继承
+  -制作对象方法    $.fn.extend(obj);
+  -制作全局函数    $.extend(obj);
+
+
+  $("#box").html();
+
+  使用插件
+  1:创建好插件
+  2:加载插件所属js文件
+  3:像使用普通jquery方法使用插件
+  
+  示例一:创建一个插件 对象方法插件
+  1:创建插件
+    plugin/plugin1.js
+  2:创建1.html 文件
+    2.1:加载jquery
+    2.2:加载插件
+    2.3:<input type="button" value="" id="btn" />
+    2.4:$("#btn").test();    
+ 
+  示例二:创建一个插件 全局函数
+    2.1:加载jquery
+    2.2:加载插件
+    2.3:<input type="button" value="" id="btn" />  
+    2.4:$.add(); 
+
+  示例三:创建一个插件 列表排序
+  jquery没有提供列表排序功能..
+
+  <ul>
+    <li>a</li>
+    <li>cc</li>
+    <li>b</li>
+  </ul>
+  1:保存数组[<li>a</li>,<li>cc</li>,<li>b</li>]
+  2:排序
+    [<li>a</li>,<li>b</li>,<li>cc</li>]
+  3:结果追加父元素
+   <ul>
+     <li>a<li>
+     <li>b</li>
+     <li>cc</li>
+   </ul>
+
+
+  1：完成功能  列表排序
+  2: 使用方法  $("列表li对象").sort(父元素ul对象);
+  3: 解题思路
+    a:写一循环将所有列表元素保存数组中.
+      arr.sort();
+      function(a,b){}   -1  1   0
+    b:对数组中的元素排序作,依据元素文件内容
+    c:排序结果
+    d:将排序后结果->
+    e:迭代数组中每一个元素,添加父列表中
+
+
+3:service 服务器端技术
+ 目的:目前web前端职位- 要求"掌握一门服务器端技术优先"
+ 三天安排
+ *服务器端及数据库操作 - MySQL
+ *服务器端技术         - PHP
+ *网络协议             - HTTP 
+
+ 一个软件项目开发实施流程如何进行
+ a:需求分析  : 技术经理了解用户需要一个什么样的软件
+   交谈{难度最高}
+   [原型图片]/[需求分析说明书]
+   美工1/技术经理   2                   ｛2｝
+ b:静态网页开发 你｛测试｝
+   HTML/css/javascript                  ｛3｝
+ c:**测试
+ d:动网页开发  后端工程师[测试]
+   JSP/ASP/PHP/RUBY.....数据库           ｛5｝
+ e:运维工程师
+   linux/mysql/apache/tomcat.///subversion..,,
+   ip/dns                               ｛6｝
+ f:测试
+ g:上线
+
+
+ 学习 95% 专项 5% 了解其它方向技术
+
+
+ 服务器端基本概念
+ -分类
+ -硬件服务器{网络服务器}  pc 电脑
+  上线项目 24 * 7
+  刀片服务器:2w  双电源   内存 256GB 
+  小型机   20w美金  淘宝有一段时间
+  淘宝 php/mysql 服务器->2003   
+  1000w 服务器压力太大-->mysql oracle --
+  2000w php java---->3000w 机器 小型
+  8000w oracle 小型机
+  -->java mysql 集群{1w台服务器}
+
+  软件架构
+  C/S - Client/Server{客户端/服务器}
+    *比如 qq/office/大型游戏
+    *安装 客户端软件/服务器端软件
+    *稳定
+    *对带宽的要求相对低
+    *体验更好
+    *占用用户硬盘空间
+    *升级麻烦 
+
+   - 医院 
+   - 药店 ..
+
+  B/S - Browser/Server(浏览器/服务器)
+  - Web QQ/网页游戏/微博/...
+  - 升级简单 - 只管服务器
+  - 不占用用户硬盘
+  - 体验不够好
+  - 兼容问题
+
+
+  访问服务器
+  -网络协议  - HTTP协议
+  -主机地址  - IP地址访问
+  -端口号    - 默认端口80
+
+  www.baidu.com
+  
+  小知识:ip地址
+  电脑内部二个电脑相互访问，
+  每一个电脑需要地址
+  ip地址
+  202.207.190.1
+
+  公用{收费，电脑直接出现互联网}
+  租:1 ip 一年1000多
+  私用{不收费，电脑不能直接出现互联网}
+  [192.168.10].1
+  [172.10].0.1
+  [10].10.0.1
+
+  地址特殊 127.0.0.1  本机ip地址
+
+
+  #web项目软件流行架构
+  1:LAMP {Linux+Apache/MySQL/PHP}
+    稳定:1000并发量/单台服务器
+    并发量:{一秒钟，同时处理用户数量}
+    增加服务器
+  2:LNMP｛Linux+Nginx+MySQL+PHP｝
+    稳定:28000并发量/单台服务器
+  3-JAVA-Nginx-Tomcat[300]6-Mysql
+    稳定:java语言 
+  4:Ruby on Rails
+    稳定:www.javaeye.com  
+         www.iteye.com
+  5:大数据{分析有户行为} 
+    {Redis/Hadoop/Hbase/MapReducer/
+    Zookeeper/Strom/Spark}
+    Redis-{极高并发量要求}
+    10w/单台
+    红包/点赞/ 500w 新浪微博项目{140服务器}
+
+
+   本地安装服务器  
+   wamp{window+apache+mysql+php}
+   a:安装软件wamp server软件包
+     {apache+mysql+php}
+   b:安装软件xampp软件包
+     {apache+mysql+php}
+
+
+   wamp server
+   1:安装 下一步
+     a:协议是否同意    同意
+     b:选择安装目录    c:/wamp
+     c:创建图标
+     d:使用默认浏览器  打开
+     e:电子邮件地址    下一步
+     f:结束
+
+   2:方向盘黄色有一个软件启动出错
+     方向盘红色有二个软件启动出错
+    apache 启动占用              80端口
+    window 7 有一个软件IIS启动占 80端口
+
+    ---解决问题
+    80-->9999    [1023-65535]之间
+    1：鼠标左键点方向盘
+    2: apache
+    3: httpd.conf
+    #Listen 12.34.56.78:80
+    Listen 80
+
+    4:重启生效
+      stop all  services
+      start all services
+   3:配置
+
+       

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				background: deepskyblue;
+				color: darkblue;
+			}
+			.blue{
+				background: deepskyblue;
+				color: darkblue;
+			}
+			.pink{
+				background: pink;
+				color: deeppink;
+			}
+			.dark{
+				background: #333;
+				color: #000;
+			}
+			.yellow{
+				background: yellow;
+				color: #fff;
+			}
+			.green{
+				background: green;
+				color: lawngreen;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>首页</h1>
+		<a href="news.html">新闻页</a>
+		<hr />
+		请用户选择主题：
+		<select name="zt">
+			<option value="blue">蔚蓝天空(默认)</option>
+			<option value="pink">粉红回忆</option>
+			<option value="dark">暗黑主题</option>
+			<option value="yellow">爱吃香蕉</option>
+			<option value="green">青青草原</option>
+		</select>
+		<h2>标题</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam debitis alias dolor dolores quia distinctio perferendis impedit ducimus. Id culpa fugit aliquam tempora amet assumenda doloremque neque aliquid molestiae excepturi.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam debitis alias dolor dolores quia distinctio perferendis impedit ducimus. Id culpa fugit aliquam tempora amet assumenda doloremque neque aliquid molestiae excepturi.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam debitis alias dolor dolores quia distinctio perferendis impedit ducimus. Id culpa fugit aliquam tempora amet assumenda doloremque neque aliquid molestiae excepturi.</p>
+		<h2>标题</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam debitis alias dolor dolores quia distinctio perferendis impedit ducimus. Id culpa fugit aliquam tempora amet assumenda doloremque neque aliquid molestiae excepturi.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam debitis alias dolor dolores quia distinctio perferendis impedit ducimus. Id culpa fugit aliquam tempora amet assumenda doloremque neque aliquid molestiae excepturi.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam debitis alias dolor dolores quia distinctio perferendis impedit ducimus. Id culpa fugit aliquam tempora amet assumenda doloremque neque aliquid molestiae excepturi.</p>
+		<h2>标题</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam debitis alias dolor dolores quia distinctio perferendis impedit ducimus. Id culpa fugit aliquam tempora amet assumenda doloremque neque aliquid molestiae excepturi.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam debitis alias dolor dolores quia distinctio perferendis impedit ducimus. Id culpa fugit aliquam tempora amet assumenda doloremque neque aliquid molestiae excepturi.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam debitis alias dolor dolores quia distinctio perferendis impedit ducimus. Id culpa fugit aliquam tempora amet assumenda doloremque neque aliquid molestiae excepturi.</p>
+	
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			if(localStorage.length==0){
+				$("select").change(function(){
+					var v=$(this).val();
+					$("body").attr("class",v);
+					
+					localStorage.zt=v;
+				})
+			}else{
+				var v=localStorage.zt;
+				$("body").attr("class",v);
+				
+				$("select").change(function(){
+					var v=$(this).val();
+					$("body").attr("class",v);
+					
+					localStorage.zt=v;
+				})
+			}
+			
+			
+		</script>
+	</body>
+</html>

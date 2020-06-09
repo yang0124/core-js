@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>11</div>
+		<script src="jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//放弃$控制权
+			jQuery.noConflict();
+//			console.log($("div"));
+			console.log(jQuery("div"));
+			
+			//假设那个类库的操作做完了
+			//重新去获取$控制权
+			
+//			(function($){
+//				console.log($("div"));
+//			})(jQuery);
+
+			jQuery(function($){
+				console.log($("div"));
+			})
+		</script>
+	</body>
+</html>

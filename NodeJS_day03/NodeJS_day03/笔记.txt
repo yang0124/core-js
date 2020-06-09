@@ -1,0 +1,36 @@
+node.js中的MySQL数据库
+  为了精简Node.js解释器，官方没有提供任何访问数据库相关模块，必须用npm工具下载第三方
+
+  npm下载模块：
+	npm i 包名;(需要去npm查看包名)
+
+  如何使用：使用步骤
+    1、打开Readme.md;使用说明书
+    2、梭
+//引入第三方mysql模块
+var mysql = require('mysql');
+//1、创建连接对象
+var connection = mysql.createConnection({
+  host     : '127.0.0.1',
+  user     : 'root',
+  password : '',
+  database : 'h51906'
+});
+//2、创建sql语句
+var sql="SELECT * FROM man";
+//3、执行sql语句
+connection.query(sql, function (error, results) {
+  console.log(results);
+});
+//4、断开连接
+connection.end();
+
+  特殊：在MySQL模块中可以使用占位符?
+var arr=["李林","ll123","ll@qq.com"];
+connection.query("INSERT INTO man VALUES(0,?,?,?)",arr, function (error, results) {
+  console.log(results);
+});
+
+上午的练习：
+  1、做我做过的小练习
+  2、尝试数据库的基本用法

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form id="form" method="get">
+			用户名：<input id="name1" name="name" /><br>
+			密码名：<input id="pwd" name="pwd" /><br>
+			<input id="checkbox" type="checkbox" />30天不需要再次输入<br>
+			<input type="submit"/>
+		</form>
+		
+		<script type="text/javascript">
+			console.log(document.cookie);
+			if(document.cookie!=""){
+				var arr=document.cookie.split("&");
+				name1.value=arr[0].split("=")[1];
+				pwd.value=arr[1].split("=")[1];
+			}
+			
+			form.onsubmit=function(){
+				if(checkbox.checked){
+					var now=new Date().getTime()+1000*3600*24*30;
+					var end=new Date(now);
+					document.cookie="name="+name1.value+"&pwd="+pwd.value+";expires="+end.toGMTString();
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/*******************浠ヤ笂鏄痗ss reset*************************/
+nav .container {
+  width: 96%;
+  margin: 0 auto;
+  height: 100px;
+}
+nav .container > div {
+  position: absolute;
+  left: 50%;
+  margin-left: -23px;
+}
+nav .container li {
+  display: inline-block;
+}
+nav .container > ul:nth-of-type(1) {
+  float: left;
+}
+nav .container > ul:nth-of-type(2) {
+  float: right;
+}
+nav .container > button {
+  float: right;
+  display: none;
+}
+
+@media screen and (max-width: 991px) {
+  nav .container div {
+    position: static;
+    margin: 0;
+    display: inline-block;
+  }
+  nav .container ul {
+    display: none;
+  }
+  nav .container button {
+    display: block;
+  }
+}
+
+/*# sourceMappingURL=test.css.map */

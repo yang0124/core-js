@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			table{
+				width: 1000px;
+				border: 1px solid #000;
+				border-collapse: collapse;
+				margin: 0 auto;
+				text-align: center;
+				table-layout: fixed;
+			}
+			td{
+				border: 1px solid #000;
+				overflow: hidden;
+				text-overflow:ellipsis;
+				white-space: nowrap;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>首页</h1>
+		<button>新增</button>
+		<script src="jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$.get("01.php","hide=0",arr=>{
+				
+				console.log(arr);
+				var $table=$("<table></table>");
+				var btarr=["序号","书名","价格","作者","简介","操作"];
+				var $tr=$("<tr></tr>");
+				for(var i=0;i<btarr.length;i++){
+					var $td=$(`<td>${btarr[i]}</td>`);
+					$tr.append($td);
+				}
+				$table.append($tr);
+				
+				for(var r=0;r<arr.length;r++){
+					var $tr=$("<tr></tr>");
+					for(var c=0;c<arr[r].length;c++){
+						var $td=$(`<td>${arr[r][c]}</td>`);
+						$tr.append($td);
+					}
+					var $td=$(`<td><button onclick="update(this)">修改</button><button onclick="del(this)">删除</button></td>`);
+					$tr.append($td);
+					$table.append($tr);	
+				}
+				$("body").append($table);
+			},"JSON")
+			
+			
+			$("button:contains(新增)").click(()=>{
+				location="insert.html";
+			})
+			
+			function del(btn){
+				var id=$(btn).parent().parent().children()[0].innerHTML;
+				$.get("01.php","hide=2&id="+id,()=>{
+					history.go(0);
+				})
+			}
+			
+			function update(btn){
+				var id=$(btn).parent().parent().children()[0].innerHTML;
+				location="update.html?id="+id;
+			}
+		</script>
+	</body>
+</html>

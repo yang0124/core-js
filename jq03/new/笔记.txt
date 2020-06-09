@@ -1,0 +1,56 @@
+1、jQuery提供了动画
+   1、预定义动画：别人定义好了，我们可以直接使用
+      显示和隐藏
+	1、show()+hide(); - 同时修改元素的宽高度和透明度
+	   show(time,callback); - 不传任何参数，没有动画
+		                - 传入参数，具有动画
+	   time：执行的毫秒数
+	   callback：可以写一个回调函数，动画结束后才执行
+
+	   注意：show+hide有两种情况，可以无动画，也可以有动画，都会用到！
+	   
+	   toggle = hide + show;//此三组方法用法完全一致
+	   //不需要我们去写判断，自动判断该显示还是隐藏
+
+	2、滑动效果 - 修改元素的高度
+	   slideDown(time,callback) + slideUp; - 就算不传入参数，也有动画只不过很快
+
+	   slideToggle = slideDown(time,callback) + slideUp;
+	   //不需要我们去写判断，自动判断该显示还是隐藏
+
+	3、淡入淡出 - 修改元素的透明度
+	   fadeIn(time,callback) + fadeOut - 就算不传入参数，也有动画只不过很快
+
+	   fadeToggle=fadeIn(time,callback) + fadeOut
+	   //不需要我们去写判断，自动判断该显示还是隐藏
+
+   2、自定义动画：
+	1、并发动画：所有动画会一起执行
+	   .animate({
+	      "css属性名":"css属性值",
+	      "css属性名":"css属性值"
+	   },time,callback)
+
+	2、排队动画：一个动画做完在做下一个
+	   .animate({
+	      "css属性名":"css属性值"，
+	   },time,callback).animate({
+	      "css属性名":"css属性值"，
+	   },time,callback).animate({
+	      "css属性名":"css属性值"，
+	   },time,callback).animate({
+	      "css属性名":"css属性值"，
+	   },time,callback)
+
+	问题：JQ动画不支持颜色相关以及转换相关，我们可以用过渡来实现（最原始js动画）
+
+作业：
+  1、模拟鼠标拖动效果
+  2、*使用键盘事件完成吃豆人或者贪吃蛇
+  3、稍微搓一点的滑动轮播
+  4、*完美的滑动轮播
+
+扩展：没有动画的时候才执行
+      if(!$("").is(":animated")){
+
+      }

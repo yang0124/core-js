@@ -1,0 +1,34 @@
+Node.js适合于I/O密集型应用，不适合CPU密集型应用。
+JS和Node.js的区别
+  JS运行在客户端浏览器中，存在兼容性问题;数据类型：值类型+引用类型(ES/BOM/DOM/自定义)
+  Node.js运行在服务器端(v8引擎中)，不存在兼容性问题，数据类型：
+	值类型+引用类型(ES+自定义+扩展对象)
+
+  Node.js模块系统：
+	Node.js每个.js文件都是一个"module"，每个模块都可以引入其他模块，也可以导出自己的成员供其他模块进行使用
+  其实只要是一个node.js模块
+    (function(exports,require,module,__filename,__dirname){
+	//自己的代码
+    })
+
+  公开：
+    module.exports={
+	age:20,
+	eat:fn,
+    }
+
+    exports.age=20;
+    exports.eat=fn;
+    exports={}//错误的写法，不具有公开的功能
+
+  引入：
+    自定义的模块：var 保存=require("./模块名");
+    官方模块：var 保存=require("模块名");
+
+  Node.js模块分类
+   1、官方模块
+	global、buffer、querystring、url、fs、http...
+   2、第三方模块
+	mysql、MongoDB、express...
+   3、自定义模块
+	文件模块和目录模块

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<a href="http://www.baidu.com" id="a1" class="a2" title="a3" dy="a4">百度一下</a>
+		
+		<script type="text/javascript">
+			console.log($("a").attr("href"));
+			console.log($("a").attr("id"));
+			console.log($("a").attr("class"));
+			console.log($("a").attr("title"));
+			console.log($("a").attr("dy"));
+			
+			$("a").attr("href","#");
+			$("a").attr("id","b1");
+			$("a").attr("class","b2");
+//			$("a").attr("title","");
+//			$("a").attr("dy","");
+			$("a").removeAttr("dy");
+		</script>
+	</body>
+</html>

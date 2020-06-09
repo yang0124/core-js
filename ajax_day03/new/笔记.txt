@@ -1,0 +1,95 @@
+jQuery封装了DOM 和 Ajax：更加的简单的
+  封装了3层ajax（异步），封装的次数越多就会越简单
+
+  封装第一层 - 类似于原生的Ajax的用法
+    $.ajax({//配置信息，根据配置不同，效果也就不一样
+       *"url", - 请求地址
+       *"type", - 请求类型，默认就是GET，也可以写为POST
+       *"data", - 请求数据，格式为key=value 
+	"async"， - 是否异步，默认为true,千万不要改成同步
+       *"dataType", - 响应数据格式为HTML,XML,JSON,JSONP,
+	"jsonpCallback" - 制定一个回调函数名
+       *"success", - 请求成功后的回调函数
+		     function(data,textStatus){
+			data - 响应数据内容
+			textStatus - 请求状态，success
+		     }
+	"error", - 请求失败后的回调函数，一般都不会写，因为我们不希望错误
+		     function(xhr,textStatus,errorThrown){
+			data - 响应数据内容
+			textStatus - 请求状态，success
+			errorThrown - 抛出错误信息
+		     }
+    });
+
+-----------------------------------------------------------------------------------
+
+  封装第二层 - 基于第一层再次封装
+    1、$("").load(url,data,callback) - 局限大
+	url - 设置当前ajax的请求地址
+	data - 设置当前ajax的请求数据"name=value&pwd=value&email=value"
+	callback - 请求成功后的回调函数，第一个形参会自动获得响应的数据
+
+	问题：
+	  1、不能设置请求的类型，只能是GET类型
+	  2、会自动加获得响应数据生成在我们的选择器之中
+	  3、响应的数据，不能设置JSON，需要我们自己去解析
+
+    2、*$.get(url,data,callback,dataType);
+
+    3、*$.post(url,data,callback,dataType);
+
+    举例：$.post("xx.php","key=value",(x)=>{
+		x//就是响应的数据，获得后要做的操作就必须在这个函数中去执行
+	  },"JSON");
+
+   封装第三层 - 特殊用法 - 通过方法名就知道是什么请求类型
+     $.getScript(url,callback) - 动态读取脚本（javascript代码）
+
+    *$.getJSON - 正式开发的过程会遇到一个问题：跨域
+	同源策略：浏览器的保护措施，如果不同源浏览器会自动阻止你去访问，安全策略
+	同源：协议，域名，端口号只要有一个不同的那么就说明不是同源
+		http:127.0.0.1:80/a.js
+		http:localhost:80/b.php
+	跨域：协议，域名，端口号只要有一个不同，就会被同源策略所阻止
+	允许前端跨域
+        $.getJSON("http://localhost/ajax_day03/new/01.php?x=?",(data)=>{
+		console.log(data);
+        })
+	jQuery会自动为?赋值，其实这个赋值是一个函数，接收到这个函数就可以用着函数公开		服务器端数据
+	x=jQuery11130015616878501171216_1573698721001&_=1573698721002
+		其实就一个是函数：JSONP函数，专门用于跨域
+	
+       *其实跨域用到的技术叫做JSONP
+	具体用法：
+	前端：
+	$.getJSON("http://localhost/ajax_day03/new/01.php?dy=?",(data)=>{
+		console.log(data);
+        })
+
+	服务器端：
+	$arr=[1,2,3,4,5];
+	echo $_GET["dy"]."(".JSON_encode($arr).")";
+
+
+上午的练习：1、随意的去写一些php，使用$.get,$.post获取数据
+	    2、获取你同桌电脑上的php，使用跨域jsonp
+
+
+
+作业：1、最低要求：完成我做过的图书管理系统的增删改查功能
+      2、升级：1、登录注册
+	       2、vip功能，如果有vip则显示所有书籍
+			     没有vip只显示部分书籍
+
+
+
+
+
+
+
+
+
+
+
+

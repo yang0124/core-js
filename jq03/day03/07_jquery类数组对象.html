@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格隔行变色</title>
+<style type="text/css">
+
+</style>
+</head>
+<body>
+
+<input type="button" value="按钮1" />
+<input type="button" value="按钮2" />
+<input type="button" value="按钮3" />
+<input type="button" value="按钮4" />
+<input type="button" value="按钮5" />
+<input type="button" value="按钮6" />
+
+
+<input type="button" id="btn" value="按钮" />
+
+<script type="text/javascript" src="jquery-1.11.3.min.js">
+</script>
+<script type="text/javascript">
+ //1:给 btn 绑定点击事件
+ $("#btn").click(function(){
+  //2:选择器获取所有input元素
+  var inputs = $("input");
+//console.log(inputs);
+  //3:获取每一个input元素  value
+  //隐式迭代
+  inputs.each(function(index,domE){
+//	  console.log(domE);
+      console.log(index+":"+domE.value);
+      //            0:按钮1
+  });
+  $.each(inputs,function(index,domE){
+     console.log(index+"#"+domE.value);
+  });
+ 
+ });
+
+</script> 
+
+</body>
+</html>

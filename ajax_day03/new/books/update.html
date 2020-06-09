@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>修改</h1>
+		<form action="01.php" method="get">
+			书名：<input name="name" /><br>
+			价格：<input name="price" /><br>
+			作者：<input name="zuozhe" /><br>
+			简洁：<input name="content" /><br>
+			<input type="hidden" name="hide" value="4" />
+			<input type="hidden" name="id" />
+			<input type="submit"/>
+		</form>
+		
+		<script src="jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var id=location.search.split("=")[1];
+			
+			$.get("01.php","hide=3&id="+id,arr=>{
+				$("input:eq(0)").val(arr[1]);
+				$("input:eq(1)").val(arr[2]);
+				$("input:eq(2)").val(arr[3]);
+				$("input:eq(3)").val(arr[4]);
+				$("input:eq(5)").val(arr[0]);
+			},"JSON");
+		</script>
+	</body>
+</html>
